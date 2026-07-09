@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+:root {
+  --cchub-blue: #2563eb;
+  --cchub-blue-hover: #1d4ed8;
+  --cchub-dark: #061a44;
+  --cchub-text: #071b4d;
+  --cchub-muted: #64748b;
+  --cchub-bg: #f6faff;
+  --cchub-border: #dbeafe;
+  --cchub-border-soft: #eaf1ff;
+  --container: 1280px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--cchub-bg);
+  color: var(--cchub-text);
+  font-family: var(--font-heebo), Arial, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 500;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; }
+.font-en { font-family: var(--font-inter), Arial, system-ui, sans-serif; }
+
+.cchub-container { width: min(var(--container), calc(100% - 72px)); margin-inline: auto; }
+.cchub-header { height: 68px; }
+.cchub-brand { display: flex; align-items: center; gap: 10px; direction: ltr; }
+.cchub-logo-frame { width: 46px; height: 46px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.cchub-logo { width: 78px; height: 78px; object-fit: contain; object-position: center; display: block; transform: scale(1.12); }
+.cchub-brand-text { font-family: var(--font-inter), Arial, system-ui, sans-serif; font-size: 30px; line-height: 1; font-weight: 900; letter-spacing: -0.04em; color: var(--cchub-dark); }
+
+.cchub-card { background: #fff; border: 1px solid var(--cchub-border); border-radius: 24px; box-shadow: 0 18px 42px rgba(6, 26, 68, 0.07); }
+.cchub-mini-card { background: #fff; border: 1px solid var(--cchub-border-soft); border-radius: 18px; box-shadow: 0 8px 20px rgba(6, 26, 68, 0.045); }
+.cchub-section { padding-block: 56px; }
+.cchub-section-tight { padding-block: 42px; }
+.cchub-title-xl { font-size: clamp(42px, 4.45vw, 60px); line-height: 1.08; letter-spacing: -0.035em; font-weight: 900; }
+.cchub-title-lg { font-size: clamp(26px, 2.8vw, 36px); line-height: 1.18; letter-spacing: -0.02em; font-weight: 900; }
+.cchub-text { font-size: 19px; line-height: 1.75; color: #334155; font-weight: 500; }
+
+.cchub-button-primary, .cchub-button-secondary, .cchub-button-dark { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 24px; border-radius: 12px; font-weight: 800; transition: 0.18s ease; }
+.cchub-button-primary { background: var(--cchub-blue); color: #fff; box-shadow: 0 10px 22px rgba(37, 99, 235, 0.22); }
+.cchub-button-primary:hover { background: var(--cchub-blue-hover); transform: translateY(-1px); }
+.cchub-button-secondary { background: #fff; border: 1px solid #bfdbfe; color: var(--cchub-blue); }
+.cchub-button-secondary:hover { border-color: var(--cchub-blue); transform: translateY(-1px); }
+.cchub-button-dark { background: #fff; color: #061a44; font-weight: 900; }
+
+.cchub-trial-badge { display: inline-flex; align-items: center; justify-content: center; min-height: 34px; padding: 0 16px; border-radius: 999px; background: #eff6ff; color: var(--cchub-blue); border: 1px solid #bfdbfe; font-size: 14px; font-weight: 900; }
+.cchub-trial-badge-strong { display: inline-flex; align-items: center; justify-content: center; min-height: 38px; padding: 0 18px; border-radius: 999px; background: #2563eb; color: #fff; font-size: 15px; font-weight: 900; box-shadow: 0 10px 20px rgba(37, 99, 235, 0.22); }
+.cchub-hero { min-height: 520px; }
+.cchub-nav-link { position: relative; padding-block: 23px; font-size: 15px; font-weight: 800; color: #334155; }
+.cchub-nav-link.active { color: var(--cchub-blue); }
+.cchub-nav-link.active::after { content: ""; position: absolute; inset-inline: 0; bottom: 0; height: 3px; border-radius: 999px; background: var(--cchub-blue); }
+.cchub-chip { display: inline-flex; align-items: center; justify-content: center; min-height: 34px; padding: 0 18px; border-radius: 999px; background: #dcfce7; color: #15803d; font-size: 14px; font-weight: 800; }
+
+.hero-app-shell { display: grid; grid-template-columns: 64px 1fr; overflow: hidden; border-radius: 26px; border: 1px solid var(--cchub-border); background: #fff; box-shadow: 0 18px 42px rgba(6, 26, 68, 0.07); }
+.hero-app-sidebar { display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 20px 10px; background: #061a44; }
+.hero-app-sidebar-icon { display: flex; width: 34px; height: 34px; align-items: center; justify-content: center; border-radius: 12px; color: #dbeafe; font-size: 17px; transition: 0.18s ease; }
+.hero-app-sidebar-icon.active { background: #2563eb; color: #fff; box-shadow: 0 8px 18px rgba(37, 99, 235, 0.28); }
+.hero-app-content { padding: 26px; }
+.hero-app-top { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 22px; }
+.hero-app-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+@media (min-width: 720px) { .hero-app-grid { grid-template-columns: repeat(3, 1fr); } }
+.hero-app-card { min-height: 142px; border-radius: 20px; border: 1px solid #eaf1ff; background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%); padding: 18px; text-align: center; box-shadow: 0 8px 20px rgba(6, 26, 68, 0.045); }
+.hero-app-card-icon { display: flex; width: 54px; height: 54px; align-items: center; justify-content: center; margin-inline: auto; margin-bottom: 12px; border-radius: 18px; background: #dbeafe; font-size: 24px; }
+.hero-app-card-title { font-size: 15px; font-weight: 900; }
+.hero-app-card-value { margin-top: 4px; color: #2563eb; font-size: 34px; line-height: 1; font-weight: 900; }
+.hero-app-card-sub { margin-top: 6px; color: #64748b; font-size: 12px; font-weight: 800; }
+
+.interface-shell { border-radius: 30px; border: 1px solid var(--cchub-border); background: linear-gradient(180deg, #fff 0%, #f8fbff 100%); box-shadow: 0 18px 42px rgba(6, 26, 68, 0.07); overflow: hidden; }
+.interface-top { display: flex; align-items: center; justify-content: space-between; gap: 22px; border-bottom: 1px solid #eaf1ff; padding: 22px 26px; }
+.interface-content { display: grid; gap: 18px; padding: 22px; }
+@media (min-width: 980px) { .interface-content { grid-template-columns: 1.1fr 0.9fr; } }
+.interface-module { border-radius: 22px; border: 1px solid #eaf1ff; background: #fff; padding: 18px; box-shadow: 0 8px 20px rgba(6, 26, 68, 0.04); }
+.interface-module-title { margin-bottom: 14px; color: var(--cchub-blue); font-size: 17px; font-weight: 900; }
+.task-list { display: grid; gap: 10px; }
+.task-item { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px; border-radius: 14px; border: 1px solid #eef4ff; background: #f8fbff; padding: 12px 14px; font-size: 14px; font-weight: 800; }
+.asset-grid { display: grid; gap: 12px; }
+@media (min-width: 640px) { .asset-grid { grid-template-columns: repeat(2, 1fr); } }
+.asset-card { border-radius: 16px; border: 1px solid #eef4ff; background: #f8fbff; padding: 14px; }
+.asset-card-icon { margin-bottom: 10px; font-size: 22px; }
+.asset-card-title { font-size: 14px; font-weight: 900; color: var(--cchub-dark); }
+.asset-card-sub { margin-top: 4px; font-size: 12px; font-weight: 700; color: #94a3b8; }
+.interface-stats { display: grid; gap: 12px; margin-top: 16px; }
+@media (min-width: 640px) { .interface-stats { grid-template-columns: repeat(3, 1fr); } }
+.interface-stat { border-radius: 18px; border: 1px solid #eaf1ff; background: #fff; padding: 14px; text-align: center; }
+.status-pill { border-radius: 999px; padding: 5px 10px; font-size: 12px; font-weight: 900; }
+.status-green { background: #dcfce7; color: #15803d; }
+.status-orange { background: #ffedd5; color: #c2410c; }
+.status-blue { background: #dbeafe; color: #1d4ed8; }
+.status-purple { background: #ede9fe; color: #6d28d9; }
+
+.pricing-grid { align-items: stretch; }
+.price-card { position: relative; display: grid; grid-template-rows: auto 1fr auto; min-height: 660px; border-radius: 24px; border: 1px solid var(--cchub-border); background: #fff; padding: 34px 26px 26px; box-shadow: 0 12px 30px rgba(6, 26, 68, 0.06); }
+.price-card.pro { border-color: #facc15; background: linear-gradient(180deg, #fffdf5 0%, #fff 100%); }
+.price-card.basic { border-color: #bfdbfe; }
+.price-card.business { border-color: #c4b5fd; background: linear-gradient(180deg, #fbf8ff 0%, #fff 100%); }
+.price-label { position: absolute; top: 0; inset-inline: 28px; transform: translateY(-50%); min-height: 34px; border-radius: 999px; background: #eff6ff; color: var(--cchub-blue); border: 1px solid #bfdbfe; display: flex; align-items: center; justify-content: center; padding: 0 16px; font-size: 14px; font-weight: 900; white-space: nowrap; }
+.price-label.pro-label { background: #f59e0b; border-color: #f59e0b; color: #fff; }
+.price-head { text-align: center; }
+.price-body { padding-top: 20px; }
+.price-list { display: grid; gap: 11px; direction: rtl; text-align: right; font-size: 15px; font-weight: 800; color: #334155; }
+.price-row { display: flex; align-items: center; justify-content: flex-start; gap: 10px; direction: rtl; text-align: right; }
+.price-row-mark { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; flex: 0 0 20px; border-radius: 999px; background: #dcfce7; color: #16a34a; font-size: 13px; font-weight: 900; line-height: 1; }
+.price-row-text { display: block; text-align: right; }
+.price-actions { display: grid; gap: 10px; padding-top: 24px; align-self: end; }
+.price-actions button { width: 100%; }
+
+.cchub-footer { background: #061a44; color: #fff; padding-block: 26px; }
+
+@media (max-width: 1024px) {
+  .cchub-hero { min-height: auto; }
+  .cchub-container { width: min(var(--container), calc(100% - 44px)); }
+  .price-card { min-height: auto; }
+}
+
+@media (max-width: 768px) {
+  .cchub-container { width: min(100% - 28px, var(--container)); }
+  .cchub-header { height: 64px; }
+  .cchub-brand-text { font-size: 24px; }
+  .cchub-logo-frame { width: 38px; height: 38px; }
+  .cchub-logo { width: 66px; height: 66px; }
+  .hero-app-shell { grid-template-columns: 48px 1fr; }
+  .hero-app-sidebar { padding: 16px 7px; }
+  .hero-app-content { padding: 18px; }
+  .cchub-text { font-size: 17px; }
+  .cchub-section { padding-block: 42px; }
+  .cchub-section-tight { padding-block: 34px; }
+}
