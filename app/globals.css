@@ -131,3 +131,27 @@ button { font-family: inherit; cursor: pointer; border: none; }
   .cchub-section { padding-block: 42px; }
   .cchub-section-tight { padding-block: 34px; }
 }
+
+.cchub-dropdown-menu {
+  scrollbar-width: thin;
+  scrollbar-color: #93c5fd #eff6ff;
+}
+
+.cchub-dropdown-menu::-webkit-scrollbar {
+  width: 8px;
+}
+
+.cchub-dropdown-menu::-webkit-scrollbar-track {
+  background: #eff6ff;
+  border-radius: 999px;
+}
+
+.cchub-dropdown-menu::-webkit-scrollbar-thumb {
+  background: #93c5fd;
+  border-radius: 999px;
+  border: 2px solid #eff6ff;
+}
+
+.cchub-dropdown-menu::-webkit-scrollbar-thumb:hover {
+  background: #2563eb;
+}

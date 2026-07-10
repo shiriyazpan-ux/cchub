@@ -95,7 +95,9 @@ export default function SiteContextBar() {
                   <span className="text-xs">▼</span>
                 </summary>
 
-                <div className="absolute right-0 top-full z-[70] mt-2 max-h-80 w-72 overflow-y-auto rounded-2xl border border-blue-100 bg-white p-2 shadow-xl">
+                <div className="absolute right-0 top-full z-[70] mt-2 cchub-dropdown-menu max-h-80 w-72 overflow-y-auto rounded-2xl border border-blue-100 bg-white p-2 shadow-xl">
+                  <div className="sticky top-0 z-10 mb-1 rounded-lg bg-white/95 py-1 text-center text-xs font-black text-blue-300">▲</div>
+
                   <a
                     href={context.homeHref}
                     className="block rounded-xl px-4 py-3 text-sm font-black text-blue-700 hover:bg-blue-50"
@@ -114,7 +116,7 @@ export default function SiteContextBar() {
                         href={item.href}
                         className={`block rounded-xl px-4 py-3 text-sm font-black transition ${
                           active
-                            ? "bg-blue-600 text-white"
+                            ? "bg-blue-600 !text-white hover:bg-blue-700"
                             : "text-slate-700 hover:bg-blue-50 hover:text-blue-700"
                         }`}
                       >
@@ -122,6 +124,8 @@ export default function SiteContextBar() {
                       </a>
                     );
                   })}
+
+                  <div className="sticky bottom-0 z-10 mt-1 rounded-lg bg-white/95 py-1 text-center text-xs font-black text-blue-300">▼</div>
                 </div>
               </details>
             </>
