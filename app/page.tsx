@@ -207,6 +207,24 @@ export default function Home() {
               ושקט בניהול היומיומי.
             </p>
 
+            <div className="mt-5 max-w-[720px] rounded-3xl border border-blue-100 bg-white/80 p-5 shadow-sm">
+              <div className="flex items-start gap-3">
+                <span className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl bg-blue-600 text-lg text-white">
+                  ✨
+                </span>
+                <div>
+                  <div className="text-lg font-black text-[#061A44]">
+                    המערכת מדברת בשפה של העסק שלכם
+                  </div>
+                  <p className="mt-2 text-base font-bold leading-8 text-slate-600">
+                    אצלכם “לקוחות” יכולים להיות גם ספקים, מוצרים, נכסים, פרויקטים
+                    או כל דבר אחר שאתם מנהלים. ניתן להתאים את שמות הערכים במערכת
+                    לשפה הפנימית של העסק.
+                  </p>
+                </div>
+              </div>
+            </div>
+
             <div className="mt-7 flex flex-wrap gap-4">
               <a className="cchub-button-primary" href="/pricing">
                 התחילו 7 ימי ניסיון חינם
