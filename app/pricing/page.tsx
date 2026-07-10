@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "מחירים | חבילות CCHUB לניהול לקוחות ומשימות",
   description:
-    "חבילות CCHUB לניהול לקוחות, משימות, מסמכים, סיסמאות, ידע ונכסים דיגיטליים. Basic ב-49$, Pro ב-149$ ו-Business ב-299$ לחודש עם 7 ימי ניסיון חינם.",
+    "חבילות CCHUB לניהול לקוחות, משימות, מסמכים, סיסמאות, ידע ונכסים דיגיטליים. Basic ב-199₪, Pro ב-499₪ ו-Business ב-999₪ לחודש כולל מע״מ, עם 7 ימי ניסיון חינם.",
   alternates: {
     canonical: "/pricing",
   },
@@ -25,7 +25,7 @@ const plans = [
     badge: "👤",
     tag: "לעסק בתחילת הדרך",
     label: "7 ימי ניסיון חינם",
-    price: "49$",
+    price: "199₪",
     priceText: "לחודש",
     description: "לעסק שרוצה להתחיל לעבוד מסודר בלי מערכת כבדה.",
     clients: "עד 50 לקוחות",
@@ -55,7 +55,7 @@ const plans = [
     badge: "👑",
     tag: "הכי מומלץ",
     label: "הכי מומלץ · 7 ימי ניסיון חינם",
-    price: "149$",
+    price: "499₪",
     priceText: "לחודש",
     description:
       "לעסק שרוצה תמונה מלאה של לקוחות, נכסים, משימות, ידע ואוטומציות.",
@@ -91,7 +91,7 @@ const plans = [
     badge: "🏢",
     tag: "לצוותים ועסקים מתקדמים",
     label: "7 ימי ניסיון חינם",
-    price: "299$",
+    price: "999₪",
     priceText: "לחודש",
     description:
       "לעסקים וצוותים שצריכים עבודה משותפת, הרשאות מתקדמות ואינטגרציות.",
@@ -123,9 +123,9 @@ const plans = [
 const comparisonRows = [
   {
     label: "מחיר חודשי",
-    basic: "49$",
-    pro: "149$",
-    business: "299$",
+    basic: "199₪",
+    pro: "499₪",
+    business: "999₪",
   },
   {
     label: "כמות לקוחות",
