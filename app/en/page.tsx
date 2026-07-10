@@ -223,20 +223,7 @@ export default function EnglishPage() {
             <a className="cchub-button-dark" href="/">עברית</a>
           </div>
         </div>
-      </section>
-
-      <footer className="cchub-footer">
-        <div className="cchub-container flex flex-col items-center justify-between gap-4 text-sm text-blue-100 md:flex-row">
-          <div className="font-en font-bold">© 2026 CCHUB</div>
-          <div className="flex flex-wrap items-center justify-center gap-5">
-            <a href="/terms">Terms</a>
-            <a href="/privacy">Privacy</a>
-            <a href="/pricing">Pricing</a>
-            <a href="/faq">FAQ</a>
-            <a href="/">עברית</a>
-          </div>
-        </div>
-      </footer>
+      </section>
     </main>
   );
 }

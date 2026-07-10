@@ -77,7 +77,24 @@ export default function RootLayout({
       className={`${heebo.variable} ${inter.variable}`}
       suppressHydrationWarning
     >
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        {children}
+
+        <footer className="cchub-footer">
+          <div className="cchub-container flex flex-col items-center justify-between gap-4 text-sm text-blue-100 md:flex-row">
+            <div className="font-en font-bold">© 2026 CCHUB</div>
+
+            <div className="flex flex-wrap items-center justify-center gap-5">
+              <a href="/">עמוד הבית</a>
+              <a href="/features">יכולות המערכת</a>
+              <a href="/pricing">מחירים</a>
+              <a href="/faq">שאלות נפוצות</a>
+              <a href="/terms">תנאי שימוש</a>
+              <a href="/privacy">מדיניות פרטיות</a>
+            </div>
+          </div>
+        </footer>
+      </body>
     </html>
   );
 }
