@@ -300,7 +300,7 @@ export default function TutorialsPage() {
             <a href="/privacy">מדיניות פרטיות</a>
             <a href="/faq">שאלות נפוצות</a>
             <a href="/pricing">מחירים</a>
-            <a href="/en">EN</a>
+            
           </div>
         </div>
       </footer>

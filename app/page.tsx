@@ -213,7 +213,7 @@ export default function Home() {
             </a>
 
             <div className="hidden items-center gap-2 text-sm font-black text-slate-600 md:flex">
-              <a href="/en">EN</a>
+              
               <span className="text-slate-300">|</span>
               <a href="/">עברית</a>
             </div>
@@ -653,7 +653,7 @@ export default function Home() {
             <a href="/privacy">מדיניות פרטיות</a>
             <a href="/faq">שאלות נפוצות</a>
             <a href="/pricing">מחירים</a>
-            <a href="/en">EN</a>
+            
           </div>
         </div>
       </footer>

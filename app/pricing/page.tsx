@@ -460,7 +460,7 @@ export default function PricingPage() {
             <a href="/privacy">מדיניות פרטיות</a>
             <a href="/faq">שאלות נפוצות</a>
             <a href="/features">יכולות המערכת</a>
-            <a href="/en">EN</a>
+            
           </div>
         </div>
       </footer>
