@@ -188,12 +188,8 @@ export default function Home() {
       <section className="relative overflow-hidden border-b border-blue-100">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#F7FBFF_0%,#EEF6FF_100%)]" />
 
-        <div className="cchub-container cchub-hero relative grid items-center gap-10 py-8 lg:grid-cols-[1fr_1.05fr]">
+        <div className="cchub-container cchub-hero relative grid items-center gap-10 pt-2 pb-8 lg:grid-cols-[1fr_1.05fr]">
           <div className="text-right">
-            <div className="mb-5">
-              <span className="cchub-trial-badge-strong">7 ימי ניסיון חינם</span>
-            </div>
-
             <h1 className="cchub-title-xl max-w-[620px]">
               די לחפש.
               <br />
