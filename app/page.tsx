@@ -93,6 +93,7 @@ const plans = [
     className: "business",
     badge: "🏢",
     label: "7 ימי ניסיון חינם",
+    price: "999₪",
     text: "לעסקים וצוותים שצריכים עבודה משותפת, הרשאות מתקדמות ואינטגרציות.",
     items: [
       "עד 500 לקוחות",
@@ -118,6 +119,7 @@ const plans = [
     className: "pro",
     badge: "👑",
     label: "הכי מומלץ · 7 ימי ניסיון חינם",
+    price: "499₪",
     text: "לעסק שרוצה תמונה מלאה של לקוחות, נכסים, משימות, ידע ואוטומציות.",
     items: [
       "עד 200 לקוחות",
@@ -142,6 +144,7 @@ const plans = [
     className: "basic",
     badge: "👤",
     label: "7 ימי ניסיון חינם",
+    price: "199₪",
     text: "לעסק שרוצה להתחיל לעבוד מסודר בלי מערכת כבדה.",
     items: [
       "עד 50 לקוחות",
@@ -562,6 +565,8 @@ export default function Home() {
                 <h3 className="font-en mt-2 text-2xl font-black text-[#061A44]">
                   {plan.name}
                 </h3>
+
+                <div className="mt-4 flex items-end justify-center gap-1"><span className="text-5xl font-black text-[#061A44]">{plan.price}</span><span className="pb-2 text-sm font-black text-slate-500">לחודש</span></div>
 
                 <p className="mt-2 min-h-[42px] text-sm font-bold text-slate-500">
                   {plan.text}
