@@ -56,12 +56,7 @@ function getContext(pathname: string) {
       title: "יכולות המערכת",
       homeHref: "/features",
       homeLabel: "יכולות המערכת",
-      items: [
-        { href: "/features", label: "יכולות" },
-        { href: "/tutorials", label: "מדריכים" },
-        { href: "/articles", label: "מאמרים" },
-        { href: "/pricing", label: "מחירים" },
-      ],
+      items: [],
     };
   }
 
@@ -79,47 +74,63 @@ export default function SiteContextBar() {
   return (
     <section className="border-b border-blue-100 bg-[#F6FAFF]">
       <div className="cchub-container py-4">
-        <div className="mb-3 flex flex-wrap items-center gap-2 text-sm font-black text-slate-500">
+        <div className="flex flex-wrap items-center gap-2 text-sm font-black text-slate-500">
           <a className="text-blue-700 hover:text-blue-900" href="/">
             עמוד הבית
           </a>
-          <span>/</span>
+
+          <span className="text-slate-300">/</span>
+
           <a className="text-blue-700 hover:text-blue-900" href={context.homeHref}>
             {context.title}
           </a>
-          {activeItem && (
+
+          {activeItem ? (
             <>
-              <span>/</span>
-              <span className="text-[#061A44]">{activeItem.label}</span>
+              <span className="text-slate-300">/</span>
+
+              <details className="relative inline-block">
+                <summary className="flex cursor-pointer list-none items-center gap-2 rounded-full border border-blue-200 bg-white px-4 py-2 text-blue-700 shadow-sm transition hover:bg-blue-50">
+                  <span>{activeItem.label}</span>
+                  <span className="text-xs">▼</span>
+                </summary>
+
+                <div className="absolute right-0 top-full z-[70] mt-2 max-h-80 w-72 overflow-y-auto rounded-2xl border border-blue-100 bg-white p-2 shadow-xl">
+                  <a
+                    href={context.homeHref}
+                    className="block rounded-xl px-4 py-3 text-sm font-black text-blue-700 hover:bg-blue-50"
+                  >
+                    {context.homeLabel}
+                  </a>
+
+                  <div className="my-1 border-t border-blue-50" />
+
+                  {context.items.map((item) => {
+                    const active = item.href === pathname;
+
+                    return (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        className={`block rounded-xl px-4 py-3 text-sm font-black transition ${
+                          active
+                            ? "bg-blue-600 text-white"
+                            : "text-slate-700 hover:bg-blue-50 hover:text-blue-700"
+                        }`}
+                      >
+                        {item.label}
+                      </a>
+                    );
+                  })}
+                </div>
+              </details>
+            </>
+          ) : (
+            <>
+              <span className="text-slate-300">/</span>
+              <span className="text-[#061A44]">{context.title}</span>
             </>
           )}
-        </div>
-
-        <div className="flex gap-2 overflow-x-auto pb-1">
-          <a
-            href={context.homeHref}
-            className="shrink-0 rounded-full border border-blue-200 bg-white px-4 py-2 text-sm font-black text-blue-700 shadow-sm hover:bg-blue-50"
-          >
-            {context.homeLabel}
-          </a>
-
-          {context.items.map((item) => {
-            const active = item.href === pathname;
-
-            return (
-              <a
-                key={item.href}
-                href={item.href}
-                className={`shrink-0 rounded-full border px-4 py-2 text-sm font-black shadow-sm transition ${
-                  active
-                    ? "border-blue-600 bg-blue-600 text-white"
-                    : "border-blue-200 bg-white text-blue-700 hover:bg-blue-50"
-                }`}
-              >
-                {item.label}
-              </a>
-            );
-          })}
         </div>
       </div>
     </section>
