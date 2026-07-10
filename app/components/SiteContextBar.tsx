@@ -2,7 +2,19 @@
 
 import { usePathname } from "next/navigation";
 
-const articles = [
+type ContextItem = {
+  href: string;
+  label: string;
+};
+
+type PageContext = {
+  title: string;
+  homeHref: string;
+  homeLabel: string;
+  items: ContextItem[];
+};
+
+const articles: ContextItem[] = [
   { href: "/articles/business-password-management", label: "ניהול סיסמאות" },
   { href: "/articles/client-digital-assets", label: "נכסים דיגיטליים" },
   { href: "/articles/crm-for-small-business", label: "CRM לעסק קטן" },
@@ -17,7 +29,7 @@ const articles = [
   { href: "/articles/user-permissions-business", label: "הרשאות משתמשים" },
 ];
 
-const tutorials = [
+const tutorials: ContextItem[] = [
   { href: "/tutorials/add-client", label: "הוספת לקוח" },
   { href: "/tutorials/import-excel", label: "יבוא מאקסל" },
   { href: "/tutorials/add-task", label: "הוספת משימה" },
@@ -32,8 +44,16 @@ const tutorials = [
   { href: "/tutorials/user-permissions", label: "הרשאות משתמשים" },
 ];
 
-function getContext(pathname: string) {
-  if (pathname.startsWith("/articles/")) {
+const simplePages: ContextItem[] = [
+  { href: "/features", label: "יכולות המערכת" },
+  { href: "/pricing", label: "מחירים" },
+  { href: "/faq", label: "שאלות נפוצות" },
+];
+
+function getContext(pathname: string): PageContext | null {
+  if (pathname === "/") return null;
+
+  if (pathname === "/articles" || pathname.startsWith("/articles/")) {
     return {
       title: "מאמרים",
       homeHref: "/articles",
@@ -42,7 +62,7 @@ function getContext(pathname: string) {
     };
   }
 
-  if (pathname.startsWith("/tutorials/")) {
+  if (pathname === "/tutorials" || pathname.startsWith("/tutorials/")) {
     return {
       title: "מדריכים",
       homeHref: "/tutorials",
@@ -51,11 +71,13 @@ function getContext(pathname: string) {
     };
   }
 
-  if (pathname === "/features") {
+  const simplePage = simplePages.find((page) => page.href === pathname);
+
+  if (simplePage) {
     return {
-      title: "יכולות המערכת",
-      homeHref: "/features",
-      homeLabel: "יכולות המערכת",
+      title: simplePage.label,
+      homeHref: simplePage.href,
+      homeLabel: simplePage.label,
       items: [],
     };
   }
@@ -73,7 +95,7 @@ export default function SiteContextBar() {
 
   return (
     <section className="border-b border-blue-100 bg-[#F6FAFF]">
-      <div className="cchub-container py-4">
+      <div className="cchub-container py-3">
         <div className="flex flex-wrap items-center gap-2 text-sm font-black text-slate-500">
           <a className="text-blue-700 hover:text-blue-900" href="/">
             עמוד הבית
@@ -81,11 +103,11 @@ export default function SiteContextBar() {
 
           <span className="text-slate-300">/</span>
 
-          <a className="text-blue-700 hover:text-blue-900" href={context.homeHref}>
+          <a className="text-[#061A44] hover:text-blue-700" href={context.homeHref}>
             {context.title}
           </a>
 
-          {activeItem ? (
+          {activeItem && (
             <>
               <span className="text-slate-300">/</span>
 
@@ -128,11 +150,6 @@ export default function SiteContextBar() {
                   <div className="sticky bottom-0 z-10 mt-1 rounded-lg bg-white/95 py-1 text-center text-xs font-black text-blue-300">▼</div>
                 </div>
               </details>
-            </>
-          ) : (
-            <>
-              <span className="text-slate-300">/</span>
-              <span className="text-[#061A44]">{context.title}</span>
             </>
           )}
         </div>
