@@ -200,10 +200,11 @@ export default function Home() {
               תתחילו לנהל.
             </h1>
 
-            <p className="cchub-text mt-5 max-w-[650px]">
-              מערכת לניהול לקוחות בעברית ובאנגלית שמרכזת משימות, מסמכים,
-              סיסמאות, נכסים דיגיטליים וידע במקום אחד — בצורה פשוטה, נקייה
-              והגיונית.
+            <p className="cchub-text mt-5 max-w-[720px]">
+              CCHUB מרכזת במקום אחד את כל מה שהעסק צריך כדי לעבוד מסודר באמת —
+              לקוחות, משימות, מסמכים, סיסמאות, נכסים דיגיטליים וידע. פחות
+              חיפושים, פחות בלגן ופחות טעויות — ויותר שליטה, סדר, חיסכון בזמן
+              ושקט בניהול היומיומי.
             </p>
 
             <div className="mt-7 flex flex-wrap gap-4">
@@ -388,6 +389,47 @@ export default function Home() {
                 <div className="mt-2 h-2 w-1/2 rounded-full bg-blue-100" />
               </div>
             ))}
+          </div>
+
+          <div className="mt-6 rounded-3xl border border-blue-100 bg-white p-5">
+            <div className="mb-4 flex items-center justify-between gap-4">
+              <div>
+                <h3 className="text-xl font-black text-[#061A44]">סיכום תיק הלקוח</h3>
+                <p className="mt-1 text-sm font-bold text-slate-500">
+                  חלוקה מהירה של המידע לפי קטגוריות.
+                </p>
+              </div>
+              <div className="rounded-full bg-blue-50 px-4 py-2 text-sm font-black text-blue-700">
+                236 פריטים
+              </div>
+            </div>
+
+            <div className="grid items-center gap-6 md:grid-cols-[0.9fr_1.1fr]">
+              <div className="space-y-3 text-sm font-black text-slate-600">
+                {[
+                  ["משימות", "42%", "bg-blue-600"],
+                  ["מסמכים", "21%", "bg-teal-500"],
+                  ["סיסמאות", "15%", "bg-violet-500"],
+                  ["נכסים", "12%", "bg-orange-400"],
+                  ["ידע וניהול", "10%", "bg-sky-400"],
+                ].map(([label, value, color]) => (
+                  <div key={label} className="flex items-center justify-between gap-3">
+                    <span className="flex items-center gap-2">
+                      <span className={`h-3 w-3 rounded-full ${color}`} />
+                      {label}
+                    </span>
+                    <span>{value}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="relative mx-auto flex h-44 w-44 items-center justify-center rounded-full bg-[conic-gradient(#2563eb_0_42%,#14b8a6_42%_63%,#8b5cf6_63%_78%,#f59e0b_78%_90%,#38bdf8_90%_100%)] shadow-lg">
+                <div className="flex h-24 w-24 flex-col items-center justify-center rounded-full bg-white text-center shadow-inner">
+                  <span className="text-3xl font-black text-[#061A44]">236</span>
+                  <span className="text-xs font-black text-slate-500">פריטים</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
