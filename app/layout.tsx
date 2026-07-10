@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Heebo, Inter } from "next/font/google";
 import "./globals.css";
 import SiteHeader from "./components/SiteHeader";
+import SiteContextBar from "./components/SiteContextBar";
 
 const heebo = Heebo({
   subsets: ["hebrew", "latin"],
@@ -80,6 +81,7 @@ export default function RootLayout({
     >
       <body suppressHydrationWarning>
         <SiteHeader />
+        <SiteContextBar />
 
         {children}
 
