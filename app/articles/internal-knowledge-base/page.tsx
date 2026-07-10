@@ -16,21 +16,7 @@ export const metadata: Metadata = {
 
 export default function ArticlePage() {
   return (
-    <main dir="rtl" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
-      <header className="border-b border-blue-100 bg-white">
-        <div className="cchub-container cchub-header flex items-center justify-between">
-          <a href="/" className="cchub-brand" aria-label="CCHUB - עמוד הבית">
-            <span className="cchub-logo-frame">
-              <img src="/cchub-logo.png" alt="CCHUB" className="cchub-logo" />
-            </span>
-            <span className="cchub-brand-text">CCHUB</span>
-          </a>
-          <div className="flex items-center gap-3">
-            <a className="cchub-button-secondary" href="/articles">חזרה למאמרים</a>
-            <a className="cchub-button-primary hidden sm:inline-flex" href="/pricing">7 ימי ניסיון חינם</a>
-          </div>
-        </div>
-      </header>
+    <main dir="rtl" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
 
       <article className="cchub-container py-16">
         <div className="mx-auto max-w-4xl text-center">

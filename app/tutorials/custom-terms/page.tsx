@@ -22,18 +22,7 @@ const tips = [
 
 export default function TutorialPage() {
   return (
-    <main dir="rtl" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
-      <header className="border-b border-blue-100 bg-white">
-        <div className="cchub-container cchub-header flex items-center justify-between">
-          <a href="/" className="cchub-brand">
-            <span className="cchub-logo-frame">
-              <img src="/cchub-logo.png" alt="CCHUB" className="cchub-logo" />
-            </span>
-            <span className="cchub-brand-text">CCHUB</span>
-          </a>
-          <a className="cchub-button-secondary" href="/tutorials">חזרה לטוטריאלים</a>
-        </div>
-      </header>
+    <main dir="rtl" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
 
       <section className="cchub-container py-16">
         <div className="mx-auto max-w-4xl text-center">

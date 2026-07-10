@@ -78,30 +78,7 @@ const plans = [
 
 export default function EnglishPage() {
   return (
-    <main dir="ltr" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
-      <header className="sticky top-0 z-50 border-b border-blue-100 bg-white/95 backdrop-blur">
-        <div className="cchub-container cchub-header flex items-center justify-between">
-          <a href="/en" className="cchub-brand" aria-label="CCHUB English homepage">
-            <span className="cchub-logo-frame">
-              <img src="/cchub-logo.png" alt="CCHUB - Customer Control Hub" className="cchub-logo" />
-            </span>
-            <span className="cchub-brand-text">CCHUB</span>
-          </a>
-
-          <nav className="hidden items-center gap-7 lg:flex" aria-label="Main navigation">
-            <a className="cchub-nav-link active" href="/en">English</a>
-            <a className="cchub-nav-link" href="/features">Features</a>
-            <a className="cchub-nav-link" href="/pricing">Pricing</a>
-            <a className="cchub-nav-link" href="/faq">FAQ</a>
-            <a className="cchub-nav-link" href="/">עברית</a>
-          </nav>
-
-          <div className="flex items-center gap-3">
-            <a className="cchub-button-primary" href="/pricing">Start 7-day free trial</a>
-            <a className="cchub-button-secondary hidden sm:inline-flex" href="/login">Login</a>
-          </div>
-        </div>
-      </header>
+    <main dir="ltr" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
 
       <section className="relative overflow-hidden border-b border-blue-100">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#F7FBFF_0%,#EEF6FF_100%)]" />
