@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 
 const navItems = [
   { href: "/", label: "עמוד הבית" },
@@ -27,9 +28,11 @@ export default function SiteHeader() {
       <div className="cchub-container cchub-header flex items-center justify-between">
         <Link href="/" className="cchub-brand" aria-label="CCHUB - עמוד הבית">
           <span className="cchub-logo-frame">
-            <img
+            <Image
               src="/cchub-logo.png"
               alt="CCHUB - Customer Control Hub"
+              width={512}
+              height={512}
               className="cchub-logo"
             />
           </span>

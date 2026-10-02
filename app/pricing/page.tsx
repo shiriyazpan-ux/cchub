@@ -3,14 +3,14 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "מחירים | חבילות CCHUB לניהול לקוחות ומשימות",
   description:
-    "חבילות CCHUB לניהול לקוחות, משימות, מסמכים, סיסמאות, ידע ונכסים דיגיטליים. Solo Pro ב־99₪, Premium ב־199₪ ו־Enterprise ב־399₪ לחודש כולל מע״מ, עם 14 ימי ניסיון חינם.",
+    "חבילות CCHUB לפי יכולות: Solo Pro ב־99₪, Premium ב־199₪ ו־Enterprise ב־399₪ לחודש כולל מע״מ, עם 14 ימי ניסיון חינם.",
   alternates: {
     canonical: "/pricing",
   },
   openGraph: {
     title: "מחירים | CCHUB",
     description:
-      "בחרו חבילת CCHUB שמתאימה לעסק: Solo Pro, Premium או Enterprise לניהול לקוחות, משימות, מסמכים, סיסמאות, ידע, אוטומציות והרשאות.",
+      "בחרו חבילת CCHUB שמתאימה לעסק: Solo Pro, Premium או Enterprise, עם פירוט מדויק של היכולות בכל חבילה.",
     url: "https://cchub-dusky.vercel.app/pricing",
     siteName: "CCHUB",
     locale: "he_IL",
@@ -156,7 +156,7 @@ const comparisonRows = [
     label: "מסמכים, סיסמאות וידע",
     basic: "—",
     pro: "מסמכים וידע",
-    business: "✓",
+    business: "מסמכים, ידע וסיסמאות",
   },
   {
     label: "יבוא מאקסל",
@@ -172,12 +172,18 @@ const comparisonRows = [
   },
   {
     label: "נכסים דיגיטליים",
-    basic: "—",
+    basic: "✓",
     pro: "✓",
     business: "✓",
   },
   {
-    label: "לידים ואנשי קשר",
+    label: "אנשי קשר",
+    basic: "✓",
+    pro: "✓",
+    business: "✓",
+  },
+  {
+    label: "לידים",
     basic: "—",
     pro: "✓",
     business: "✓",
@@ -190,6 +196,12 @@ const comparisonRows = [
   },
   {
     label: "גיבויים ופעילות מערכת",
+    basic: "✓",
+    pro: "✓",
+    business: "✓",
+  },
+  {
+    label: "דוחות מתקדמים ותגיות",
     basic: "—",
     pro: "✓",
     business: "✓",
@@ -205,7 +217,7 @@ const comparisonRows = [
 const faqs = [
   {
     q: "האם יש 14 ימי ניסיון חינם?",
-    a: "כן. כל החבילות מתחילות ב־14 ימי ניסיון חינם כדי שתוכלו לבדוק את המערכת לפני התחייבות.",
+    a: "כן. כל החבילות מתחילות ב־14 ימי ניסיון חינם. נדרש אמצעי תשלום, והחיוב בתקופת הניסיון הוא 0 ₪. אם לא מבטלים לפני הסיום, המנוי מתחדש אוטומטית במסלול שנבחר.",
   },
   {
     q: "האם Solo Pro כולל ייצוא אקסל?",
@@ -213,7 +225,7 @@ const faqs = [
   },
   {
     q: "למי מתאימה חבילת Premium?",
-    a: "Premium מתאימה לעסק שרוצה לנהל עד 1,000 לקוחות, נכסים דיגיטליים, לידים, אנשי קשר, גיבויים, פעילות מערכת ואינטגרציות.",
+    a: "Premium מתאימה לעסק שרוצה לנהל עד 1,000 לקוחות ולהוסיף ל-Solo Pro לידים, מסמכים, מרכז ידע, ייצוא Excel, דוחות ואינטגרציות.",
   },
   {
     q: "מתי צריך Enterprise?",
@@ -232,7 +244,7 @@ export default function PricingPage() {
           <span className="cchub-trial-badge-strong">14 ימי ניסיון חינם</span>
 
           <h1 className="cchub-title-xl mx-auto mt-5 max-w-4xl">
-            חבילות CCHUB לניהול לקוחות, משימות, מסמכים וסיסמאות
+            חבילות CCHUB לניהול לקוחות, משימות ומידע עסקי
           </h1>
 
           <p className="cchub-text mx-auto mt-5 max-w-3xl">
@@ -415,7 +427,8 @@ export default function PricingPage() {
           </h2>
 
           <p className="mx-auto mt-3 max-w-2xl text-blue-100">
-            התחילו עם החבילה שמתאימה לכם עכשיו, ותנו למערכת לגדול יחד עם העסק.
+            התחילו עם החבילה שמתאימה לכם עכשיו. נדרש אמצעי תשלום; החיוב בתקופת
+            הניסיון הוא 0 ₪, ולאחריה המנוי מתחדש אוטומטית אם לא בוטל.
           </p>
 
           <div className="mt-6 flex flex-wrap justify-center gap-4">

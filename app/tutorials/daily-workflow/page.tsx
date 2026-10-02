@@ -27,7 +27,7 @@ export default function TutorialPage() {
 
       <section className="cchub-container py-16">
         <div className="mx-auto max-w-4xl text-center">
-          <span className="cchub-trial-badge-strong">מדריך בסיסי · 5 דקות</span>
+          <span className="cchub-trial-badge-strong">מדריך בסיסי · 4 דקות</span>
           <h1 className="cchub-title-xl mt-5">איך בונים סדר עבודה יומי ב-CCHUB</h1>
           <p className="cchub-text mt-5">סדר עבודה יומי נכון מתחיל מתמונה כללית: מה פתוח, מה דחוף, ומה שייך לאיזה לקוח.</p>
         </div>

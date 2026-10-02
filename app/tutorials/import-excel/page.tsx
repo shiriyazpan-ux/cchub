@@ -28,7 +28,7 @@ export default function ImportExcelTutorialPage() {
 
       <section className="cchub-container py-16">
         <div className="mx-auto max-w-4xl text-center">
-          <span className="cchub-trial-badge-strong">מדריך בסיסי · 6 דקות</span>
+          <span className="cchub-trial-badge-strong">מדריך בסיסי · 4 דקות</span>
           <h1 className="cchub-title-xl mt-5">איך מייבאים לקוחות מאקסל ל-CCHUB</h1>
           <p className="cchub-text mt-5">
             יבוא מאקסל מאפשר להתחיל לעבוד מהר עם מידע קיים, בלי להזין ידנית
@@ -56,7 +56,7 @@ export default function ImportExcelTutorialPage() {
               <h2 className="text-2xl font-black">למי זה מתאים?</h2>
               <p className="mt-3 leading-8 text-slate-600">
                 לעסק שכבר מחזיק רשימת לקוחות באקסל ורוצה להעביר אותה למערכת
-                מסודרת עם משימות, מסמכים, סיסמאות וידע.
+                מסודרת עם משימות ומידע נוסף בהתאם לחבילה.
               </p>
             </div>
 

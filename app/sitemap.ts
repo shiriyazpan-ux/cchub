@@ -35,6 +35,7 @@ const routes = [
   "/articles/user-permissions-business",
   "/privacy",
   "/terms",
+  "/accessibility",
   "/en",
 ];
 

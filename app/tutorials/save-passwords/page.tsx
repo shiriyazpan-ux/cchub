@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "איך שומרים סיסמאות וגישות ב-CCHUB | מדריך CCHUB",
-  description: "מדריך לניהול סיסמאות, גישות ופרטי התחברות לפי לקוח ונכס דיגיטלי ב-CCHUB.",
+  description: "מדריך Enterprise לניהול פרטי התחברות מוצפנים לפי לקוח ונכס דיגיטלי ב-CCHUB.",
   alternates: { canonical: "/tutorials/save-passwords" },
 };
 
 const steps = [
   "נכנסים לתיק הלקוח או לנכס הדיגיטלי הרלוונטי.",
-  "פותחים את אזור הסיסמאות או הגישות.",
+  "פותחים את אזור הגישות המוצפנות הזמין בחבילת Enterprise.",
   "מוסיפים שם ברור לגישה, למשל WordPress, דומיין או חשבון פרסום.",
   "ממלאים שם משתמש, קישור כניסה ופרטים נדרשים.",
-  "שומרים את הגישה במקום המתאים לפי לקוח ונכס.",
+  "שומרים את הגישה ומוודאים שרק בעלי ההרשאה המתאימה יכולים לצפות בה.",
   "בודקים שהגישה לא נשמרה גם במקומות לא מסודרים כמו הודעות או קבצים פתוחים.",
 ];
 
@@ -27,9 +27,9 @@ export default function TutorialPage() {
 
       <section className="cchub-container py-16">
         <div className="mx-auto max-w-4xl text-center">
-          <span className="cchub-trial-badge-strong">מדריך חשוב · 5 דקות</span>
+          <span className="cchub-trial-badge-strong">מדריך Enterprise · 4 דקות</span>
           <h1 className="cchub-title-xl mt-5">איך שומרים סיסמאות וגישות ב-CCHUB</h1>
-          <p className="cchub-text mt-5">סיסמאות וגישות הן מידע רגיש. המטרה היא לשמור אותן מסודרות לפי לקוח ונכס, ולא לפזר אותן בצ׳אטים ופתקים.</p>
+          <p className="cchub-text mt-5">בחבילת Enterprise ניתן לשמור פרטי גישה בהצפנת AES-256, לשייך אותם ללקוח ולנכס ולהגביל צפייה לפי הרשאה.</p>
         </div>
 
         <div className="mt-10 grid gap-7 lg:grid-cols-[1fr_0.8fr]">
@@ -51,8 +51,8 @@ export default function TutorialPage() {
             <div className="cchub-card p-6">
               <h2 className="text-2xl font-black">למה זה חשוב?</h2>
               <p className="mt-3 leading-8 text-slate-600">
-                מדריך זה עוזר להפוך עבודה מפוזרת לתהליך ברור, מתועד ומחובר
-                ללקוח, למשימות ולמידע החשוב במערכת.
+                הצפנה אינה מחליפה ניהול הרשאות. תנו גישה רק למי שבאמת צריך
+                אותה והסירו הרשאות כשחבר צוות מסיים את תפקידו.
               </p>
             </div>
 

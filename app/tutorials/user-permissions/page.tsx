@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 };
 
 const steps = [
-  "מגדירים אילו סוגי משתמשים קיימים בעסק.",
+  "ממפים את סוגי המשתמשים בעסק: Super Admin, Admin, Employee, Freelancer או Client.",
   "מחליטים מי צריך גישה מלאה ומי צריך גישה מוגבלת.",
   "מוסיפים משתמשים או צוותים במערכת.",
   "מגדירים הרשאות לפי תפקיד וצורך עסקי.",
@@ -27,7 +27,7 @@ export default function TutorialPage() {
 
       <section className="cchub-container py-16">
         <div className="mx-auto max-w-4xl text-center">
-          <span className="cchub-trial-badge-strong">מדריך Enterprise · 6 דקות</span>
+          <span className="cchub-trial-badge-strong">מדריך Enterprise · 4 דקות</span>
           <h1 className="cchub-title-xl mt-5">איך מנהלים הרשאות משתמשים ב-CCHUB</h1>
           <p className="cchub-text mt-5">הרשאות עוזרות לשלוט מי יכול לראות, לערוך, לייבא, לייצא או לחבר אינטגרציות במערכת.</p>
         </div>
@@ -51,8 +51,8 @@ export default function TutorialPage() {
             <div className="cchub-card p-6">
               <h2 className="text-2xl font-black">למה זה חשוב?</h2>
               <p className="mt-3 leading-8 text-slate-600">
-                מדריך זה עוזר להפוך עבודה מפוזרת לתהליך ברור, מתועד ומחובר
-                ללקוח, למשימות ולמידע החשוב במערכת.
+                בחבילת Enterprise ניתן להתאים גישה לתפקיד ולהגביל פעולות
+                רגישות כמו יבוא, ייצוא וחיבור אינטגרציות.
               </p>
             </div>
 

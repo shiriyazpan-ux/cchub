@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "CCHUB | Customer Control Hub",
   description:
-    "CCHUB is a customer control hub for managing clients, tasks, documents, passwords, digital assets and internal knowledge in one organized workspace.",
+    "CCHUB organizes clients, tasks, digital assets and business information, with documents, knowledge, automations, credentials and permissions available by plan.",
   alternates: {
     canonical: "/en",
     languages: {
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "CCHUB | Customer Control Hub",
     description:
-      "Manage clients, tasks, documents, passwords, digital assets and knowledge in one organized workspace.",
+      "Manage clients, tasks, digital assets and business information, with clearly defined features for each plan.",
     url: "https://cchub-dusky.vercel.app/en",
     siteName: "CCHUB",
     locale: "en_US",
@@ -27,31 +27,37 @@ const features = [
   {
     title: "Client Management",
     icon: "👥",
-    text: "Keep every client organized with tasks, documents, passwords, assets and notes connected to one clear client file.",
+    availability: "Solo Pro and above",
+    text: "Keep every client organized with the tools included in the selected plan, all connected to one clear client file.",
   },
   {
     title: "Tasks & Follow-up",
     icon: "✅",
+    availability: "Solo Pro and above",
     text: "Manage daily work by client and digital asset, with statuses, due dates, time tracking and cost awareness.",
   },
   {
-    title: "Documents & Passwords",
+    title: "Documents, Knowledge & Credentials",
     icon: "🔒",
-    text: "Stop searching through chats and folders. Keep documents, access details and sensitive information where they belong.",
+    availability: "Premium / Enterprise",
+    text: "Keep documents and knowledge in Premium, and encrypted access credentials with advanced permissions in Enterprise.",
   },
   {
     title: "Digital Assets",
     icon: "🧊",
+    availability: "Solo Pro and above",
     text: "Manage websites, domains, platforms, accounts and systems connected to each client.",
   },
   {
     title: "Knowledge Base",
     icon: "📘",
+    availability: "Premium and above",
     text: "Save decisions, notes, procedures and important client knowledge so it does not disappear in conversations.",
   },
   {
     title: "Excel & Automations",
     icon: "🔗",
+    availability: "Varies by plan",
     text: "Import from Excel, export data in supported plans and connect workflows using Make or Zapier.",
   },
 ];
@@ -67,13 +73,13 @@ const plans = [
     name: "Premium",
     price: "₪199",
     clients: "Up to 1,000 clients",
-    text: "For businesses that need digital assets, leads, contacts, export and automations.",
+    text: "For businesses that need leads, documents, knowledge, export, reports and automations.",
   },
   {
     name: "Enterprise",
     price: "₪399",
     clients: "Up to 5,000 clients",
-    text: "For teams that need advanced permissions, users, integrations and broader control.",
+    text: "For teams that need encrypted credentials, users and advanced permissions.",
   },
 ];
 
@@ -88,12 +94,12 @@ export default function EnglishPage() {
           <div>
             <span className="cchub-trial-badge-strong">Customer Control Hub</span>
             <h1 className="cchub-title-xl mt-5">
-              Manage clients, tasks, documents, passwords and knowledge in one place
+              Manage client work and business information in one organized place
             </h1>
             <p className="cchub-text mt-5">
-              CCHUB helps service businesses organize client work after the sale:
-              tasks, documents, passwords, digital assets, notes, time, costs and
-              internal knowledge — all connected to the right client.
+              CCHUB helps service businesses organize clients, tasks, digital assets,
+              notes, time and costs. Documents, knowledge, automations, encrypted
+              credentials and advanced permissions are available according to plan.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
@@ -114,7 +120,7 @@ export default function EnglishPage() {
                   <div className="mt-1 text-2xl font-black">Client workspace</div>
                 </div>
                 <div className="rounded-full bg-white/10 px-4 py-2 text-sm font-black">
-                  Live demo
+                  Interface preview
                 </div>
               </div>
 
@@ -145,6 +151,9 @@ export default function EnglishPage() {
                 {feature.icon}
               </div>
               <h3 className="text-2xl font-black">{feature.title}</h3>
+              <span className="mt-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-black text-blue-700">
+                {feature.availability}
+              </span>
               <p className="mt-3 leading-7 text-slate-600">{feature.text}</p>
             </article>
           ))}
@@ -159,6 +168,8 @@ export default function EnglishPage() {
             <p className="mx-auto mt-4 max-w-3xl leading-8 text-slate-600">
               All plans include a 14-day free trial. Choose the plan based on the
               number of clients, the level of control and the features your business needs.
+              A valid payment method is required; the trial total is ₪0 and the selected
+              subscription renews automatically unless canceled before the trial ends.
             </p>
           </div>
 
@@ -193,8 +204,8 @@ export default function EnglishPage() {
             Stop searching. Start managing.
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-blue-100">
-            Bring clients, tasks, documents, passwords, digital assets and knowledge
-            into one organized workspace.
+            Bring clients, tasks, digital assets and business information into one
+            workspace, with additional capabilities according to plan.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <a className="cchub-button-primary" href="/pricing">Start free trial</a>

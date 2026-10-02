@@ -20,11 +20,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://cchub-dusky.vercel.app"),
   title: {
-    default: "CCHUB | מערכת לניהול לקוחות, משימות, מסמכים וסיסמאות",
+    default: "CCHUB | מערכת לניהול לקוחות, משימות ומידע עסקי",
     template: "%s | CCHUB",
   },
   description:
-    "CCHUB היא מערכת בעברית ובאנגלית לניהול לקוחות, משימות, מסמכים, סיסמאות, נכסים דיגיטליים וידע במקום אחד. התחילו 14 ימי ניסיון חינם.",
+    "CCHUB היא מערכת בעברית ובאנגלית לניהול לקוחות, משימות, נכסים דיגיטליים ומידע עסקי, עם יכולות נוספות לפי החבילה. התחילו 14 ימי ניסיון חינם.",
   keywords: [
     "מערכת לניהול לקוחות",
     "CRM בעברית",
@@ -48,9 +48,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "CCHUB | מערכת לניהול לקוחות, משימות, מסמכים וסיסמאות",
+    title: "CCHUB | מערכת לניהול לקוחות, משימות ומידע עסקי",
     description:
-      "נהלו לקוחות, משימות, מסמכים, סיסמאות, נכסים דיגיטליים וידע במקום אחד — פשוט, נקי והגיוני.",
+      "נהלו לקוחות, משימות, נכסים דיגיטליים ומידע עסקי במקום אחד, עם יכולות נוספות לפי החבילה.",
     url: "https://cchub-dusky.vercel.app",
     siteName: "CCHUB",
     locale: "he_IL",
@@ -58,9 +58,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "CCHUB | מערכת לניהול לקוחות, משימות, מסמכים וסיסמאות",
+    title: "CCHUB | מערכת לניהול לקוחות, משימות ומידע עסקי",
     description:
-      "מערכת אחת לניהול לקוחות, משימות, מסמכים, סיסמאות, נכסים וידע. 14 ימי ניסיון חינם.",
+      "מערכת אחת לניהול לקוחות, משימות, נכסים ומידע עסקי. 14 ימי ניסיון חינם.",
   },
   robots: {
     index: true,
@@ -97,6 +97,8 @@ export default function RootLayout({
               <a href="/faq">שאלות נפוצות</a>
               <a href="/terms">תנאי שימוש</a>
               <a href="/privacy">מדיניות פרטיות</a>
+              <a href="/accessibility">הצהרת נגישות</a>
+              <a className="font-en" dir="ltr" href="mailto:support@mycchub.app">support@mycchub.app</a>
             </div>
           </div>
         </footer>

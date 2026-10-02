@@ -23,7 +23,7 @@ const featuredArticles = [
     title: "מערכת לניהול לקוחות בעברית: מה באמת חשוב לבדוק?",
     href: "/articles/hebrew-client-management-system",
     category: "ניהול לקוחות",
-    readTime: "7 דקות קריאה",
+    readTime: "2 דקות קריאה",
     icon: "👥",
     description:
       "איך לבחור מערכת לניהול לקוחות בעברית, למה CRM רגיל לא תמיד מספיק, ואיך לבנות סדר סביב לקוחות, משימות, מסמכים וידע.",
@@ -33,7 +33,7 @@ const featuredArticles = [
     title: "איך מפסיקים לחפש סיסמאות, מסמכים והודעות ישנות?",
     href: "/articles/stop-searching-business-information",
     category: "סדר בעסק",
-    readTime: "6 דקות קריאה",
+    readTime: "2 דקות קריאה",
     icon: "🔎",
     description:
       "וואטסאפ, מיילים, דרייבים ואקסלים יוצרים עומס. כך מרכזים מידע תפעולי במקום אחד ומחזירים שליטה לעבודה היומית.",
@@ -43,7 +43,7 @@ const featuredArticles = [
     title: "ניהול משימות לפי לקוח: למה זה משנה את כל העבודה?",
     href: "/articles/tasks-by-client",
     category: "ניהול משימות",
-    readTime: "5 דקות קריאה",
+    readTime: "2 דקות קריאה",
     icon: "✅",
     description:
       "משימה בלי לקוח ובלי הקשר נעלמת מהר. ניהול משימות לפי לקוח ונכס עוזר להבין מה פתוח, מה דחוף ומה כבר בוצע.",
@@ -56,7 +56,7 @@ const articles = [
     title: "CRM לעסק קטן: מתי צריך CRM ומתי צריך מערכת תפעולית?",
     href: "/articles/crm-for-small-business",
     category: "CRM",
-    readTime: "6 דקות",
+    readTime: "2 דקות",
     icon: "📊",
     description:
       "ההבדל בין מערכת מכירות לבין מערכת שמנהלת את העבודה אחרי שהלקוח כבר קיים.",
@@ -65,7 +65,7 @@ const articles = [
     title: "איך לנהל לקוחות קבועים בלי לאבד מידע?",
     href: "/articles/manage-long-term-clients",
     category: "לקוחות",
-    readTime: "5 דקות",
+    readTime: "2 דקות",
     icon: "🧩",
     description:
       "שיטה פשוטה לריכוז תיק לקוח, משימות, מסמכים, גישות והחלטות במקום אחד.",
@@ -74,7 +74,7 @@ const articles = [
     title: "יבוא מאקסל למערכת ניהול: איך לעשות את זה נכון?",
     href: "/articles/import-excel-to-client-system",
     category: "אקסל",
-    readTime: "5 דקות",
+    readTime: "2 דקות",
     icon: "📥",
     description:
       "מה כדאי לנקות לפני יבוא, איך למנוע כפילויות ואילו עמודות באמת חשובות.",
@@ -83,7 +83,7 @@ const articles = [
     title: "ניהול סיסמאות בעסק: למה וואטסאפ הוא לא מקום לסיסמאות?",
     href: "/articles/business-password-management",
     category: "אבטחה",
-    readTime: "6 דקות",
+    readTime: "2 דקות",
     icon: "🔒",
     description:
       "איך לנהל גישות בצורה מסודרת, לפי לקוח ונכס, בלי לפזר מידע רגיש בהודעות.",
@@ -92,7 +92,7 @@ const articles = [
     title: "מרכז ידע פנימי: הנכס הכי מוזנח בעסק קטן",
     href: "/articles/internal-knowledge-base",
     category: "ידע",
-    readTime: "7 דקות",
+    readTime: "2 דקות",
     icon: "📘",
     description:
       "החלטות, נהלים, סיכומים ותובנות צריכים להישמר במקום שאפשר לחזור אליו.",
@@ -101,25 +101,25 @@ const articles = [
     title: "נכסים דיגיטליים של לקוח: איך עושים סדר באתרים, דומיינים ומערכות?",
     href: "/articles/client-digital-assets",
     category: "נכסים",
-    readTime: "5 דקות",
+    readTime: "2 דקות",
     icon: "🧊",
     description:
       "למה חשוב לחבר כל אתר, דומיין ומערכת ללקוח, למשימות, למסמכים ולסיסמאות שלו.",
   },
   {
-    title: "מעקב זמן ועלויות במשימות: הדרך להבין רווחיות אמיתית",
+    title: "מעקב זמן ועלויות במשימות: בסיס טוב להבנת רווחיות",
     href: "/articles/task-time-costs",
     category: "עלויות",
-    readTime: "6 דקות",
+    readTime: "2 דקות",
     icon: "⏱️",
     description:
-      "ניהול זמן עבודה ועלויות לפי משימה עוזר להבין איפה העסק מרוויח ואיפה הוא נשחק.",
+      "ניהול זמן ועלויות לפי משימה מספק בסיס לבחינת רווחיות לצד נתוני ההכנסה.",
   },
   {
     title: "Make ו-Zapier: מתי אוטומציה באמת עוזרת לעסק?",
     href: "/articles/make-zapier-business-automation",
     category: "אוטומציות",
-    readTime: "6 דקות",
+    readTime: "2 דקות",
     icon: "🔗",
     description:
       "איך לזהות תהליך שחוזר על עצמו, לחבר אותו לאוטומציה, ולא ליצור בלגן אוטומטי.",
@@ -128,7 +128,7 @@ const articles = [
     title: "הרשאות משתמשים: למה לא כל אחד צריך לראות הכול?",
     href: "/articles/user-permissions-business",
     category: "הרשאות",
-    readTime: "5 דקות",
+    readTime: "2 דקות",
     icon: "🛡️",
     description:
       "עבודה עם צוות דורשת הפרדה בין מי שמנהל, מי שמבצע, מי מייבא ומי מייצא מידע.",

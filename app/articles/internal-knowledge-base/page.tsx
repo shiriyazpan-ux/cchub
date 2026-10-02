@@ -73,7 +73,7 @@ export default function ArticlePage() {
                 בתוך העבודה היומיומית של העסק.
               </p>
               <div className="mt-5 grid gap-3">
-                <a className="cchub-button-primary justify-center" href="/features">צפייה ביכולות הידע</a>
+                <a className="cchub-button-primary justify-center" href="/tutorials">מעבר למרכז ההדרכה</a>
                 <a className="cchub-button-secondary justify-center" href="/features">צפייה ביכולות המערכת</a>
               </div>
             </div>

@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "איך עובדים עם Make ו-Zapier ב-CCHUB | מדריך CCHUB",
-  description: "מדריך בסיסי לחיבור CCHUB לאוטומציות עם Make או Zapier בחבילות המתאימות.",
+  description: "רשימת בדיקה לתכנון וחיבור אוטומציות עם Make או Zapier בחבילות Premium ו-Enterprise.",
   alternates: { canonical: "/tutorials/make-zapier" },
 };
 
 const steps = [
   "מגדירים איזה תהליך רוצים לאוטומט: ליד חדש, משימה, לקוח או עדכון.",
-  "בודקים שהחבילה כוללת אינטגרציה ל-Make / Zapier.",
-  "יוצרים תרחיש בכלי האוטומציה המתאים.",
-  "מחברים את מקור המידע החיצוני ואת הפעולה הרצויה ב-CCHUB.",
+  "מוודאים שהחשבון נמצא בחבילת Premium או Enterprise.",
+  "בוחרים את המחבר והאימות הזמינים לחשבון בתוך Make או Zapier.",
+  "יוצרים תרחיש ומחברים את מקור המידע החיצוני לפעולה הנתמכת ב-CCHUB.",
   "מריצים בדיקה עם נתון אחד בלבד לפני שימוש אמיתי.",
   "בודקים שהמידע נכנס למקום הנכון ולא יוצר כפילויות.",
 ];
@@ -27,9 +27,9 @@ export default function TutorialPage() {
 
       <section className="cchub-container py-16">
         <div className="mx-auto max-w-4xl text-center">
-          <span className="cchub-trial-badge-strong">מדריך מתקדם · 7 דקות</span>
+          <span className="cchub-trial-badge-strong">רשימת בדיקה · 4 דקות</span>
           <h1 className="cchub-title-xl mt-5">איך עובדים עם Make ו-Zapier ב-CCHUB</h1>
-          <p className="cchub-text mt-5">אוטומציות מאפשרות לחבר את CCHUB לתהליכים חיצוניים, לקצר עבודה ידנית ולהעביר מידע בין מערכות.</p>
+          <p className="cchub-text mt-5">אוטומציות בחבילות Premium ו-Enterprise מאפשרות לחבר תהליכים חיצוניים. שמות הפעולות ואופן האימות עשויים להשתנות לפי המחבר והגרסה הזמינים בחשבון.</p>
         </div>
 
         <div className="mt-10 grid gap-7 lg:grid-cols-[1fr_0.8fr]">
@@ -51,8 +51,8 @@ export default function TutorialPage() {
             <div className="cchub-card p-6">
               <h2 className="text-2xl font-black">למה זה חשוב?</h2>
               <p className="mt-3 leading-8 text-slate-600">
-                מדריך זה עוזר להפוך עבודה מפוזרת לתהליך ברור, מתועד ומחובר
-                ללקוח, למשימות ולמידע החשוב במערכת.
+                זו רשימת בדיקה תפעולית. לפני הפעלה קבועה, בדקו את הפעולות
+                המוצגות במחבר שלכם והריצו תרחיש עם רשומה אחת בלבד.
               </p>
             </div>
 

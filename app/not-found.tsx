@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function NotFound() {
   return (
@@ -7,7 +8,7 @@ export default function NotFound() {
         <div className="mx-auto max-w-3xl rounded-[34px] border border-blue-100 bg-white p-10 text-center shadow-2xl">
           <Link href="/" className="cchub-brand justify-center" aria-label="CCHUB - עמוד הבית">
             <span className="cchub-logo-frame">
-              <img src="/cchub-logo.png" alt="CCHUB" className="cchub-logo" />
+              <Image src="/cchub-logo.png" alt="CCHUB" width={512} height={512} className="cchub-logo" />
             </span>
             <span className="cchub-brand-text">CCHUB</span>
           </Link>

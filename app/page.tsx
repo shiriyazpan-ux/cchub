@@ -154,12 +154,12 @@ const steps = [
   {
     number: "2",
     title: "מחברים מידע",
-    text: "מוסיפים לקוחות, נכסים, משימות ומסמכים.",
+    text: "מוסיפים לקוחות, נכסים, משימות ומידע הכלול בחבילה.",
   },
   {
     number: "3",
     title: "מסדרים ידע",
-    text: "שומרים סיסמאות, הערות והיסטוריה במקום אחד.",
+    text: "שומרים הערות והיסטוריה, ובחבילות המתאימות גם מסמכים, ידע וגישות.",
   },
   {
     number: "4",
@@ -184,8 +184,8 @@ export default function Home() {
             </h1>
 
             <p className="cchub-text mt-5 max-w-[720px]">
-              CCHUB מרכזת במקום אחד את כל מה שהעסק צריך כדי לעבוד מסודר באמת —
-              לקוחות, משימות, מסמכים, סיסמאות, נכסים דיגיטליים וידע. פחות
+              CCHUB מרכזת במקום אחד את העבודה סביב הלקוחות —
+              לקוחות, משימות, נכסים דיגיטליים ומידע עסקי, עם יכולות נוספות לפי החבילה. פחות
               חיפושים, פחות בלגן ופחות טעויות — ויותר שליטה, סדר, חיסכון בזמן
               ושקט בניהול היומיומי.
             </p>
@@ -235,7 +235,7 @@ export default function Home() {
                   <h2 className="text-2xl font-black leading-tight">שלום, שירי</h2>
                 </div>
 
-                <div className="cchub-chip">מערכת פעילה</div>
+                <div className="cchub-chip">הדגמת ממשק</div>
               </div>
 
               <div className="hero-app-grid">
@@ -543,6 +543,10 @@ export default function Home() {
         <span className="cchub-trial-badge">
           כל החבילות מתחילות ב־14 ימי ניסיון חינם
         </span>
+
+        <p className="mx-auto mt-3 max-w-2xl text-sm font-bold text-slate-500">
+          נדרש אמצעי תשלום. החיוב בתקופת הניסיון הוא 0 ₪ והמנוי מתחדש אוטומטית אם לא בוטל.
+        </p>
 
         <h2 className="mt-4 text-2xl font-black">
           בחרו את הדרך הנכונה עבור הסידור שלכם

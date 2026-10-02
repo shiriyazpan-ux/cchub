@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "מעקב זמן ועלויות במשימות: הדרך להבין רווחיות אמיתית | CCHUB",
-  description: "איך מעקב זמן עבודה ועלויות לפי משימה עוזר להבין רווחיות לקוחות, תמחור והתחשבנות.",
+  title: "מעקב זמן ועלויות במשימות: בסיס טוב להבנת רווחיות | CCHUB",
+  description: "איך מעקב זמן עבודה ועלויות לפי משימה מספק בסיס לבחינת רווחיות לקוחות, תמחור והתחשבנות.",
   alternates: { canonical: "/articles/task-time-costs" },
   openGraph: {
-    title: "מעקב זמן ועלויות במשימות: הדרך להבין רווחיות אמיתית | CCHUB",
-    description: "איך מעקב זמן עבודה ועלויות לפי משימה עוזר להבין רווחיות לקוחות, תמחור והתחשבנות.",
+    title: "מעקב זמן ועלויות במשימות: בסיס טוב להבנת רווחיות | CCHUB",
+    description: "איך מעקב זמן ועלויות מספק בסיס לבחינת רווחיות, תמחור והתחשבנות.",
     url: "https://cchub-dusky.vercel.app/articles/task-time-costs",
     siteName: "CCHUB",
     locale: "he_IL",
@@ -21,7 +21,7 @@ export default function ArticlePage() {
       <article className="cchub-container py-16">
         <div className="mx-auto max-w-4xl text-center">
           <span className="cchub-trial-badge-strong">מאמר מקצועי</span>
-          <h1 className="cchub-title-xl mt-5">מעקב זמן ועלויות במשימות: הדרך להבין רווחיות אמיתית</h1>
+          <h1 className="cchub-title-xl mt-5">מעקב זמן ועלויות במשימות: בסיס טוב להבנת רווחיות</h1>
           <p className="cchub-text mt-5">הרבה עסקים יודעים כמה הם גובים, אבל לא תמיד יודעים כמה זמן העבודה באמת לוקחת. בלי הנתון הזה קשה להבין רווחיות.</p>
         </div>
 
@@ -57,7 +57,7 @@ export default function ArticlePage() {
                 </div>
                 <div className="price-row rounded-2xl border border-blue-100 bg-blue-50 p-4">
                   <span className="price-row-mark">✓</span>
-                  <span className="price-row-text font-black">עלויות לפי משימה עוזרות להבין רווחיות.</span>
+                  <span className="price-row-text font-black">זמן ועלויות הם בסיס לבחינת רווחיות לצד נתוני ההכנסה.</span>
                 </div>
                 <div className="price-row rounded-2xl border border-blue-100 bg-blue-50 p-4">
                   <span className="price-row-mark">✓</span>
