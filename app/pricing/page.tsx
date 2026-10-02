@@ -3,15 +3,15 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "מחירים | חבילות CCHUB לניהול לקוחות ומשימות",
   description:
-    "חבילות CCHUB לניהול לקוחות, משימות, מסמכים, סיסמאות, ידע ונכסים דיגיטליים. Basic ב-199₪, Pro ב-499₪ ו-Business ב-999₪ לחודש כולל מע״מ, עם 7 ימי ניסיון חינם.",
+    "חבילות CCHUB לניהול לקוחות, משימות, מסמכים, סיסמאות, ידע ונכסים דיגיטליים. Solo Pro ב־99₪, Premium ב־199₪ ו־Enterprise ב־399₪ לחודש כולל מע״מ, עם 14 ימי ניסיון חינם.",
   alternates: {
     canonical: "/pricing",
   },
   openGraph: {
     title: "מחירים | CCHUB",
     description:
-      "בחרו חבילת CCHUB שמתאימה לעסק: Basic, Pro או Business לניהול לקוחות, משימות, מסמכים, סיסמאות, ידע, אוטומציות והרשאות.",
-    url: "https://www.mycchub.app/pricing",
+      "בחרו חבילת CCHUB שמתאימה לעסק: Solo Pro, Premium או Enterprise לניהול לקוחות, משימות, מסמכים, סיסמאות, ידע, אוטומציות והרשאות.",
+    url: "https://cchub-dusky.vercel.app/pricing",
     siteName: "CCHUB",
     locale: "he_IL",
     type: "website",
@@ -20,64 +20,63 @@ export const metadata: Metadata = {
 
 const plans = [
   {
-    name: "Solo Basic",
+    name: "Solo Pro",
     className: "basic",
     badge: "👤",
     tag: "לעסק בתחילת הדרך",
-    label: "7 ימי ניסיון חינם",
-    price: "199₪",
+    label: "14 ימי ניסיון חינם",
+    price: "99₪",
     priceText: "לחודש",
+    yearlyPrice: "990₪ לשנה",
     description: "לעסק שרוצה להתחיל לעבוד מסודר בלי מערכת כבדה.",
-    clients: "עד 50 לקוחות",
+    clients: "עד 200 לקוחות",
     users: "משתמש אחד",
-    cta: "התחילו Basic",
+    cta: "התחילו Solo Pro",
+    signupUrl: "https://mycchub.app/register?plan=solo-pro&billing=month",
+    yearlySignupUrl: "https://mycchub.app/register?plan=solo-pro&billing=year",
     features: [
-      "עד 50 לקוחות",
-      "ניהול לקוחות",
-      "ניהול משימות",
-      "ניהול מסמכים",
-      "ניהול סיסמאות",
-      "מרכז ידע",
-      "יבוא מאקסל",
+      "עד 200 לקוחות",
+      "ייבוא Excel",
+      "ניהול לקוחות, משימות ונכסים",
+      "אנשי קשר",
+      "גיבויים אוטומטיים",
+      "היסטוריית פעולות",
+      "דשבורד מלא",
     ],
     notIncluded: [
       "ייצוא אקסל",
-      "נכסים דיגיטליים",
       "לידים",
+      "מסמכים ומרכז ידע",
       "Make / Zapier",
       "משתמשים וצוותים",
       "הרשאות מתקדמות",
     ],
   },
   {
-    name: "Solo Pro",
+    name: "Premium",
     className: "pro",
     badge: "👑",
     tag: "הכי מומלץ",
-    label: "הכי מומלץ · 7 ימי ניסיון חינם",
-    price: "499₪",
+    label: "הכי מומלץ · 14 ימי ניסיון חינם",
+    price: "199₪",
     priceText: "לחודש",
+    yearlyPrice: "1,990₪ לשנה",
     description:
       "לעסק שרוצה תמונה מלאה של לקוחות, נכסים, משימות, ידע ואוטומציות.",
-    clients: "עד 500 לקוחות",
+    clients: "עד 1,000 לקוחות",
     users: "משתמש אחד",
-    cta: "התחילו Pro",
+    cta: "התחילו Premium",
+    signupUrl: "https://mycchub.app/register?plan=premium&billing=month",
+    yearlySignupUrl: "https://mycchub.app/register?plan=premium&billing=year",
     features: [
-      "עד 500 לקוחות",
-      "ניהול לקוחות",
-      "ניהול משימות",
-      "ניהול מסמכים",
-      "ניהול סיסמאות",
-      "מרכז ידע",
-      "נכסים דיגיטליים",
-      "לידים ולקוחות ממתינים",
-      "אנשי קשר",
-      "יבוא מאקסל",
-      "ייצוא אקסל",
-      "אינטגרציה Make / Zapier",
-      "גיבויים",
-      "פעילות מערכת",
-      "תמונה כללית מלאה",
+      "עד 1,000 לקוחות",
+      "כל היכולות של Solo Pro",
+      "לידים, מסמכים ומרכז ידע",
+      "אינטגרציות Make / Zapier",
+      "דוחות ותובנות מתקדמות",
+      "תגיות מותאמות אישית",
+      "ייבוא וייצוא Excel",
+      "תמיכה בעדיפות",
     ],
     notIncluded: [
       "משתמשים וצוותים",
@@ -86,35 +85,31 @@ const plans = [
     ],
   },
   {
-    name: "Business",
+    name: "Enterprise",
     className: "business",
     badge: "🏢",
     tag: "לצוותים ועסקים מתקדמים",
-    label: "7 ימי ניסיון חינם",
-    price: "999₪",
+    label: "14 ימי ניסיון חינם",
+    price: "399₪",
     priceText: "לחודש",
+    yearlyPrice: "3,990₪ לשנה",
     description:
       "לעסקים וצוותים שצריכים עבודה משותפת, הרשאות מתקדמות ואינטגרציות.",
     clients: "עד 5,000 לקוחות",
     users: "משתמשים וצוותים",
-    cta: "התחילו Business",
+    cta: "התחילו Enterprise",
+    signupUrl: "https://mycchub.app/register?plan=enterprise&billing=month",
+    yearlySignupUrl: "https://mycchub.app/register?plan=enterprise&billing=year",
     features: [
       "עד 5,000 לקוחות",
-      "ניהול לקוחות",
-      "ניהול משימות",
-      "ניהול מסמכים",
-      "ניהול סיסמאות",
-      "מרכז ידע",
-      "נכסים דיגיטליים",
-      "לידים",
-      "גיבויים",
-      "יבוא מאקסל",
-      "ייצוא אקסל",
-      "אינטגרציה Make / Zapier",
+      "כל היכולות של Premium",
+      "גישות וסיסמאות מוצפנות",
       "משתמשים וצוותים",
       "הרשאות מתקדמות",
       "הרשאות יבוא / יצוא לפי משתמש",
       "הרשאות אינטגרציות לפי משתמש",
+      "התראות ומעקב אחר מועדי יעד",
+      "תמיכה ייעודית",
     ],
     notIncluded: [],
   },
@@ -123,14 +118,20 @@ const plans = [
 const comparisonRows = [
   {
     label: "מחיר חודשי",
-    basic: "199₪",
-    pro: "499₪",
-    business: "999₪",
+    basic: "99₪",
+    pro: "199₪",
+    business: "399₪",
+  },
+  {
+    label: "מחיר שנתי",
+    basic: "990₪",
+    pro: "1,990₪",
+    business: "3,990₪",
   },
   {
     label: "כמות לקוחות",
-    basic: "עד 50",
-    pro: "עד 500",
+    basic: "עד 200",
+    pro: "עד 1,000",
     business: "עד 5,000",
   },
   {
@@ -153,8 +154,8 @@ const comparisonRows = [
   },
   {
     label: "מסמכים, סיסמאות וידע",
-    basic: "✓",
-    pro: "✓",
+    basic: "—",
+    pro: "מסמכים וידע",
     business: "✓",
   },
   {
@@ -203,20 +204,20 @@ const comparisonRows = [
 
 const faqs = [
   {
-    q: "האם יש 7 ימי ניסיון חינם?",
-    a: "כן. כל החבילות מתחילות ב־7 ימי ניסיון חינם כדי שתוכלו לבדוק את המערכת לפני התחייבות.",
+    q: "האם יש 14 ימי ניסיון חינם?",
+    a: "כן. כל החבילות מתחילות ב־14 ימי ניסיון חינם כדי שתוכלו לבדוק את המערכת לפני התחייבות.",
   },
   {
-    q: "האם Basic כולל ייצוא אקסל?",
-    a: "לא. Basic כולל יבוא מאקסל, אבל ייצוא אקסל קיים בחבילות Solo Pro ו-Business.",
+    q: "האם Solo Pro כולל ייצוא אקסל?",
+    a: "לא. Solo Pro כוללת יבוא מאקסל, וייצוא אקסל קיים בחבילות Premium ו־Enterprise.",
   },
   {
-    q: "למי מתאימה חבילת Solo Pro?",
-    a: "Solo Pro מתאימה לעסק שרוצה לנהל עד 500 לקוחות, נכסים דיגיטליים, לידים, אנשי קשר, גיבויים, פעילות מערכת ואינטגרציות.",
+    q: "למי מתאימה חבילת Premium?",
+    a: "Premium מתאימה לעסק שרוצה לנהל עד 1,000 לקוחות, נכסים דיגיטליים, לידים, אנשי קשר, גיבויים, פעילות מערכת ואינטגרציות.",
   },
   {
-    q: "מתי צריך Business?",
-    a: "Business מתאימה כשצריך עד 5,000 לקוחות, משתמשים וצוותים, הרשאות מתקדמות, הרשאות יבוא/יצוא לפי משתמש והרשאות אינטגרציות.",
+    q: "מתי צריך Enterprise?",
+    a: "Enterprise מתאימה כשצריך עד 5,000 לקוחות, משתמשים וצוותים, הרשאות מתקדמות, הרשאות יבוא/יצוא לפי משתמש והרשאות אינטגרציות.",
   },
 ];
 
@@ -228,15 +229,15 @@ export default function PricingPage() {
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#F7FBFF_0%,#EEF6FF_100%)]" />
 
         <div className="cchub-container relative py-16 text-center">
-          <span className="cchub-trial-badge-strong">7 ימי ניסיון חינם</span>
+          <span className="cchub-trial-badge-strong">14 ימי ניסיון חינם</span>
 
           <h1 className="cchub-title-xl mx-auto mt-5 max-w-4xl">
             חבילות CCHUB לניהול לקוחות, משימות, מסמכים וסיסמאות
           </h1>
 
           <p className="cchub-text mx-auto mt-5 max-w-3xl">
-            בחרו את החבילה שמתאימה לשלב שבו העסק נמצא: התחלה מסודרת עם Basic,
-            ניהול מלא עם Solo Pro, או עבודה בצוות עם הרשאות מתקדמות ב-Business.
+            בחרו את החבילה שמתאימה לשלב שבו העסק נמצא: התחלה מסודרת עם Solo Pro,
+            ניהול מלא עם Premium, או עבודה בצוות עם הרשאות מתקדמות ב־Enterprise.
           </p>
         </div>
       </section>
@@ -272,6 +273,10 @@ export default function PricingPage() {
                     {plan.priceText}
                   </span>
                 </div>
+
+                <p className="mt-2 text-sm font-black text-blue-700">
+                  או {plan.yearlyPrice}
+                </p>
 
                 <p className="mt-3 min-h-[58px] text-sm font-bold leading-7 text-slate-500">
                   {plan.description}
@@ -310,8 +315,11 @@ export default function PricingPage() {
               </div>
 
               <div className="price-actions">
-                <a className="cchub-button-primary" href="/login">
+                <a className="cchub-button-primary" href={plan.signupUrl}>
                   {plan.cta}
+                </a>
+                <a className="cchub-button-secondary" href={plan.yearlySignupUrl}>
+                  הרשמה שנתית
                 </a>
                 <a className="cchub-button-secondary" href="/features">
                   צפייה ביכולות
@@ -334,9 +342,9 @@ export default function PricingPage() {
           <div className="mt-8 overflow-hidden rounded-[26px] border border-blue-100 bg-white shadow-sm">
             <div className="grid grid-cols-4 bg-[#061A44] text-center text-sm font-black text-white">
               <div className="p-4 text-right">יכולת</div>
-              <div className="p-4">Solo Basic</div>
               <div className="p-4">Solo Pro</div>
-              <div className="p-4">Business</div>
+              <div className="p-4">Premium</div>
+              <div className="p-4">Enterprise</div>
             </div>
 
             {comparisonRows.map((row, index) => (
@@ -366,16 +374,16 @@ export default function PricingPage() {
               התחילו לפי רמת הסדר שאתם צריכים עכשיו
             </h2>
             <p className="mt-4 leading-8 text-slate-600">
-              Basic מתאים להתחלה מסודרת עד 50 לקוחות. Pro מתאים לעסק שרוצה עד
-              500 לקוחות, נכסים, לידים, ייצוא ואוטומציות. Business מתאים לעבודה
+              Solo Pro מתאימה להתחלה מסודרת עד 200 לקוחות. Premium מתאימה לעסק שרוצה עד
+              1,000 לקוחות, נכסים, לידים, ייצוא ואוטומציות. Enterprise מתאימה לעבודה
               בצוות ועד 5,000 לקוחות עם הרשאות מתקדמות.
             </p>
 
             <div className="mt-6 grid gap-3">
               {[
-                "רוצים להתחיל לנהל עד 50 לקוחות? Basic.",
-                "צריכים עד 500 לקוחות, נכסים, לידים, ייצוא ואינטגרציות? Pro.",
-                "יש צוות, הרשאות מתקדמות ועד 5,000 לקוחות? Business.",
+                "רוצים להתחיל לנהל עד 200 לקוחות? Solo Pro.",
+                "צריכים עד 1,000 לקוחות, נכסים, לידים, ייצוא ואינטגרציות? Premium.",
+                "יש צוות, הרשאות מתקדמות ועד 5,000 לקוחות? Enterprise.",
               ].map((item) => (
                 <div key={item} className="price-row rounded-2xl border border-blue-100 bg-blue-50 p-4">
                   <span className="price-row-mark">✓</span>
@@ -399,7 +407,7 @@ export default function PricingPage() {
       <section className="cchub-container cchub-section-tight">
         <div className="rounded-[30px] bg-[#061A44] px-8 py-9 text-center text-white shadow-2xl">
           <span className="inline-flex rounded-full bg-white/10 px-5 py-2 text-sm font-black text-blue-100">
-            מתחילים ב־7 ימי ניסיון חינם
+            מתחילים ב־14 ימי ניסיון חינם
           </span>
 
           <h2 className="mt-4 text-3xl font-black">
@@ -411,7 +419,7 @@ export default function PricingPage() {
           </p>
 
           <div className="mt-6 flex flex-wrap justify-center gap-4">
-            <a className="cchub-button-primary" href="/login">
+            <a className="cchub-button-primary" href="https://mycchub.app/register">
               התחילו ניסיון חינם
             </a>
             <a className="cchub-button-dark" href="/features">

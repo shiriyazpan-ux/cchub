@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "יכולות המערכת | מערכת לניהול לקוחות, משימות, מסמכים וסיסמאות",
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
     title: "יכולות המערכת | CCHUB",
     description:
       "כל היכולות המרכזיות של CCHUB לניהול לקוחות, משימות, מסמכים, סיסמאות, נכסים, ידע, עלויות וזמן עבודה במקום אחד.",
-    url: "https://www.mycchub.app/features",
+    url: "https://cchub-dusky.vercel.app/features",
     siteName: "CCHUB",
     locale: "he_IL",
     type: "website",
@@ -176,11 +177,11 @@ export default function FeaturesPage() {
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a className="cchub-button-primary" href="/pricing">
-              התחילו 7 ימי ניסיון חינם
+              התחילו 14 ימי ניסיון חינם
             </a>
-            <a className="cchub-button-secondary" href="/#pricing">
+            <Link className="cchub-button-secondary" href="/#pricing">
               צפייה בחבילות
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -381,7 +382,7 @@ export default function FeaturesPage() {
       <section className="cchub-container cchub-section-tight">
         <div className="rounded-[30px] bg-[#061A44] px-8 py-9 text-center text-white shadow-2xl">
           <span className="inline-flex rounded-full bg-white/10 px-5 py-2 text-sm font-black text-blue-100">
-            7 ימי ניסיון חינם
+            14 ימי ניסיון חינם
           </span>
 
           <h2 className="mt-4 text-3xl font-black">
@@ -395,7 +396,7 @@ export default function FeaturesPage() {
 
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <a className="cchub-button-primary" href="/pricing">
-              התחילו 7 ימי ניסיון חינם
+              התחילו 14 ימי ניסיון חינם
             </a>
             <a className="cchub-button-dark" href="/login">
               כניסה למערכת

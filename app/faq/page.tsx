@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "שאלות נפוצות | CCHUB",
   description:
-    "שאלות נפוצות על CCHUB: מערכת לניהול לקוחות, משימות, מסמכים, סיסמאות, נכסים דיגיטליים, יבוא מאקסל, ייצוא אקסל, Make, Zapier, הרשאות ו-7 ימי ניסיון חינם.",
+    "שאלות נפוצות על CCHUB: מערכת לניהול לקוחות, משימות, מסמכים, סיסמאות, נכסים דיגיטליים, יבוא מאקסל, ייצוא אקסל, Make, Zapier, הרשאות ו-14 ימי ניסיון חינם.",
   alternates: {
     canonical: "/faq",
   },
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "שאלות נפוצות | CCHUB",
     description:
       "כל מה שצריך לדעת על CCHUB לפני שמתחילים: חבילות, ניסיון חינם, יבוא מאקסל, הרשאות, אינטגרציות וניהול לקוחות.",
-    url: "https://www.mycchub.app/faq",
+    url: "https://cchub-dusky.vercel.app/faq",
     siteName: "CCHUB",
     locale: "he_IL",
     type: "website",
@@ -46,16 +46,16 @@ const faqGroups = [
     icon: "💳",
     questions: [
       {
-        q: "האם יש 7 ימי ניסיון חינם?",
-        a: "כן. כל החבילות מתחילות ב-7 ימי ניסיון חינם כדי שתוכלו לבדוק את המערכת לפני התחייבות.",
+        q: "האם יש 14 ימי ניסיון חינם?",
+        a: "כן. כל החבילות מתחילות ב-14 ימי ניסיון חינם כדי שתוכלו לבדוק את המערכת לפני התחייבות.",
       },
       {
-        q: "מה ההבדל בין Basic, Pro ו-Business?",
-        a: "Basic מתאים להתחלה מסודרת עד 50 לקוחות. Pro מתאים לניהול מלא עד 500 לקוחות, כולל נכסים דיגיטליים, לידים, ייצוא ואינטגרציות. Business מתאים לעבודה בצוות עד 5,000 לקוחות, כולל הרשאות מתקדמות.",
+        q: "מה ההבדל בין Solo Pro, Premium ו־Enterprise?",
+        a: "Solo Pro מתאימה להתחלה מסודרת עד 200 לקוחות. Premium מתאימה לניהול מלא עד 1,000 לקוחות, כולל נכסים דיגיטליים, לידים, ייצוא ואינטגרציות. Enterprise מתאימה לעבודה בצוות עד 5,000 לקוחות, כולל הרשאות מתקדמות.",
       },
       {
         q: "כמה עולה כל חבילה?",
-        a: "Solo Basic עולה 49$ לחודש, Solo Pro עולה 149$ לחודש, ו-Business עולה 299$ לחודש.",
+        a: "Solo Pro עולה 99₪ לחודש או 990₪ לשנה, Premium עולה 199₪ לחודש או 1,990₪ לשנה, ו־Enterprise עולה 399₪ לחודש או 3,990₪ לשנה. המחירים כוללים מע״מ.",
       },
       {
         q: "אפשר להתחיל בחבילה קטנה ולעבור לחבילה גדולה יותר?",
@@ -69,11 +69,11 @@ const faqGroups = [
     questions: [
       {
         q: "האם אפשר לייבא נתונים מאקסל?",
-        a: "כן. יבוא מאקסל קיים גם ב-Basic וגם בחבילות המתקדמות, כדי לאפשר התחלה מהירה בלי להזין הכול ידנית.",
+        a: "כן. יבוא מאקסל קיים גם ב־Solo Pro וגם בחבילות המתקדמות, כדי לאפשר התחלה מהירה בלי להזין הכול ידנית.",
       },
       {
-        q: "האם Basic כולל ייצוא אקסל?",
-        a: "לא. Basic כולל יבוא מאקסל בלבד. ייצוא אקסל קיים בחבילות Solo Pro ו-Business.",
+        q: "האם Solo Pro כוללת ייצוא אקסל?",
+        a: "לא. Solo Pro כוללת יבוא מאקסל בלבד. ייצוא אקסל קיים בחבילות Premium ו־Enterprise.",
       },
       {
         q: "האם יש חיבור ל-Make או Zapier?",
@@ -81,7 +81,7 @@ const faqGroups = [
       },
       {
         q: "האם אפשר לשלוט מי רשאי לייבא או לייצא נתונים?",
-        a: "בחבילת Business ניתן לעבוד עם הרשאות מתקדמות, כולל הרשאות יבוא / יצוא והרשאות אינטגרציות לפי משתמש.",
+        a: "בחבילת Enterprise ניתן לעבוד עם הרשאות מתקדמות, כולל הרשאות יבוא / יצוא והרשאות אינטגרציות לפי משתמש.",
       },
     ],
   },
@@ -117,7 +117,7 @@ const faqGroups = [
       },
       {
         q: "האם יש הרשאות לפי משתמשים?",
-        a: "כן. בחבילות המתאימות, ובעיקר ב-Business, ניתן לעבוד עם משתמשים וצוותים והרשאות מתקדמות לפי צורך.",
+        a: "כן. בחבילות המתאימות, ובעיקר ב־Enterprise, ניתן לעבוד עם משתמשים וצוותים והרשאות מתקדמות לפי צורך.",
       },
       {
         q: "האם לקוחות יכולים להיכנס למערכת?",
@@ -154,12 +154,12 @@ export default function FAQPage() {
 
           <p className="cchub-text mx-auto mt-5 max-w-3xl">
             ריכזנו תשובות לשאלות החשובות על ניהול לקוחות, משימות, מסמכים,
-            סיסמאות, יבוא מאקסל, ייצוא, אינטגרציות, הרשאות ו-7 ימי ניסיון חינם.
+            סיסמאות, יבוא מאקסל, ייצוא, אינטגרציות, הרשאות ו-14 ימי ניסיון חינם.
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a className="cchub-button-primary" href="/pricing">
-              התחילו 7 ימי ניסיון חינם
+              התחילו 14 ימי ניסיון חינם
             </a>
             <a className="cchub-button-secondary" href="/features">
               צפייה ביכולות
@@ -216,7 +216,7 @@ export default function FAQPage() {
       <section className="cchub-container cchub-section-tight">
         <div className="rounded-[30px] bg-[#061A44] px-8 py-9 text-center text-white shadow-2xl">
           <span className="inline-flex rounded-full bg-white/10 px-5 py-2 text-sm font-black text-blue-100">
-            7 ימי ניסיון חינם
+            14 ימי ניסיון חינם
           </span>
 
           <h2 className="mt-4 text-3xl font-black">
@@ -230,7 +230,7 @@ export default function FAQPage() {
 
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <a className="cchub-button-primary" href="/pricing">
-              התחילו 7 ימי ניסיון חינם
+              התחילו 14 ימי ניסיון חינם
             </a>
             <a className="cchub-button-dark" href="/login">
               כניסה למערכת

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "מאמרים | CCHUB",
     description:
       "תוכן מקצועי על ניהול לקוחות, סדר בעסק, CRM בעברית, ניהול משימות, מסמכים, סיסמאות וידע.",
-    url: "https://www.mycchub.app/articles",
+    url: "https://cchub-dusky.vercel.app/articles",
     siteName: "CCHUB",
     locale: "he_IL",
     type: "website",
@@ -167,7 +167,7 @@ export default function ArticlesPage() {
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a className="cchub-button-primary" href="/pricing">
-              התחילו 7 ימי ניסיון חינם
+              התחילו 14 ימי ניסיון חינם
             </a>
             <a className="cchub-button-secondary" href="/features">
               צפייה ביכולות המערכת
@@ -343,7 +343,7 @@ export default function ArticlesPage() {
       <section className="cchub-container cchub-section-tight">
         <div className="rounded-[30px] bg-[#061A44] px-8 py-9 text-center text-white shadow-2xl">
           <span className="inline-flex rounded-full bg-white/10 px-5 py-2 text-sm font-black text-blue-100">
-            7 ימי ניסיון חינם
+            14 ימי ניסיון חינם
           </span>
 
           <h2 className="mt-4 text-3xl font-black">
@@ -356,7 +356,7 @@ export default function ArticlesPage() {
           </p>
 
           <div className="mt-6 flex flex-wrap justify-center gap-4">
-            <a className="cchub-button-primary" href="/pricing">התחילו 7 ימי ניסיון חינם</a>
+            <a className="cchub-button-primary" href="/pricing">התחילו 14 ימי ניסיון חינם</a>
             <a className="cchub-button-dark" href="/login">כניסה למערכת</a>
           </div>
         </div>

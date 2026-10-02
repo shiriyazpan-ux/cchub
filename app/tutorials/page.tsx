@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "טוטריאלים | CCHUB",
     description:
       "מדריכים קצרים לשימוש ב-CCHUB: איך מוסיפים לקוח, מייבאים אקסל, מנהלים משימות, שומרים סיסמאות ומרכזים ידע.",
-    url: "https://www.mycchub.app/tutorials",
+    url: "https://cchub-dusky.vercel.app/tutorials",
     siteName: "CCHUB",
     locale: "he_IL",
     type: "website",
@@ -125,7 +125,7 @@ const tutorialGroups = [
       {
         title: "איך מנהלים הרשאות משתמשים",
         time: "6 דקות",
-        level: "Business",
+        level: "Enterprise",
         href: "/tutorials/user-permissions",
         text: "הגדרת משתמשים, צוותים והרשאות מתקדמות לעסקים שעובדים עם כמה אנשים.",
       },
@@ -158,7 +158,7 @@ export default function TutorialsPage() {
             דיגיטליים, יבוא מאקסל, זמן עבודה, עלויות והרשאות.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <a className="cchub-button-primary" href="/pricing">התחילו 7 ימי ניסיון חינם</a>
+            <a className="cchub-button-primary" href="/pricing">התחילו 14 ימי ניסיון חינם</a>
             <a className="cchub-button-secondary" href="/features">צפייה ביכולות המערכת</a>
           </div>
         </div>
@@ -258,11 +258,11 @@ export default function TutorialsPage() {
           <span className="inline-flex rounded-full bg-white/10 px-5 py-2 text-sm font-black text-blue-100">התחלה פשוטה</span>
           <h2 className="mt-4 text-3xl font-black">הדרך הכי טובה ללמוד היא להתחיל לעבוד עם לקוח ראשון</h2>
           <p className="mx-auto mt-3 max-w-2xl text-blue-100">
-            התחילו 7 ימי ניסיון חינם, פתחו תיק לקוח ראשון, והוסיפו משימה,
+            התחילו 14 ימי ניסיון חינם, פתחו תיק לקוח ראשון, והוסיפו משימה,
             מסמך או סיסמה ראשונה.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
-            <a className="cchub-button-primary" href="/pricing">התחילו 7 ימי ניסיון חינם</a>
+            <a className="cchub-button-primary" href="/pricing">התחילו 14 ימי ניסיון חינם</a>
             <a className="cchub-button-dark" href="/login">כניסה למערכת</a>
           </div>
         </div>

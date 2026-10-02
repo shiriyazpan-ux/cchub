@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 const navItems = [
   { href: "/", label: "עמוד הבית" },
@@ -24,7 +25,7 @@ export default function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-blue-100 bg-white/95 backdrop-blur">
       <div className="cchub-container cchub-header flex items-center justify-between">
-        <a href="/" className="cchub-brand" aria-label="CCHUB - עמוד הבית">
+        <Link href="/" className="cchub-brand" aria-label="CCHUB - עמוד הבית">
           <span className="cchub-logo-frame">
             <img
               src="/cchub-logo.png"
@@ -33,7 +34,7 @@ export default function SiteHeader() {
             />
           </span>
           <span className="cchub-brand-text">CCHUB</span>
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="ניווט ראשי">
           {navItems.map((item) => (
@@ -49,7 +50,7 @@ export default function SiteHeader() {
 
         <div className="hidden items-center gap-3 lg:flex">
           <a className="cchub-button-primary" href="/pricing">
-            7 ימי ניסיון חינם
+            14 ימי ניסיון חינם
           </a>
           <a className="cchub-button-secondary" href="/login">
             כניסה למערכת
@@ -93,7 +94,7 @@ export default function SiteHeader() {
 
             <div className="mt-4 grid gap-2">
               <a className="cchub-button-primary justify-center" href="/pricing">
-                7 ימי ניסיון חינם
+                14 ימי ניסיון חינם
               </a>
               <a className="cchub-button-secondary justify-center" href="/login">
                 כניסה למערכת

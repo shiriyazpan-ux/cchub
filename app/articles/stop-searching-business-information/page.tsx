@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "איך מפסיקים לחפש סיסמאות, מסמכים והודעות ישנות? | CCHUB",
     description: "כך מפסיקים לחפש מידע עסקי בין וואטסאפ, מיילים, דרייבים ואקסלים ומתחילים לרכז לקוחות, מסמכים, סיסמאות וידע במקום אחד.",
-    url: "https://www.mycchub.app/articles/stop-searching-business-information",
+    url: "https://cchub-dusky.vercel.app/articles/stop-searching-business-information",
     siteName: "CCHUB",
     locale: "he_IL",
     type: "article",
@@ -80,13 +80,13 @@ export default function ArticlePage() {
         </div>
 
         <div className="mx-auto mt-10 max-w-5xl rounded-[30px] bg-[#061A44] p-8 text-center text-white">
-          <span className="inline-flex rounded-full bg-white/10 px-5 py-2 text-sm font-black text-blue-100">7 ימי ניסיון חינם</span>
+          <span className="inline-flex rounded-full bg-white/10 px-5 py-2 text-sm font-black text-blue-100">14 ימי ניסיון חינם</span>
           <h2 className="mt-4 text-3xl font-black">רוצים להפוך את זה לשיטת עבודה אמיתית?</h2>
           <p className="mx-auto mt-3 max-w-2xl text-blue-100">
             CCHUB מרכזת לקוחות, משימות, מסמכים, סיסמאות, נכסים דיגיטליים וידע כדי שהמידע לא יישאר מפוזר.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
-            <a className="cchub-button-primary" href="/pricing">התחילו 7 ימי ניסיון חינם</a>
+            <a className="cchub-button-primary" href="/pricing">התחילו 14 ימי ניסיון חינם</a>
             <a className="cchub-button-dark" href="/tutorials">מעבר לטוטריאלים</a>
           </div>
         </div>

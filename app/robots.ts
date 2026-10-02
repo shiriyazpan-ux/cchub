@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = "https://www.mycchub.app";
+  const baseUrl = "https://cchub-dusky.vercel.app";
 
   return {
     rules: [

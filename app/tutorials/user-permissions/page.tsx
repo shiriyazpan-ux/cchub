@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "איך מנהלים הרשאות משתמשים ב-CCHUB | מדריך CCHUB",
-  description: "מדריך לניהול משתמשים, צוותים והרשאות מתקדמות ב-CCHUB בחבילת Business.",
+  description: "מדריך לניהול משתמשים, צוותים והרשאות מתקדמות ב-CCHUB בחבילת Enterprise.",
   alternates: { canonical: "/tutorials/user-permissions" },
 };
 
@@ -27,7 +27,7 @@ export default function TutorialPage() {
 
       <section className="cchub-container py-16">
         <div className="mx-auto max-w-4xl text-center">
-          <span className="cchub-trial-badge-strong">מדריך Business · 6 דקות</span>
+          <span className="cchub-trial-badge-strong">מדריך Enterprise · 6 דקות</span>
           <h1 className="cchub-title-xl mt-5">איך מנהלים הרשאות משתמשים ב-CCHUB</h1>
           <p className="cchub-text mt-5">הרשאות עוזרות לשלוט מי יכול לראות, לערוך, לייבא, לייצא או לחבר אינטגרציות במערכת.</p>
         </div>
@@ -77,7 +77,7 @@ export default function TutorialPage() {
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <a className="cchub-button-primary" href="/tutorials">חזרה למרכז ההדרכה</a>
-            <a className="cchub-button-dark" href="/pricing">7 ימי ניסיון חינם</a>
+            <a className="cchub-button-dark" href="/pricing">14 ימי ניסיון חינם</a>
           </div>
         </div>
       </section>

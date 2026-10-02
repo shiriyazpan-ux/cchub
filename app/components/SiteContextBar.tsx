@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 type ContextItem = {
   href: string;
@@ -97,9 +98,9 @@ export default function SiteContextBar() {
     <section className="border-b border-blue-100 bg-[#F6FAFF]">
       <div className="cchub-container py-3">
         <div className="flex flex-wrap items-center gap-2 text-sm font-black text-slate-500">
-          <a className="text-blue-700 hover:text-blue-900" href="/">
+          <Link className="text-blue-700 hover:text-blue-900" href="/">
             עמוד הבית
-          </a>
+          </Link>
 
           <span className="text-slate-300">/</span>
 

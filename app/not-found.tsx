@@ -1,14 +1,16 @@
+import Link from "next/link";
+
 export default function NotFound() {
   return (
     <main dir="rtl" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
       <section className="cchub-container flex min-h-screen items-center justify-center py-16">
         <div className="mx-auto max-w-3xl rounded-[34px] border border-blue-100 bg-white p-10 text-center shadow-2xl">
-          <a href="/" className="cchub-brand justify-center" aria-label="CCHUB - עמוד הבית">
+          <Link href="/" className="cchub-brand justify-center" aria-label="CCHUB - עמוד הבית">
             <span className="cchub-logo-frame">
               <img src="/cchub-logo.png" alt="CCHUB" className="cchub-logo" />
             </span>
             <span className="cchub-brand-text">CCHUB</span>
-          </a>
+          </Link>
 
           <div className="mt-8 text-7xl font-black text-blue-100">404</div>
 
@@ -20,7 +22,7 @@ export default function NotFound() {
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <a className="cchub-button-primary" href="/">חזרה לעמוד הבית</a>
+            <Link className="cchub-button-primary" href="/">חזרה לעמוד הבית</Link>
             <a className="cchub-button-secondary" href="/features">יכולות המערכת</a>
             <a className="cchub-button-secondary" href="/pricing">מחירים</a>
             <a className="cchub-button-secondary" href="/tutorials">טוטריאלים</a>

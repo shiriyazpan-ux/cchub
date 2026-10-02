@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "ניהול סיסמאות בעסק: למה וואטסאפ הוא לא מקום לסיסמאות? | CCHUB",
     description: "למה לא כדאי לנהל סיסמאות וגישה לעסק בוואטסאפ, ואיך לשמור גישות לפי לקוח ונכס דיגיטלי.",
-    url: "https://www.mycchub.app/articles/business-password-management",
+    url: "https://cchub-dusky.vercel.app/articles/business-password-management",
     siteName: "CCHUB",
     locale: "he_IL",
     type: "article",
@@ -81,14 +81,14 @@ export default function ArticlePage() {
         </div>
 
         <div className="mx-auto mt-10 max-w-5xl rounded-[30px] bg-[#061A44] p-8 text-center text-white">
-          <span className="inline-flex rounded-full bg-white/10 px-5 py-2 text-sm font-black text-blue-100">7 ימי ניסיון חינם</span>
+          <span className="inline-flex rounded-full bg-white/10 px-5 py-2 text-sm font-black text-blue-100">14 ימי ניסיון חינם</span>
           <h2 className="mt-4 text-3xl font-black">רוצים לראות איך זה עובד בפועל?</h2>
           <p className="mx-auto mt-3 max-w-2xl text-blue-100">
             CCHUB מרכזת לקוחות, משימות, מסמכים, סיסמאות, נכסים דיגיטליים וידע
             במקום אחד — כדי שהעסק יעבוד מסודר יותר.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
-            <a className="cchub-button-primary" href="/pricing">התחילו 7 ימי ניסיון חינם</a>
+            <a className="cchub-button-primary" href="/pricing">התחילו 14 ימי ניסיון חינם</a>
             <a className="cchub-button-dark" href="/tutorials">מעבר לטוטריאלים</a>
           </div>
         </div>

@@ -89,71 +89,58 @@ const afterItems = [
 
 const plans = [
   {
-    name: "Business",
+    name: "Enterprise",
     className: "business",
     badge: "🏢",
-    label: "7 ימי ניסיון חינם",
-    price: "999₪",
+    label: "14 ימי ניסיון חינם",
+    price: "399₪",
+    yearlyPrice: "3,990₪ לשנה",
     text: "לעסקים וצוותים שצריכים עבודה משותפת, הרשאות מתקדמות ואינטגרציות.",
     items: [
-      "עד 500 לקוחות",
-      "ניהול לקוחות",
-      "ניהול משימות",
-      "ניהול מסמכים",
-      "ניהול סיסמאות",
-      "מרכז ידע",
-      "נכסים דיגיטליים",
-      "לידים",
-      "גיבויים",
-      "יבוא מאקסל",
-      "ייצוא אקסל",
-      "אינטגרציה Make / Zapier",
+      "עד 5,000 לקוחות",
+      "כל היכולות של Premium",
+      "גישות וסיסמאות מוצפנות",
       "משתמשים וצוותים",
       "הרשאות מתקדמות",
-      "הרשאות יבוא / יצוא לפי משתמש",
-      "הרשאות אינטגרציות לפי משתמש",
+      "התראות ומעקב אחר מועדי יעד",
+      "תמיכה ייעודית",
+    ],
+  },
+  {
+    name: "Premium",
+    className: "pro",
+    badge: "👑",
+    label: "הכי מומלץ · 14 ימי ניסיון חינם",
+    price: "199₪",
+    yearlyPrice: "1,990₪ לשנה",
+    text: "לעסק שרוצה תמונה מלאה של לקוחות, נכסים, משימות, ידע ואוטומציות.",
+    items: [
+      "עד 1,000 לקוחות",
+      "כל היכולות של Solo Pro",
+      "לידים, מסמכים ומרכז ידע",
+      "אינטגרציות Make / Zapier",
+      "דוחות ותובנות מתקדמות",
+      "תגיות מותאמות אישית",
+      "ייבוא וייצוא Excel",
+      "תמיכה בעדיפות",
     ],
   },
   {
     name: "Solo Pro",
-    className: "pro",
-    badge: "👑",
-    label: "הכי מומלץ · 7 ימי ניסיון חינם",
-    price: "499₪",
-    text: "לעסק שרוצה תמונה מלאה של לקוחות, נכסים, משימות, ידע ואוטומציות.",
-    items: [
-      "עד 200 לקוחות",
-      "ניהול לקוחות",
-      "ניהול משימות",
-      "ניהול מסמכים",
-      "ניהול סיסמאות",
-      "מרכז ידע",
-      "נכסים דיגיטליים",
-      "לידים ולקוחות ממתינים",
-      "אנשי קשר",
-      "יבוא מאקסל",
-      "ייצוא אקסל",
-      "אינטגרציה Make / Zapier",
-      "גיבויים",
-      "פעילות מערכת",
-      "תמונה כללית מלאה",
-    ],
-  },
-  {
-    name: "Solo Basic",
     className: "basic",
     badge: "👤",
-    label: "7 ימי ניסיון חינם",
-    price: "199₪",
+    label: "14 ימי ניסיון חינם",
+    price: "99₪",
+    yearlyPrice: "990₪ לשנה",
     text: "לעסק שרוצה להתחיל לעבוד מסודר בלי מערכת כבדה.",
     items: [
-      "עד 50 לקוחות",
-      "ניהול לקוחות",
-      "ניהול משימות",
-      "ניהול מסמכים",
-      "ניהול סיסמאות",
-      "מרכז ידע",
-      "יבוא מאקסל",
+      "עד 200 לקוחות",
+      "ייבוא Excel",
+      "ניהול לקוחות, משימות ונכסים",
+      "אנשי קשר",
+      "גיבויים אוטומטיים",
+      "היסטוריית פעולות",
+      "דשבורד מלא",
     ],
   },
 ];
@@ -162,7 +149,7 @@ const steps = [
   {
     number: "1",
     title: "פותחים חשבון",
-    text: "נרשמים ל־7 ימי ניסיון חינם ומתחילים לנהל לקוח ראשון.",
+    text: "נרשמים ל־14 ימי ניסיון חינם ומתחילים לנהל לקוח ראשון.",
   },
   {
     number: "2",
@@ -223,7 +210,7 @@ export default function Home() {
 
             <div className="mt-7 flex flex-wrap gap-4">
               <a className="cchub-button-primary" href="/pricing">
-                התחילו 7 ימי ניסיון חינם
+                התחילו 14 ימי ניסיון חינם
               </a>
               <a className="cchub-button-secondary" href="/login">כניסה למערכת</a>
             </div>
@@ -268,7 +255,7 @@ export default function Home() {
 
       <section className="bg-white">
         <div className="cchub-container cchub-section-tight text-center">
-          <span className="cchub-trial-badge">מתחילים עם 7 ימי ניסיון חינם</span>
+          <span className="cchub-trial-badge">מתחילים עם 14 ימי ניסיון חינם</span>
 
           <h2 className="cchub-title-lg mt-4">
             הבעיה היא לא שאין לכם מידע. הבעיה היא שהוא מפוזר.
@@ -554,7 +541,7 @@ export default function Home() {
 
       <section className="cchub-container py-8 text-center" id="pricing">
         <span className="cchub-trial-badge">
-          כל החבילות מתחילות ב־7 ימי ניסיון חינם
+          כל החבילות מתחילות ב־14 ימי ניסיון חינם
         </span>
 
         <h2 className="mt-4 text-2xl font-black">
@@ -588,6 +575,10 @@ export default function Home() {
 
                 <div className="mt-4 flex items-end justify-center gap-1"><span className="text-5xl font-black text-[#061A44]">{plan.price}</span><span className="pb-2 text-sm font-black text-slate-500">לחודש</span></div>
 
+                <div className="mt-2 text-sm font-black text-blue-700">
+                  או {plan.yearlyPrice}
+                </div>
+
                 <p className="mt-2 min-h-[42px] text-sm font-bold text-slate-500">
                   {plan.text}
                 </p>
@@ -606,7 +597,7 @@ export default function Home() {
 
               <div className="price-actions">
                 <a className="cchub-button-primary" href="/pricing">
-                  התחילו 7 ימי ניסיון
+                  התחילו 14 ימי ניסיון
                 </a>
                 <a className="cchub-button-secondary" href="/login">
                   כניסה למערכת
@@ -643,7 +634,7 @@ export default function Home() {
         <div className="rounded-[30px] bg-[#061A44] px-8 py-9 text-center text-white shadow-2xl">
           <div className="mb-4">
             <span className="inline-flex rounded-full bg-white/10 px-5 py-2 text-sm font-black text-blue-100">
-              7 ימי ניסיון חינם
+              14 ימי ניסיון חינם
             </span>
           </div>
 
@@ -657,7 +648,7 @@ export default function Home() {
 
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <a className="cchub-button-primary" href="/pricing">
-              התחילו 7 ימי ניסיון חינם
+              התחילו 14 ימי ניסיון חינם
             </a>
             <a className="cchub-button-dark" href="/login">כניסה למערכת</a>
           </div>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "CCHUB | Customer Control Hub",
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
     title: "CCHUB | Customer Control Hub",
     description:
       "Manage clients, tasks, documents, passwords, digital assets and knowledge in one organized workspace.",
-    url: "https://www.mycchub.app/en",
+    url: "https://cchub-dusky.vercel.app/en",
     siteName: "CCHUB",
     locale: "en_US",
     type: "website",
@@ -57,20 +58,20 @@ const features = [
 
 const plans = [
   {
-    name: "Solo Basic",
-    price: "$49",
-    clients: "Up to 50 clients",
+    name: "Solo Pro",
+    price: "₪99",
+    clients: "Up to 200 clients",
     text: "For a solo business that wants to start working in a more organized way.",
   },
   {
-    name: "Solo Pro",
-    price: "$149",
-    clients: "Up to 500 clients",
+    name: "Premium",
+    price: "₪199",
+    clients: "Up to 1,000 clients",
     text: "For businesses that need digital assets, leads, contacts, export and automations.",
   },
   {
-    name: "Business",
-    price: "$299",
+    name: "Enterprise",
+    price: "₪399",
     clients: "Up to 5,000 clients",
     text: "For teams that need advanced permissions, users, integrations and broader control.",
   },
@@ -97,11 +98,11 @@ export default function EnglishPage() {
 
             <div className="mt-8 flex flex-wrap gap-4">
               <a className="cchub-button-primary" href="/pricing">
-                Start 7-day free trial
+                Start 14-day free trial
               </a>
-              <a className="cchub-button-secondary" href="/">
+              <Link className="cchub-button-secondary" href="/">
                 Go to Hebrew site
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -156,7 +157,7 @@ export default function EnglishPage() {
             <p className="text-sm font-black text-blue-600">Pricing</p>
             <h2 className="cchub-title-lg mt-2">Start small and grow when needed</h2>
             <p className="mx-auto mt-4 max-w-3xl leading-8 text-slate-600">
-              All plans include a 7-day free trial. Choose the plan based on the
+              All plans include a 14-day free trial. Choose the plan based on the
               number of clients, the level of control and the features your business needs.
             </p>
           </div>
@@ -164,7 +165,7 @@ export default function EnglishPage() {
           <div className="mt-9 grid gap-6 md:grid-cols-3">
             {plans.map((plan) => (
               <article key={plan.name} className="price-card text-center">
-                <div className="price-label">7-day free trial</div>
+                <div className="price-label">14-day free trial</div>
                 <h3 className="font-en mt-6 text-3xl font-black">{plan.name}</h3>
                 <div className="font-en mt-4 text-5xl font-black">{plan.price}</div>
                 <div className="mt-2 text-sm font-black text-slate-500">per month</div>
@@ -186,7 +187,7 @@ export default function EnglishPage() {
       <section className="cchub-container cchub-section-tight">
         <div className="rounded-[30px] bg-[#061A44] px-8 py-9 text-center text-white shadow-2xl">
           <span className="inline-flex rounded-full bg-white/10 px-5 py-2 text-sm font-black text-blue-100">
-            7-day free trial
+            14-day free trial
           </span>
           <h2 className="mt-4 text-3xl font-black">
             Stop searching. Start managing.
@@ -197,7 +198,7 @@ export default function EnglishPage() {
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <a className="cchub-button-primary" href="/pricing">Start free trial</a>
-            <a className="cchub-button-dark" href="/">עברית</a>
+            <Link className="cchub-button-dark" href="/">עברית</Link>
           </div>
         </div>
       </section>

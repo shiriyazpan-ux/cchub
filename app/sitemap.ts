@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const baseUrl = "https://www.mycchub.app";
+const baseUrl = "https://cchub-dusky.vercel.app";
 
 const routes = [
   "",

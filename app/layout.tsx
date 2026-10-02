@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Heebo, Inter } from "next/font/google";
+import Link from "next/link";
 import "./globals.css";
 import SiteHeader from "./components/SiteHeader";
 import SiteContextBar from "./components/SiteContextBar";
@@ -17,13 +18,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.mycchub.app"),
+  metadataBase: new URL("https://cchub-dusky.vercel.app"),
   title: {
     default: "CCHUB | מערכת לניהול לקוחות, משימות, מסמכים וסיסמאות",
     template: "%s | CCHUB",
   },
   description:
-    "CCHUB היא מערכת בעברית ובאנגלית לניהול לקוחות, משימות, מסמכים, סיסמאות, נכסים דיגיטליים וידע במקום אחד. התחילו 7 ימי ניסיון חינם.",
+    "CCHUB היא מערכת בעברית ובאנגלית לניהול לקוחות, משימות, מסמכים, סיסמאות, נכסים דיגיטליים וידע במקום אחד. התחילו 14 ימי ניסיון חינם.",
   keywords: [
     "מערכת לניהול לקוחות",
     "CRM בעברית",
@@ -50,7 +51,7 @@ export const metadata: Metadata = {
     title: "CCHUB | מערכת לניהול לקוחות, משימות, מסמכים וסיסמאות",
     description:
       "נהלו לקוחות, משימות, מסמכים, סיסמאות, נכסים דיגיטליים וידע במקום אחד — פשוט, נקי והגיוני.",
-    url: "https://www.mycchub.app",
+    url: "https://cchub-dusky.vercel.app",
     siteName: "CCHUB",
     locale: "he_IL",
     type: "website",
@@ -59,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "CCHUB | מערכת לניהול לקוחות, משימות, מסמכים וסיסמאות",
     description:
-      "מערכת אחת לניהול לקוחות, משימות, מסמכים, סיסמאות, נכסים וידע. 7 ימי ניסיון חינם.",
+      "מערכת אחת לניהול לקוחות, משימות, מסמכים, סיסמאות, נכסים וידע. 14 ימי ניסיון חינם.",
   },
   robots: {
     index: true,
@@ -90,7 +91,7 @@ export default function RootLayout({
             <div className="font-en font-bold">© 2026 CCHUB</div>
 
             <div className="flex flex-wrap items-center justify-center gap-5">
-              <a href="/">עמוד הבית</a>
+              <Link href="/">עמוד הבית</Link>
               <a href="/features">יכולות המערכת</a>
               <a href="/pricing">מחירים</a>
               <a href="/faq">שאלות נפוצות</a>

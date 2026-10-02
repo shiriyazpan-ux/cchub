@@ -76,7 +76,7 @@ export default function TutorialPage() {
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <a className="cchub-button-primary" href="/tutorials/make-zapier">למדריך Make / Zapier</a>
-            <a className="cchub-button-dark" href="/pricing">7 ימי ניסיון חינם</a>
+            <a className="cchub-button-dark" href="/pricing">14 ימי ניסיון חינם</a>
           </div>
         </div>
       </section>
