@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "איך לנהל לקוחות קבועים בלי לאבד מידע? | CCHUB",
     description: "שיטה לניהול לקוחות קבועים לאורך זמן באמצעות תיק לקוח, משימות, מסמכים, סיסמאות, נכסים דיגיטליים ומרכז ידע.",
-    url: "https://cchub-dusky.vercel.app/articles/manage-long-term-clients",
+    url: "https://web.mycchub.app/articles/manage-long-term-clients",
     siteName: "CCHUB",
     locale: "he_IL",
     type: "article",

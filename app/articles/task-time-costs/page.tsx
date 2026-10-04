@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "מעקב זמן ועלויות במשימות: בסיס טוב להבנת רווחיות | CCHUB",
     description: "איך מעקב זמן ועלויות מספק בסיס לבחינת רווחיות, תמחור והתחשבנות.",
-    url: "https://cchub-dusky.vercel.app/articles/task-time-costs",
+    url: "https://web.mycchub.app/articles/task-time-costs",
     siteName: "CCHUB",
     locale: "he_IL",
     type: "article",

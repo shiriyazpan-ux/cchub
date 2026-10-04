@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "CCHUB | Customer Control Hub",
     description:
       "Manage clients, tasks, digital assets and business information, with clearly defined features for each plan.",
-    url: "https://cchub-dusky.vercel.app/en",
+    url: "https://web.mycchub.app/en",
     siteName: "CCHUB",
     locale: "en_US",
     type: "website",

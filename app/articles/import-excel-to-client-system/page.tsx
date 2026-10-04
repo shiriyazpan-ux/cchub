@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "יבוא מאקסל למערכת ניהול: איך לעשות את זה נכון? | CCHUB",
     description: "מדריך להכנת קובץ Excel נקי, התאמת עמודות ובדיקת הנתונים לאחר היבוא.",
-    url: "https://cchub-dusky.vercel.app/articles/import-excel-to-client-system",
+    url: "https://web.mycchub.app/articles/import-excel-to-client-system",
     siteName: "CCHUB",
     locale: "he_IL",
     type: "article",

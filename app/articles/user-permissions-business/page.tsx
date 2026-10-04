@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "הרשאות משתמשים: למה לא כל אחד צריך לראות הכול? | CCHUB",
     description: "למה חשוב לנהל הרשאות משתמשים בעסק, במיוחד בייבוא, ייצוא, אינטגרציות וגישה למידע רגיש.",
-    url: "https://cchub-dusky.vercel.app/articles/user-permissions-business",
+    url: "https://web.mycchub.app/articles/user-permissions-business",
     siteName: "CCHUB",
     locale: "he_IL",
     type: "article",

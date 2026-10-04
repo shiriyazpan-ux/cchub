@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "שאלות נפוצות | CCHUB",
     description:
       "כל מה שצריך לדעת על CCHUB לפני שמתחילים: חבילות, ניסיון חינם, יבוא מאקסל, הרשאות, אינטגרציות וניהול לקוחות.",
-    url: "https://cchub-dusky.vercel.app/faq",
+    url: "https://web.mycchub.app/faq",
     siteName: "CCHUB",
     locale: "he_IL",
     type: "website",

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "טוטריאלים | CCHUB",
     description:
       "מדריכים קצרים לשימוש ב-CCHUB: הוספת לקוח, יבוא אקסל, ניהול משימות, מסמכים, נכסים והרשאות.",
-    url: "https://cchub-dusky.vercel.app/tutorials",
+    url: "https://web.mycchub.app/tutorials",
     siteName: "CCHUB",
     locale: "he_IL",
     type: "website",

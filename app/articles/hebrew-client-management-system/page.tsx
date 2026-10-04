@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "מערכת לניהול לקוחות בעברית: מה באמת חשוב לבדוק? | CCHUB",
     description: "איך לבחור מערכת לניהול לקוחות בעברית, מה ההבדל בין CRM רגיל לבין מערכת תפעולית, ואילו יכולות חשובות לעסק קטן או נותן שירותים.",
-    url: "https://cchub-dusky.vercel.app/articles/hebrew-client-management-system",
+    url: "https://web.mycchub.app/articles/hebrew-client-management-system",
     siteName: "CCHUB",
     locale: "he_IL",
     type: "article",

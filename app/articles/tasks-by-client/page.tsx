@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "ניהול משימות לפי לקוח: למה זה משנה את כל העבודה? | CCHUB",
     description: "למה ניהול משימות לפי לקוח ונכס דיגיטלי חשוב יותר מרשימת משימות כללית, ואיך זה עוזר לשלוט בזמן, עלויות והיסטוריית עבודה.",
-    url: "https://cchub-dusky.vercel.app/articles/tasks-by-client",
+    url: "https://web.mycchub.app/articles/tasks-by-client",
     siteName: "CCHUB",
     locale: "he_IL",
     type: "article",

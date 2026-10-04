@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: "יכולות המערכת | CCHUB",
     description:
       "היכולות של CCHUB לניהול לקוחות, משימות, נכסים ומידע עסקי, עם סימון ברור של החבילה שבה כל יכולת זמינה.",
-    url: "https://cchub-dusky.vercel.app/features",
+    url: "https://web.mycchub.app/features",
     siteName: "CCHUB",
     locale: "he_IL",
     type: "website",

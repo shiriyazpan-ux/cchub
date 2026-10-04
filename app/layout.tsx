@@ -4,6 +4,7 @@ import Link from "next/link";
 import "./globals.css";
 import SiteHeader from "./components/SiteHeader";
 import SiteContextBar from "./components/SiteContextBar";
+import Analytics from "./components/Analytics";
 
 const heebo = Heebo({
   subsets: ["hebrew", "latin"],
@@ -18,7 +19,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://cchub-dusky.vercel.app"),
+  metadataBase: new URL("https://web.mycchub.app"),
   title: {
     default: "CCHUB | מערכת לניהול לקוחות, משימות ומידע עסקי",
     template: "%s | CCHUB",
@@ -51,7 +52,7 @@ export const metadata: Metadata = {
     title: "CCHUB | מערכת לניהול לקוחות, משימות ומידע עסקי",
     description:
       "נהלו לקוחות, משימות, נכסים דיגיטליים ומידע עסקי במקום אחד, עם יכולות נוספות לפי החבילה.",
-    url: "https://cchub-dusky.vercel.app",
+    url: "https://web.mycchub.app",
     siteName: "CCHUB",
     locale: "he_IL",
     type: "website",
@@ -81,6 +82,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body suppressHydrationWarning>
+        <Analytics />
         <SiteHeader />
         <SiteContextBar />
 

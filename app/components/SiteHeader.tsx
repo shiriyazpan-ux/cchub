@@ -4,6 +4,7 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import { trackCta } from "../lib/analytics";
 
 const navItems = [
   { href: "/", label: "עמוד הבית" },
@@ -52,7 +53,7 @@ export default function SiteHeader() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <a className="cchub-button-primary" href="/pricing">
+          <a className="cchub-button-primary" href="/pricing" onClick={() => trackCta({ location: "header_desktop" })}>
             14 ימי ניסיון חינם
           </a>
           <a className="cchub-button-secondary" href="/login">
@@ -96,7 +97,7 @@ export default function SiteHeader() {
             </nav>
 
             <div className="mt-4 grid gap-2">
-              <a className="cchub-button-primary justify-center" href="/pricing">
+              <a className="cchub-button-primary justify-center" href="/pricing" onClick={() => trackCta({ location: "header_mobile" })}>
                 14 ימי ניסיון חינם
               </a>
               <a className="cchub-button-secondary justify-center" href="/login">

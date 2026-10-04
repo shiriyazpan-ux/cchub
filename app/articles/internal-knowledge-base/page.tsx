@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "מרכז ידע פנימי: הנכס הכי מוזנח בעסק קטן | CCHUB",
     description: "למה מרכז ידע פנימי חשוב לעסק קטן, ואיך לשמור החלטות, נהלים, סיכומי פגישות ותובנות במקום אחד.",
-    url: "https://cchub-dusky.vercel.app/articles/internal-knowledge-base",
+    url: "https://web.mycchub.app/articles/internal-knowledge-base",
     siteName: "CCHUB",
     locale: "he_IL",
     type: "article",

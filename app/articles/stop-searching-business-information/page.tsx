@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "איך מפסיקים לחפש סיסמאות, מסמכים והודעות ישנות? | CCHUB",
     description: "כך מפסיקים לחפש מידע עסקי בין וואטסאפ, מיילים, דרייבים ואקסלים ומתחילים לרכז לקוחות, מסמכים, סיסמאות וידע במקום אחד.",
-    url: "https://cchub-dusky.vercel.app/articles/stop-searching-business-information",
+    url: "https://web.mycchub.app/articles/stop-searching-business-information",
     siteName: "CCHUB",
     locale: "he_IL",
     type: "article",

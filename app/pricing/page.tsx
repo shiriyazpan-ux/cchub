@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import AnalyticsLink from "../components/AnalyticsLink";
 
 export const metadata: Metadata = {
   title: "מחירים | חבילות CCHUB לניהול לקוחות ומשימות",
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
     title: "מחירים | CCHUB",
     description:
       "בחרו חבילת CCHUB שמתאימה לעסק: Solo Pro, Premium או Enterprise, עם פירוט מדויק של היכולות בכל חבילה.",
-    url: "https://cchub-dusky.vercel.app/pricing",
+    url: "https://web.mycchub.app/pricing",
     siteName: "CCHUB",
     locale: "he_IL",
     type: "website",
@@ -327,12 +328,12 @@ export default function PricingPage() {
               </div>
 
               <div className="price-actions">
-                <a className="cchub-button-primary" href={plan.signupUrl}>
+                <AnalyticsLink className="cchub-button-primary" href={plan.signupUrl} location="pricing_monthly">
                   {plan.cta}
-                </a>
-                <a className="cchub-button-secondary" href={plan.yearlySignupUrl}>
+                </AnalyticsLink>
+                <AnalyticsLink className="cchub-button-secondary" href={plan.yearlySignupUrl} location="pricing_yearly">
                   הרשמה שנתית
-                </a>
+                </AnalyticsLink>
                 <a className="cchub-button-secondary" href="/features">
                   צפייה ביכולות
                 </a>
@@ -432,9 +433,9 @@ export default function PricingPage() {
           </p>
 
           <div className="mt-6 flex flex-wrap justify-center gap-4">
-            <a className="cchub-button-primary" href="https://mycchub.app/register">
+            <AnalyticsLink className="cchub-button-primary" href="https://mycchub.app/register" location="pricing_footer">
               התחילו ניסיון חינם
-            </a>
+            </AnalyticsLink>
             <a className="cchub-button-dark" href="/features">
               חזרה ליכולות
             </a>

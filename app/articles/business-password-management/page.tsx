@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "ניהול סיסמאות בעסק: למה וואטסאפ הוא לא מקום לסיסמאות? | CCHUB",
     description: "למה לא כדאי לנהל סיסמאות וגישה לעסק בוואטסאפ, ואיך לשמור גישות לפי לקוח ונכס דיגיטלי.",
-    url: "https://cchub-dusky.vercel.app/articles/business-password-management",
+    url: "https://web.mycchub.app/articles/business-password-management",
     siteName: "CCHUB",
     locale: "he_IL",
     type: "article",

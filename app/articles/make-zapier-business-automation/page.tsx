@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Make ו-Zapier: מתי אוטומציה באמת עוזרת לעסק? | CCHUB",
     description: "איך לדעת מתי כדאי לחבר אוטומציה עם Make או Zapier, ומה צריך להגדיר לפני שמחברים תהליך אוטומטי.",
-    url: "https://cchub-dusky.vercel.app/articles/make-zapier-business-automation",
+    url: "https://web.mycchub.app/articles/make-zapier-business-automation",
     siteName: "CCHUB",
     locale: "he_IL",
     type: "article",

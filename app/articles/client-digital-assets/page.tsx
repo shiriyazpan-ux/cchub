@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "נכסים דיגיטליים של לקוח: איך עושים סדר באתרים, דומיינים ומערכות? | CCHUB",
     description: "איך לנהל נכסים דיגיטליים של לקוחות: אתרים, דומיינים, מערכות, חשבונות ופלטפורמות בצורה מסודרת.",
-    url: "https://cchub-dusky.vercel.app/articles/client-digital-assets",
+    url: "https://web.mycchub.app/articles/client-digital-assets",
     siteName: "CCHUB",
     locale: "he_IL",
     type: "article",

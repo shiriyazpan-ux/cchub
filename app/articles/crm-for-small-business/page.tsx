@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "CRM לעסק קטן: מתי צריך CRM ומתי צריך מערכת תפעולית? | CCHUB",
     description: "מה ההבדל בין CRM לעסק קטן לבין מערכת תפעולית לניהול לקוחות, משימות, מסמכים וסיסמאות.",
-    url: "https://cchub-dusky.vercel.app/articles/crm-for-small-business",
+    url: "https://web.mycchub.app/articles/crm-for-small-business",
     siteName: "CCHUB",
     locale: "he_IL",
     type: "article",
