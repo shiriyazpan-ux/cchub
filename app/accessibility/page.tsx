@@ -66,8 +66,8 @@ export default function AccessibilityPage() {
             <p className="mt-4 leading-9 text-slate-600">
               ניתן לפנות אלינו בכתובת
               {" "}
-              <a className="font-bold text-blue-700 underline" href="mailto:support@mycchub.app">
-                support@mycchub.app
+              <a className="font-bold text-blue-700 underline" href="mailto:mycchubapp@gmail.com">
+                mycchubapp@gmail.com
               </a>
               . נבדוק את הפנייה ונעשה מאמץ לספק מענה או חלופה נגישה בזמן סביר.
             </p>

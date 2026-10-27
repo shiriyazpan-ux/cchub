@@ -1,661 +1,348 @@
-const dashboardCards = [
-  { title: "לקוחות", value: "128", text: "סה״כ לקוחות", icon: "👥" },
-  { title: "משימות", value: "32", text: "פתוחות", icon: "✅" },
-  { title: "נכסים", value: "74", text: "סה״כ נכסים", icon: "🧊" },
-  { title: "מסמכים", value: "156", text: "מסמכים", icon: "📁" },
-  { title: "סיסמאות", value: "43", text: "גישות", icon: "🔒" },
-  { title: "מרכז ידע", value: "89", text: "פריטי ידע", icon: "📘" },
-];
+import Icon from "./components/Icon";
+import Reveal from "./components/Reveal";
+import VideoShowcase from "./components/VideoShowcase";
 
-const sidebarIcons = ["☰", "👥", "✅", "🧊", "📁", "🔒", "📘", "📊", "⚙️"];
+const tools = ["וואטסאפ", "מיילים", "דרייב", "אקסלים", "פתקים", "סיסמאות בצ׳אט"];
 
-const problems = [
-  { title: "וואטסאפ", icon: "💬" },
-  { title: "מיילים", icon: "✉️" },
-  { title: "דרייב", icon: "🔺" },
-  { title: "אקסלים", icon: "📊" },
-  { title: "פתקים", icon: "📝" },
-  { title: "סיסמאות", icon: "🔑" },
-];
-
-const flow = [
-  { title: "לקוח", icon: "👥" },
-  { title: "נכסים", icon: "🧊" },
-  { title: "משימות", icon: "✅" },
-  { title: "מסמכים", icon: "📁" },
-  { title: "סיסמאות", icon: "🔒" },
-  { title: "ידע", icon: "📘" },
-];
-
-const audiences = [
-  {
-    title: "מנהלי שיווק",
-    text: "לנהל לקוחות, נכסים, גישות ומשימות בלי לרדוף אחרי מידע.",
-    icon: "📣",
-  },
-  {
-    title: "סוכנויות קטנות",
-    text: "מקום אחד לצוות, למסמכים, למשימות ולתיעוד העבודה.",
-    icon: "🏢",
-  },
-  {
-    title: "פרילנסרים מתקדמים",
-    text: "להיראות מסודרים ומקצועיים גם כשעובדים לבד.",
-    icon: "👤",
-  },
-  {
-    title: "יועצים",
-    text: "לשמור ידע, החלטות וסיכומי עבודה לפי לקוח.",
-    icon: "💡",
-  },
-  {
-    title: "נותני שירותים",
-    text: "לרכז לקוחות קבועים, משימות פתוחות ומסמכים במקום אחד.",
-    icon: "💼",
-  },
-  {
-    title: "עסקים עם לקוחות קבועים",
-    text: "לנהל קשר ארוך טווח בלי לאבד מידע בדרך.",
-    icon: "🤝",
-  },
+const modules = [
+  { icon: "task", label: "משימות עם זמן ועלות" },
+  { icon: "globe", label: "נכסים דיגיטליים" },
+  { icon: "file", label: "מסמכים והצעות מחיר" },
+  { icon: "lock", label: "גישות וסיסמאות מוצפנות" },
+  { icon: "book", label: "מרכז ידע וסיכומי פגישות" },
+  { icon: "users", label: "אנשי קשר וצוות" },
 ];
 
 const features = [
-  { title: "ניהול לקוחות", icon: "👥" },
-  { title: "ניהול משימות", icon: "✅" },
-  { title: "ניהול נכסים", icon: "🧊" },
-  { title: "ניהול מסמכים", icon: "📁" },
-  { title: "ניהול סיסמאות", icon: "🔒" },
-  { title: "מרכז ידע", icon: "📘" },
-  { title: "יבוא מאקסל", icon: "📥" },
-  { title: "ייצוא אקסל", icon: "📤" },
-  { title: "Make / Zapier", icon: "🔗" },
-  { title: "הרשאות", icon: "🛡️" },
+  { icon: "search", title: "חיפוש גלובלי ⌘K", text: "לקוח, משימה, מסמך או סיסמה – חיפוש אחד מכל מסך." },
+  { icon: "funnel", title: "לידים ושלבי מכירה", text: "כל פנייה נכנסת ללוח, ועוברת מליד חדש ועד סגירה." },
+  { icon: "clock", title: "זמן ועלות לכל משימה", text: "יודעים כמה זמן הלך על כל לקוח – ומה לחייב." },
+  { icon: "lock", title: "סיסמאות מוצפנות", text: "גישות לכל לקוח ונכס, בהצפנת AES-256." },
+  { icon: "moon", title: "מצב בהיר וכהה", text: "נעים לעיניים, גם בעשר בלילה." },
+  { icon: "languages", title: "עברית ו־English", text: "מערכת מלאה בשתי השפות, בלחיצה אחת." },
+  { icon: "import", title: "ייבוא וייצוא Excel", text: "מעבירים את הלקוחות מאקסל – בלי להקליד מחדש." },
+  { icon: "shield", title: "צוות והרשאות", text: "כל אחד רואה רק את מה שהוא צריך. גיבוי יומי בכל החבילות." },
 ];
 
-const beforeItems = [
-  "מידע מפוזר בכמה כלים",
-  "משימות נשכחות",
-  "סיסמאות בצ׳אטים",
-  "מסמכים בדרייב",
-];
-
-const afterItems = [
-  "כל המידע במקום אחד",
-  "חיפוש מהיר ושקט",
-  "פחות טעויות ויותר שקט",
-  "שליטה מלאה ושיתוף קל",
+const audiences = [
+  { icon: "megaphone", title: "מנהלי שיווק", text: "לקוחות, נכסים, גישות ומשימות – בלי לרדוף אחרי מידע." },
+  { icon: "briefcase", title: "סוכנויות קטנות", text: "מקום אחד לצוות, למסמכים, למשימות ולתיעוד העבודה." },
+  { icon: "user", title: "פרילנסרים", text: "להיראות מסודרים ומקצועיים גם כשעובדים לבד." },
+  { icon: "bulb", title: "יועצים", text: "ידע, החלטות וסיכומי עבודה – לפי לקוח." },
+  { icon: "building", title: "נותני שירותים", text: "לקוחות קבועים, משימות פתוחות ומסמכים במקום אחד." },
+  { icon: "handshake", title: "עסקים עם לקוחות קבועים", text: "קשר ארוך טווח, בלי לאבד מידע בדרך." },
 ];
 
 const plans = [
   {
-    name: "Enterprise",
-    className: "business",
-    badge: "🏢",
-    label: "14 ימי ניסיון חינם",
-    price: "399₪",
-    yearlyPrice: "3,990₪ לשנה",
-    text: "לעסקים וצוותים שצריכים עבודה משותפת, הרשאות מתקדמות ואינטגרציות.",
-    items: [
-      "עד 5,000 לקוחות",
-      "כל היכולות של Premium",
-      "גישות וסיסמאות מוצפנות",
-      "משתמשים וצוותים",
-      "הרשאות מתקדמות",
-      "התראות ומעקב אחר מועדי יעד",
-      "תמיכה ייעודית",
-    ],
+    name: "Solo Pro",
+    text: "לעסק שרוצה להתחיל לעבוד מסודר בלי מערכת כבדה.",
+    price: "99₪",
+    yearly: "או 990₪ לשנה",
+    items: ["עד 200 לקוחות", "ניהול לקוחות, משימות ונכסים", "ייבוא Excel ואנשי קשר", "גיבויים אוטומטיים ודשבורד מלא"],
+    hot: false,
   },
   {
     name: "Premium",
-    className: "pro",
-    badge: "👑",
-    label: "הכי מומלץ · 14 ימי ניסיון חינם",
+    text: "תמונה מלאה של לקוחות, נכסים, משימות, ידע ואוטומציות.",
     price: "199₪",
-    yearlyPrice: "1,990₪ לשנה",
-    text: "לעסק שרוצה תמונה מלאה של לקוחות, נכסים, משימות, ידע ואוטומציות.",
-    items: [
-      "עד 1,000 לקוחות",
-      "כל היכולות של Solo Pro",
-      "לידים, מסמכים ומרכז ידע",
-      "אינטגרציות Make / Zapier",
-      "דוחות ותובנות מתקדמות",
-      "תגיות מותאמות אישית",
-      "ייבוא וייצוא Excel",
-      "תמיכה בעדיפות",
-    ],
+    yearly: "או 1,990₪ לשנה",
+    items: ["עד 1,000 לקוחות", "לידים, מסמכים ומרכז ידע", "אינטגרציות Make / Zapier", "דוחות, תגיות וייצוא Excel"],
+    hot: true,
   },
   {
-    name: "Solo Pro",
-    className: "basic",
-    badge: "👤",
-    label: "14 ימי ניסיון חינם",
-    price: "99₪",
-    yearlyPrice: "990₪ לשנה",
-    text: "לעסק שרוצה להתחיל לעבוד מסודר בלי מערכת כבדה.",
-    items: [
-      "עד 200 לקוחות",
-      "ייבוא Excel",
-      "ניהול לקוחות, משימות ונכסים",
-      "אנשי קשר",
-      "גיבויים אוטומטיים",
-      "היסטוריית פעולות",
-      "דשבורד מלא",
-    ],
+    name: "Enterprise",
+    text: "לצוותים שצריכים עבודה משותפת, הרשאות מתקדמות ואינטגרציות.",
+    price: "399₪",
+    yearly: "או 3,990₪ לשנה",
+    items: ["עד 5,000 לקוחות", "גישות וסיסמאות מוצפנות", "משתמשים, צוותים והרשאות", "התראות ותמיכה ייעודית"],
+    hot: false,
   },
 ];
 
 const steps = [
-  {
-    number: "1",
-    title: "פותחים חשבון",
-    text: "נרשמים ל־14 ימי ניסיון חינם ומתחילים לנהל לקוח ראשון.",
-  },
-  {
-    number: "2",
-    title: "מחברים מידע",
-    text: "מוסיפים לקוחות, נכסים, משימות ומידע הכלול בחבילה.",
-  },
-  {
-    number: "3",
-    title: "מסדרים ידע",
-    text: "שומרים הערות והיסטוריה, ובחבילות המתאימות גם מסמכים, ידע וגישות.",
-  },
-  {
-    number: "4",
-    title: "מתחילים לנהל",
-    text: "רואים תמונה ברורה ועובדים הרבה יותר שקט.",
-  },
+  { title: "פותחים חשבון", text: "נרשמים ל־14 ימי ניסיון ומתחילים עם לקוח ראשון." },
+  { title: "מחברים מידע", text: "מוסיפים לקוחות, נכסים ומשימות – או מייבאים מאקסל." },
+  { title: "מסדרים ידע", text: "שומרים הערות, מסמכים וגישות בתיק של כל לקוח." },
+  { title: "מתחילים לנהל", text: "רואים תמונה ברורה ועובדים הרבה יותר שקט." },
 ];
 
 export default function Home() {
   return (
-    <main dir="rtl" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
+    <main style={{ background: "#f5f8fa", color: "#0a1a33", overflowX: "hidden" }}>
+      <Reveal />
 
-      <section className="relative overflow-hidden border-b border-blue-100">
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,#F7FBFF_0%,#EEF6FF_100%)]" />
-
-        <div className="cchub-container cchub-hero relative grid items-center gap-10 pt-2 pb-8 lg:grid-cols-[1fr_1.05fr]">
-          <div className="text-right">
-            <h1 className="cchub-title-xl max-w-[620px]">
-              די לחפש.
-              <br />
-              תתחילו לנהל.
-            </h1>
-
-            <p className="cchub-text mt-5 max-w-[720px]">
-              CCHUB מרכזת במקום אחד את העבודה סביב הלקוחות —
-              לקוחות, משימות, נכסים דיגיטליים ומידע עסקי, עם יכולות נוספות לפי החבילה. פחות
-              חיפושים, פחות בלגן ופחות טעויות — ויותר שליטה, סדר, חיסכון בזמן
-              ושקט בניהול היומיומי.
+      {/* HERO */}
+      <section className="h-grid-bg" style={{ padding: "88px 0 104px" }}>
+        <div className="h-wrap h-cols">
+          <div style={{ display: "flex", flexDirection: "column", gap: 26 }}>
+            <span className="h-eyebrow"><span className="h-dot" />מערכת לניהול לקוחות · עברית ו־English</span>
+            <h1 className="h-h1">די לחפש.<br /><span className="h-teal2">תתחילו לנהל.</span></h1>
+            <p className="h-lead">
+              CCHUB מרכזת במקום אחד את כל העבודה סביב הלקוח: משימות, נכסים דיגיטליים, מסמכים, גישות וידע.
+              פחות חיפושים ופחות בלגן, יותר שליטה ושקט.
             </p>
-
-            <div className="mt-5 max-w-[720px] rounded-3xl border border-blue-100 bg-white/80 p-5 shadow-sm">
-              <div className="flex items-start gap-3">
-                <span className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl bg-blue-600 text-lg text-white">
-                  ✨
-                </span>
-                <div>
-                  <div className="text-lg font-black text-[#061A44]">
-                    המערכת מדברת בשפה של העסק שלכם
-                  </div>
-                  <p className="mt-2 text-base font-bold leading-8 text-slate-600">
-                    אצלכם “לקוחות” יכולים להיות גם ספקים, מוצרים, נכסים, פרויקטים
-                    או כל דבר אחר שאתם מנהלים. ניתן להתאים את שמות הערכים במערכת
-                    לשפה הפנימית של העסק.
-                  </p>
-                </div>
-              </div>
+            <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
+              <a className="h-btn h-btn-teal" href="/pricing">התחילו 14 ימי ניסיון חינם <Icon name="arrow" size={20} /></a>
+              <a className="h-btn h-btn-ghost" href="#video">צפו בסיור של 30 שניות</a>
             </div>
-
-            <div className="mt-7 flex flex-wrap gap-4">
-              <a className="cchub-button-primary" href="/pricing">
-                התחילו 14 ימי ניסיון חינם
-              </a>
-              <a className="cchub-button-secondary" href="/login">כניסה למערכת</a>
+            <div className="h-checks">
+              <span><Icon name="check" size={18} />חיוב 0 ₪ בתקופת הניסיון</span>
+              <span><Icon name="check" size={18} />גיבוי אוטומטי יומי</span>
+              <span><Icon name="check" size={18} />מימין לשמאל, כמו שצריך</span>
             </div>
           </div>
 
-          <div className="hero-app-shell">
-            <aside className="hero-app-sidebar" aria-label="תפריט מערכת לדוגמה">
-              {sidebarIcons.map((icon, index) => (
-                <div
-                  key={icon}
-                  className={`hero-app-sidebar-icon ${index === 0 ? "active" : ""}`}
-                >
-                  {icon}
-                </div>
-              ))}
-            </aside>
-
-            <div className="hero-app-content">
-              <div className="hero-app-top">
-                <div>
-                  <p className="text-sm font-black text-slate-400">ברוכים הבאים</p>
-                  <h2 className="text-2xl font-black leading-tight">שלום, שירי</h2>
-                </div>
-
-                <div className="cchub-chip">הדגמת ממשק</div>
+          <div style={{ position: "relative" }}>
+            <div className="h-mock" aria-label="הדמיה של לוח הבקרה ב־CCHUB" role="img">
+              <div className="h-mock-bar">
+                <i style={{ background: "#ff5f57" }} /><i style={{ background: "#febc2e" }} /><i style={{ background: "#28c840" }} />
+                <span className="h-mock-url">web.mycchub.app</span>
               </div>
-
-              <div className="hero-app-grid">
-                {dashboardCards.map((card) => (
-                  <div key={card.title} className="hero-app-card">
-                    <div className="hero-app-card-icon">{card.icon}</div>
-                    <h3 className="hero-app-card-title">{card.title}</h3>
-                    <div className="hero-app-card-value">{card.value}</div>
-                    <p className="hero-app-card-sub">{card.text}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white">
-        <div className="cchub-container cchub-section-tight text-center">
-          <span className="cchub-trial-badge">מתחילים עם 14 ימי ניסיון חינם</span>
-
-          <h2 className="cchub-title-lg mt-4">
-            הבעיה היא לא שאין לכם מידע. הבעיה היא שהוא מפוזר.
-          </h2>
-
-          <div className="mx-auto mt-7 grid max-w-5xl grid-cols-2 gap-4 md:grid-cols-6">
-            {problems.map((item) => (
-              <div
-                key={item.title}
-                className="rounded-2xl border border-red-100 bg-red-50 px-4 py-5 text-base font-black"
-              >
-                <div className="mb-2 text-2xl">{item.icon}</div>
-                {item.title}
-              </div>
-            ))}
-          </div>
-
-          <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-slate-600">
-            כל עסק מגיע לרגע שבו המידע כבר קיים — אבל קשה למצוא אותו, לחבר אותו
-            ולהבין מה צריך לקרות עכשיו.
-          </p>
-        </div>
-      </section>
-
-      <section className="cchub-container cchub-section text-center">
-        <h2 className="cchub-title-lg">
-          CCHUB מחברת את כל חלקי העבודה סביב הלקוח
-        </h2>
-
-        <div className="mt-8 grid gap-4 md:grid-cols-6">
-          {flow.map((item) => (
-            <div key={item.title} className="cchub-mini-card p-5">
-              <div className="mb-2 text-3xl">{item.icon}</div>
-              <div className="text-lg font-black">{item.title}</div>
-            </div>
-          ))}
-        </div>
-
-        <p className="mx-auto mt-5 max-w-3xl leading-8 text-slate-600">
-          לא עוד מודולים מנותקים. כל דבר מחובר ללקוח, לנכס ולתהליך העבודה.
-        </p>
-      </section>
-
-      <section className="cchub-container cchub-section-tight">
-        <div className="interface-shell">
-          <div className="interface-top">
-            <div>
-              <p className="text-sm font-black text-blue-600">ממשק עבודה לדוגמה</p>
-              <h2 className="mt-1 text-2xl font-black">תיק לקוח: דוגמה בע״מ</h2>
-            </div>
-
-            <div className="hidden rounded-full bg-blue-50 px-4 py-2 text-sm font-black text-blue-700 md:block">
-              הכל מחובר ללקוח אחד
-            </div>
-          </div>
-
-          <div className="interface-content">
-            <div className="interface-module">
-              <h3 className="interface-module-title">משימות אחרונות</h3>
-
-              <div className="task-list">
-                {[
-                  ["בדיקת הצעת מחיר", "באיחור", "status-orange"],
-                  ["עדכון אתר", "בתהליך", "status-blue"],
-                  ["פגישה חודשית", "הושלם", "status-green"],
-                  ["העלאת מסמך חדש", "חדש", "status-purple"],
-                ].map(([title, status, className]) => (
-                  <div key={title} className="task-item">
-                    <span>{title}</span>
-                    <span className={`status-pill ${className}`}>{status}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="interface-stats">
-                <div className="interface-stat">
-                  <div className="text-2xl font-black text-blue-600">12</div>
-                  <div className="text-xs font-black text-slate-400">משימות</div>
-                </div>
-                <div className="interface-stat">
-                  <div className="text-2xl font-black text-blue-600">8</div>
-                  <div className="text-xs font-black text-slate-400">מסמכים</div>
-                </div>
-                <div className="interface-stat">
-                  <div className="text-2xl font-black text-blue-600">4</div>
-                  <div className="text-xs font-black text-slate-400">נכסים</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="interface-module">
-              <h3 className="interface-module-title">נכסים, מסמכים וידע</h3>
-
-              <div className="asset-grid">
-                {[
-                  ["🌐", "אתר ראשי", "נכס דיגיטלי"],
-                  ["📄", "הצעת מחיר.pdf", "מסמך"],
-                  ["🔐", "פרטי אחסון", "גישה שמורה"],
-                  ["📘", "סיכום פגישה", "פריט ידע"],
-                ].map(([icon, title, sub]) => (
-                  <div key={title} className="asset-card">
-                    <div className="asset-card-icon">{icon}</div>
-                    <div className="asset-card-title">{title}</div>
-                    <div className="asset-card-sub">{sub}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="cchub-container grid gap-7 py-6 lg:grid-cols-[1.08fr_0.92fr]">
-        <div className="cchub-card p-7">
-          <h2 className="mb-5 text-3xl font-black">תיק לקוח מסודר</h2>
-
-          <div className="grid gap-4 md:grid-cols-2">
-            {[
-              "משימות פתוחות",
-              "נכסים פעילים",
-              "מסמכים אחרונים",
-              "סיסמאות שמורות",
-              "ידע פנימי",
-              "פעילות אחרונה",
-            ].map((item) => (
-              <div
-                key={item}
-                className="rounded-2xl border border-slate-100 bg-slate-50 p-5"
-              >
-                <div className="font-black text-blue-700">{item}</div>
-                <div className="mt-4 h-2 w-3/4 rounded-full bg-blue-100" />
-                <div className="mt-2 h-2 w-1/2 rounded-full bg-blue-100" />
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-6 rounded-3xl border border-blue-100 bg-white p-5">
-            <div className="mb-4 flex items-center justify-between gap-4">
-              <div>
-                <h3 className="text-xl font-black text-[#061A44]">סיכום תיק הלקוח</h3>
-                <p className="mt-1 text-sm font-bold text-slate-500">
-                  חלוקה מהירה של המידע לפי קטגוריות.
-                </p>
-              </div>
-              <div className="rounded-full bg-blue-50 px-4 py-2 text-sm font-black text-blue-700">
-                236 פריטים
-              </div>
-            </div>
-
-            <div className="grid items-center gap-6 md:grid-cols-[0.9fr_1.1fr]">
-              <div className="space-y-3 text-sm font-black text-slate-600">
-                {[
-                  ["משימות", "42%", "bg-blue-600"],
-                  ["מסמכים", "21%", "bg-teal-500"],
-                  ["סיסמאות", "15%", "bg-violet-500"],
-                  ["נכסים", "12%", "bg-orange-400"],
-                  ["ידע וניהול", "10%", "bg-sky-400"],
-                ].map(([label, value, color]) => (
-                  <div key={label} className="flex items-center justify-between gap-3">
-                    <span className="flex items-center gap-2">
-                      <span className={`h-3 w-3 rounded-full ${color}`} />
-                      {label}
-                    </span>
-                    <span>{value}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="relative mx-auto flex h-44 w-44 items-center justify-center rounded-full bg-[conic-gradient(#2563eb_0_42%,#14b8a6_42%_63%,#8b5cf6_63%_78%,#f59e0b_78%_90%,#38bdf8_90%_100%)] shadow-lg">
-                <div className="flex h-24 w-24 flex-col items-center justify-center rounded-full bg-white text-center shadow-inner">
-                  <span className="text-3xl font-black text-[#061A44]">236</span>
-                  <span className="text-xs font-black text-slate-500">פריטים</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="cchub-card p-7">
-          <h2 className="mb-5 text-3xl font-black">
-            נבנתה לעסקים שמנהלים לקוחות לאורך זמן
-          </h2>
-
-          <div className="grid gap-4">
-            {audiences.map((item) => (
-              <div
-                key={item.title}
-                className="flex items-start gap-4 rounded-2xl border border-blue-100 bg-blue-50/50 p-4 text-right"
-              >
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white text-xl shadow-sm">
-                  {item.icon}
-                </div>
-                <div>
-                  <h3 className="font-black">{item.title}</h3>
-                  <p className="mt-1 text-sm leading-6 text-slate-600">
-                    {item.text}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="cchub-container cchub-section text-center">
-        <h2 className="cchub-title-lg">
-          כל מה שצריך כדי לנהל לקוח בצורה מסודרת
-        </h2>
-
-        <div className="mt-7 grid grid-cols-2 gap-4 md:grid-cols-5">
-          {features.map((item) => (
-            <a key={item.title} href="/features" className="cchub-mini-card p-5 font-black">
-              <div className="mb-2 text-2xl">{item.icon}</div>
-              {item.title}
-            </a>
-          ))}
-        </div>
-      </section>
-
-      <section className="cchub-container py-10 text-center">
-        <p className="text-sm font-black text-blue-600">לפני / אחרי</p>
-        <h2 className="mt-2 text-3xl font-black">
-          גם ככה אפשר לעבוד. אבל ככה הרבה יותר טוב.
-        </h2>
-
-        <div
-          dir="ltr"
-          className="mt-8 grid items-center gap-5 lg:grid-cols-[1fr_74px_1fr]"
-        >
-          <div
-            dir="rtl"
-            className="rounded-[22px] border border-green-100 bg-green-50/90 p-6 text-right"
-          >
-            <div className="mb-5 text-center text-lg font-black text-green-700">
-              אחרי
-            </div>
-
-            <div className="grid gap-4 md:grid-cols-2">
-              {afterItems.map((item) => (
-                <div
-                  key={item}
-                  className="flex items-center gap-3 text-right text-sm font-black text-slate-700"
-                >
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-100 text-green-700">
-                    ✓
+              <div className="h-mock-body">
+                <div className="h-mock-side h-hide-sm">
+                  <span style={{ width: 34, height: 34, borderRadius: 9, background: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/cchub-mark.png" alt="" width={26} height={26} />
                   </span>
-                  <span>{item}</span>
+                  <span className="on"><Icon name="chart" size={17} /></span>
+                  <Icon name="users" size={17} />
+                  <Icon name="task" size={17} />
+                  <Icon name="lock" size={17} />
+                  <Icon name="funnel" size={17} />
                 </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="hidden justify-center lg:flex">
-            <div className="flex h-14 w-14 items-center justify-center rounded-full border border-blue-100 bg-white text-3xl font-black text-blue-600 shadow-lg shadow-blue-950/10">
-              ←
-            </div>
-          </div>
-
-          <div
-            dir="rtl"
-            className="rounded-[22px] border border-red-100 bg-red-50/90 p-6 text-right"
-          >
-            <div className="mb-5 text-center text-lg font-black text-red-600">
-              לפני
-            </div>
-
-            <div className="grid gap-4 md:grid-cols-2">
-              {beforeItems.map((item) => (
-                <div
-                  key={item}
-                  className="flex items-center gap-3 text-right text-sm font-black text-slate-700"
-                >
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-red-100 text-red-600">
-                    ×
-                  </span>
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="cchub-container py-8 text-center" id="pricing">
-        <span className="cchub-trial-badge">
-          כל החבילות מתחילות ב־14 ימי ניסיון חינם
-        </span>
-
-        <p className="mx-auto mt-3 max-w-2xl text-sm font-bold text-slate-500">
-          נדרש אמצעי תשלום. החיוב בתקופת הניסיון הוא 0 ₪ והמנוי מתחדש אוטומטית אם לא בוטל.
-        </p>
-
-        <h2 className="mt-4 text-2xl font-black">
-          בחרו את הדרך הנכונה עבור הסידור שלכם
-        </h2>
-
-        <div
-          dir="ltr"
-          className="pricing-grid mx-auto mt-10 grid max-w-6xl gap-5 md:grid-cols-3"
-        >
-          {plans.map((plan) => (
-            <div
-              key={plan.name}
-              dir="rtl"
-              className={`price-card ${plan.className}`}
-            >
-              <div
-                className={`price-label ${
-                  plan.className === "pro" ? "pro-label" : ""
-                }`}
-              >
-                {plan.label}
-              </div>
-
-              <div className="price-head">
-                <div className="text-3xl">{plan.badge}</div>
-
-                <h3 className="font-en mt-2 text-2xl font-black text-[#061A44]">
-                  {plan.name}
-                </h3>
-
-                <div className="mt-4 flex items-end justify-center gap-1"><span className="text-5xl font-black text-[#061A44]">{plan.price}</span><span className="pb-2 text-sm font-black text-slate-500">לחודש</span></div>
-
-                <div className="mt-2 text-sm font-black text-blue-700">
-                  או {plan.yearlyPrice}
-                </div>
-
-                <p className="mt-2 min-h-[42px] text-sm font-bold text-slate-500">
-                  {plan.text}
-                </p>
-              </div>
-
-              <div className="price-body">
-                <div className="price-list">
-                  {plan.items.map((item) => (
-                    <div key={item} className="price-row">
-                      <span className="price-row-mark">✓</span>
-                      <span className="price-row-text">{item}</span>
+                <div className="h-mock-main">
+                  <div className="h-mock-top">
+                    <b style={{ fontSize: 16 }}>תמונה כללית</b>
+                    <span className="h-mock-search"><Icon name="search" size={14} />חיפוש גלובלי... (⌘K)</span>
+                  </div>
+                  <div className="h-kpis">
+                    <div className="h-kpi" style={{ background: "#fff8e6", borderColor: "#fde9b0" }}><b style={{ color: "#f59e0b" }}>38</b>משימות פתוחות</div>
+                    <div className="h-kpi" style={{ background: "#ecfdf5", borderColor: "#bbf0d9" }}><b style={{ color: "#10b981" }}>96</b>הושלמו החודש</div>
+                    <div className="h-kpi" style={{ background: "#fef2f2", borderColor: "#fbd0d0" }}><b style={{ color: "#ef4444" }}>4</b>באיחור</div>
+                    <div className="h-kpi" style={{ background: "#ecfeff", borderColor: "#b5eef7" }}><b style={{ color: "#06b6d4" }}>19</b>לקוחות פעילים</div>
+                  </div>
+                  <div className="h-mock-panels">
+                    <div className="h-panel">
+                      <b>משימות</b>
+                      <div className="h-prow"><span>קמפיין ממומן – נובה דיזיין</span><span style={{ color: "#ef4444" }}>15.11</span></div>
+                      <div className="h-prow"><span>צילומי מוצר לאתר</span><span style={{ color: "#ef4444" }}>17.11</span></div>
+                      <div className="h-prow"><span>חידוש דומיין ואחסון</span><span style={{ color: "#ef4444" }}>22.11</span></div>
                     </div>
-                  ))}
+                    <div className="h-panel">
+                      <b>לקוחות פעילים לאחרונה</b>
+                      <div className="h-prow"><span className="h-av" style={{ background: "#7c3aed" }}>נ</span><span style={{ flex: 1 }}>נובה דיזיין</span><span className="h-cnt">14</span></div>
+                      <div className="h-prow"><span className="h-av" style={{ background: "#0ea5e9" }}>א</span><span style={{ flex: 1 }}>אלפא נדל״ן</span><span className="h-cnt">9</span></div>
+                      <div className="h-prow"><span className="h-av" style={{ background: "#10b981" }}>ס</span><span style={{ flex: 1 }}>סטודיו גלים</span><span className="h-cnt">6</span></div>
+                    </div>
+                  </div>
+                  <span style={{ fontSize: 11, color: "#8a90a2" }}>הדמיה עם נתונים לדוגמה</span>
                 </div>
               </div>
-
-              <div className="price-actions">
-                <a className="cchub-button-primary" href="/pricing">
-                  התחילו 14 ימי ניסיון
-                </a>
-                <a className="cchub-button-secondary" href="/login">
-                  כניסה למערכת
-                </a>
-              </div>
             </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="cchub-container py-8 text-center">
-        <h2 className="text-2xl font-black">מתחילים פשוט. בלי רעש.</h2>
-
-        <div dir="ltr" className="mt-6 grid gap-4 md:grid-cols-4">
-          {steps.map((step) => (
-            <div
-              key={step.number}
-              dir="rtl"
-              className="rounded-[18px] border border-blue-100 bg-white p-5 shadow-sm"
-            >
-              <div className="mx-auto mb-3 flex h-8 w-8 items-center justify-center rounded-full bg-blue-500 text-sm font-black text-white">
-                {step.number}
-              </div>
-              <h3 className="font-black">{step.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-slate-500">
-                {step.text}
-              </p>
+            <div className="h-toast" aria-hidden="true">
+              <span className="h-tic"><Icon name="funnel" size={16} /></span>ליד חדש נכנס מהאתר
             </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="cchub-container cchub-section-tight">
-        <div className="rounded-[30px] bg-[#061A44] px-8 py-9 text-center text-white shadow-2xl">
-          <div className="mb-4">
-            <span className="inline-flex rounded-full bg-white/10 px-5 py-2 text-sm font-black text-blue-100">
-              14 ימי ניסיון חינם
-            </span>
           </div>
+        </div>
+      </section>
 
-          <h2 className="text-3xl font-black">
-            כל מה שקשור ללקוח — במקום אחד.
-          </h2>
-
-          <p className="mx-auto mt-3 max-w-2xl text-blue-100">
-            התחילו לעבוד מסודר עם לקוחות, משימות, נכסים, מסמכים, סיסמאות וידע.
+      {/* PROBLEM */}
+      <section className="h-section">
+        <div className="h-wrap reveal" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 34, textAlign: "center" }}>
+          <h2 className="h-h2">הבעיה היא לא שאין לכם מידע.<br /><span className="h-teal">הבעיה היא שהוא מפוזר.</span></h2>
+          <div className="h-chips">
+            {tools.map((t) => <span key={t} className="h-chip-x">{t}</span>)}
+          </div>
+          <span style={{ color: "#17a195" }}><Icon name="down" size={40} /></span>
+          <p className="h-text" style={{ fontSize: 22, maxWidth: 760, color: "#334155" }}>
+            ב־CCHUB כל דבר מחובר ללקוח: המשימות, הנכסים, המסמכים, הגישות והידע.
+            לא עוד מודולים מנותקים, אלא תיק לקוח אחד שבו רואים הכל.
           </p>
+        </div>
+      </section>
 
-          <div className="mt-6 flex flex-wrap justify-center gap-4">
-            <a className="cchub-button-primary" href="/pricing">
-              התחילו 14 ימי ניסיון חינם
-            </a>
-            <a className="cchub-button-dark" href="/login">כניסה למערכת</a>
+      {/* CLIENT FILE */}
+      <section style={{ paddingBottom: 96 }}>
+        <div className="h-wrap h-cols">
+          <div className="reveal" style={{ display: "flex", flexDirection: "column", gap: 22 }}>
+            <span style={{ fontWeight: 800, color: "#0f8a7f" }}>תיק לקוח</span>
+            <h2 className="h-h2">כל מה שקשור ללקוח – במקום אחד.</h2>
+            <p className="h-text">
+              נכנסים ללקוח ורואים את התמונה המלאה: מה פתוח, מה באיחור, כמה זמן הושקע, איפה המסמכים ומה הסיסמה לאחסון.
+              המערכת גם מדברת בשפה של העסק שלכם: אפשר לקרוא ל״לקוחות״ ספקים, פרויקטים או נכסים.
+            </p>
+            <div className="h-mod">
+              {modules.map((m) => (
+                <span key={m.label}><span className="h-ibox"><Icon name={m.icon} size={20} /></span>{m.label}</span>
+              ))}
+            </div>
           </div>
+          <div className="h-card h-file reveal d2">
+            <div style={{ display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap" }}>
+              <span style={{ width: 64, height: 64, borderRadius: 16, background: "#7c3aed", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 26, fontWeight: 900 }}>נ</span>
+              <div style={{ flex: 1, minWidth: 160 }}>
+                <b style={{ fontSize: 24 }}>נובה דיזיין</b>
+                <div style={{ display: "flex", gap: 8, marginTop: 6 }}>
+                  <span className="h-pill" style={{ background: "#dcfce7", color: "#15803d" }}>פעיל</span>
+                  <span className="h-pill" style={{ background: "#ede9fe", color: "#7c3aed" }}>לקוח</span>
+                </div>
+              </div>
+            </div>
+            <div className="h-stat4">
+              <div><b>8</b><span>נכסים</span></div>
+              <div><b>14</b><span>משימות</span></div>
+              <div><b>21</b><span>מסמכים</span></div>
+              <div><b>4</b><span>גישות</span></div>
+            </div>
+            <div>
+              <div className="h-frow"><span style={{ fontWeight: 700 }}>השקת קמפיין חורף</span><span className="h-pill" style={{ background: "#fee2e2", color: "#dc2626" }}>גבוהה</span></div>
+              <div className="h-frow"><span style={{ fontWeight: 700 }}>אחסון אתר</span><span style={{ letterSpacing: 3, color: "#64748b" }}>••••••••</span></div>
+              <div className="h-frow"><span style={{ fontWeight: 700 }}>זמן עבודה החודש</span><span style={{ fontWeight: 800, color: "#0b7a43" }}>3:20 שע׳ · ₪750</span></div>
+            </div>
+            <span style={{ fontSize: 13, color: "#64748b" }}>הדמיה עם נתונים לדוגמה</span>
+          </div>
+        </div>
+      </section>
+
+      {/* VIDEO */}
+      <section id="video" className="h-grid-bg h-section">
+        <div className="h-wrap reveal" style={{ display: "flex", flexDirection: "column", gap: 32 }}>
+          <div style={{ textAlign: "center", display: "flex", flexDirection: "column", gap: 12, alignItems: "center" }}>
+            <h2 className="h-h2" style={{ color: "#fff" }}>ראו את CCHUB <span className="h-teal2">בפעולה.</span></h2>
+            <p className="h-lead" style={{ textAlign: "center" }}>שלושה סרטונים קצרים, 30 שניות כל אחד.</p>
+          </div>
+          <VideoShowcase />
+        </div>
+      </section>
+
+      {/* FEATURES */}
+      <section className="h-section" style={{ background: "#fff", borderBottom: "1px solid #e3eaf0" }}>
+        <div className="h-wrap" style={{ display: "flex", flexDirection: "column", gap: 44 }}>
+          <div className="reveal" style={{ textAlign: "center", display: "flex", flexDirection: "column", gap: 14, alignItems: "center" }}>
+            <h2 className="h-h2">כל מה שצריך כדי לעבוד מסודר</h2>
+            <p className="h-text">ועוד כמה דברים שלא ידעתם שחסרים לכם.</p>
+          </div>
+          <div className="h-cards">
+            {features.map((f, i) => (
+              <article key={f.title} className={`h-card reveal d${i % 4}`}>
+                <span className="h-ibox"><Icon name={f.icon} /></span>
+                <h3>{f.title}</h3>
+                <p>{f.text}</p>
+              </article>
+            ))}
+          </div>
+          <div style={{ textAlign: "center" }}>
+            <a className="h-btn h-btn-line" href="/features">לכל היכולות <Icon name="arrow" size={20} /></a>
+          </div>
+        </div>
+      </section>
+
+      {/* INTEGRATIONS */}
+      <section className="h-grid-bg h-section">
+        <div className="h-wrap" style={{ display: "flex", flexDirection: "column", gap: 44 }}>
+          <div className="reveal" style={{ textAlign: "center", display: "flex", flexDirection: "column", gap: 14, alignItems: "center" }}>
+            <h2 className="h-h2" style={{ color: "#fff" }}>מתחבר לכלים <span className="h-teal2">שכבר יש לכם.</span></h2>
+            <p className="h-lead" style={{ textAlign: "center" }}>בלי קוד, בלי מתכנת.</p>
+          </div>
+          <div className="h-cards" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))" }}>
+            <div className="h-int reveal">
+              <b style={{ fontSize: 24 }}>Google</b>
+              <span style={{ color: "#c7d7e2", lineHeight: 1.6 }}>חיבור לעבודה בלבד, לא להתחברות. כל שירות מתחבר בנפרד, ורק עם ההרשאה שהוא צריך.</span>
+              <div className="h-int-row"><Icon name="calendar" /><b>יומן</b><span>קובעים פגישות מתוך תיק הלקוח</span></div>
+              <div className="h-int-row"><Icon name="drive" /><b>Drive</b><span>שומרים קבצים ישירות לתיקייה</span></div>
+              <div className="h-int-row"><Icon name="mail" /><b>Gmail</b><span>שולחים מיילים ללקוח מהמערכת</span></div>
+            </div>
+            <div className="h-int reveal d2">
+              <b style={{ fontSize: 24 }}>לידים חיצוניים</b>
+              <span style={{ color: "#c7d7e2", lineHeight: 1.6 }}>מחברים טפסים מ־Make, Zapier או כל מקור אחר. כל חיבור מקבל כתובת Webhook וטוקן ייעודי.</span>
+              <div className="h-srcs"><span>טופס באתר</span><span>Make</span><span>Zapier</span><span>Webhook</span></div>
+              <div className="h-flowdot" aria-hidden="true" />
+              <div className="h-newlead">ליד חדש בלוח הלידים<span style={{ background: "rgba(255,255,255,0.2)", borderRadius: 999, padding: "2px 12px", fontSize: 14 }}>אוטומטי</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PROOF (real numbers from the CCHUB team's own account) */}
+      <section className="h-section">
+        <div className="h-wrap h-cols">
+          <div className="reveal" style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+            <h2 className="h-h2">את הלקוחות שלנו<br /><span className="h-teal">אנחנו מנהלים ב־CCHUB.</span></h2>
+            <p className="h-text">לא מצגת. כל משימה, ערוץ, קובץ וגישה של העבודה שלנו נמצאים במערכת – כל יום.</p>
+          </div>
+          <div className="reveal d2" style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+            <div className="h-stats">
+              <div className="h-card" style={{ padding: 22 }}><b>22</b><span>לקוחות פעילים החודש</span></div>
+              <div className="h-card" style={{ padding: 22 }}><b>102</b><span>משימות הושלמו החודש</span></div>
+              <div className="h-card" style={{ padding: 22 }}><b>154</b><span>משימות במערכת</span></div>
+            </div>
+            <span style={{ fontSize: 13, color: "#64748b" }}>מתוך החשבון של צוות CCHUB, אוקטובר 2026</span>
+          </div>
+        </div>
+      </section>
+
+      {/* AUDIENCES */}
+      <section style={{ paddingBottom: 96 }}>
+        <div className="h-wrap" style={{ display: "flex", flexDirection: "column", gap: 36 }}>
+          <h2 className="h-h2 reveal" style={{ textAlign: "center" }}>נבנתה לעסקים שמנהלים לקוחות לאורך זמן</h2>
+          <div className="h-cards" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))" }}>
+            {audiences.map((a, i) => (
+              <article key={a.title} className={`h-card reveal d${i % 3}`} style={{ display: "flex", gap: 16, alignItems: "flex-start" }}>
+                <span className="h-ibox"><Icon name={a.icon} /></span>
+                <div><h3 style={{ marginTop: 0 }}>{a.title}</h3><p>{a.text}</p></div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section className="h-section" style={{ background: "#fff", borderTop: "1px solid #e3eaf0" }}>
+        <div className="h-wrap" style={{ display: "flex", flexDirection: "column", gap: 36 }}>
+          <h2 className="h-h2 reveal" style={{ textAlign: "center" }}>מתחילים פשוט. בלי רעש.</h2>
+          <div className="h-cards">
+            {steps.map((s, i) => (
+              <article key={s.title} className={`h-card reveal d${i % 4}`}>
+                <span className="h-ibox" style={{ fontWeight: 900, fontSize: 22 }}>{i + 1}</span>
+                <h3>{s.title}</h3>
+                <p>{s.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PRICING */}
+      <section className="h-section">
+        <div className="h-wrap" style={{ display: "flex", flexDirection: "column", gap: 40 }}>
+          <div className="reveal" style={{ textAlign: "center", display: "flex", flexDirection: "column", gap: 12, alignItems: "center" }}>
+            <h2 className="h-h2">בחרו את החבילה שלכם</h2>
+            <p className="h-text" style={{ fontSize: 18 }}>כל החבילות מתחילות ב־14 ימי ניסיון חינם. נדרש אמצעי תשלום; החיוב בתקופת הניסיון 0 ₪ והמנוי מתחדש אוטומטית אם לא בוטל.</p>
+          </div>
+          <div className="h-cards" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(290px, 1fr))", alignItems: "stretch" }}>
+            {plans.map((p, i) => (
+              <div key={p.name} className={`h-price reveal d${i % 3}${p.hot ? " hot" : ""}`}>
+                {p.hot && <span className="h-pill" style={{ alignSelf: "flex-start", background: "#17a195", color: "#fff" }}>הכי מומלץ</span>}
+                <b className="font-en" style={{ fontSize: 24 }}>{p.name}</b>
+                <span style={{ color: "#475569" }}>{p.text}</span>
+                <div><span className="h-amount">{p.price}</span><span style={{ color: "#64748b" }}> / לחודש · {p.yearly}</span></div>
+                <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                  {p.items.map((it) => <span key={it} className="h-check"><Icon name="check" size={20} />{it}</span>)}
+                </div>
+                <a className={`h-btn ${p.hot ? "h-btn-teal" : "h-btn-line"}`} href="/pricing" style={{ marginTop: "auto" }}>התחילו 14 ימי ניסיון</a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FINAL CTA */}
+      <section className="h-grid-bg" style={{ padding: "88px 0" }}>
+        <div className="h-wrap reveal" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 24, textAlign: "center" }}>
+          <h2 className="h-h2" style={{ color: "#fff", fontSize: "clamp(36px, 4vw, 52px)" }}>כל מה שקשור ללקוח –<br /><span className="h-teal2">במקום אחד.</span></h2>
+          <a className="h-btn h-btn-teal" href="/pricing" style={{ minHeight: 60, fontSize: 19, padding: "0 36px" }}>התחילו 14 ימי ניסיון חינם</a>
+          <span style={{ color: "#9fb6c6" }}>בעברית וב־English · גיבוי יומי · חיוב 0 ₪ בתקופת הניסיון</span>
         </div>
       </section>
     </main>

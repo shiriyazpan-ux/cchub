@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Icon from "../components/Icon";
 
 export const metadata: Metadata = {
   title: "מאמרים | ניהול לקוחות, משימות וסדר בעסק | CCHUB",
@@ -148,7 +149,8 @@ const categories = [
 
 export default function ArticlesPage() {
   return (
-    <main dir="rtl" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
+    <main dir="rtl" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
+
 
       <section className="relative overflow-hidden border-b border-blue-100">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#F7FBFF_0%,#EEF6FF_100%)]" />
@@ -202,7 +204,7 @@ export default function ArticlesPage() {
               className="cchub-card flex min-h-[380px] flex-col p-7 text-center transition duration-200 hover:-translate-y-1 hover:shadow-2xl"
             >
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-3xl bg-blue-100 text-3xl">
-                {article.icon}
+                <Icon name={article.icon} size={30} />
               </div>
 
               <div className="mb-3 flex flex-wrap justify-center gap-2">
@@ -262,7 +264,7 @@ export default function ArticlesPage() {
               >
                 <div className="mb-4 flex items-center justify-between gap-3">
                   <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100 text-2xl">
-                    {article.icon}
+                    <Icon name={article.icon} size={30} />
                   </span>
                   <div className="flex flex-col items-end gap-2">
                     <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-black text-blue-700">
@@ -317,22 +319,22 @@ export default function ArticlesPage() {
 
           <div className="grid gap-5 md:grid-cols-2">
             <a href="/features" className="cchub-mini-card p-6 text-center transition duration-200 hover:-translate-y-1 hover:shadow-xl">
-              <div className="mb-3 text-3xl">🧊</div>
+              <div className="mb-3 text-3xl" style={{ color: "#0f8a7f" }}><Icon name="🧊" size={30} /></div>
               <h3 className="text-2xl font-black">יכולות המערכת</h3>
               <p className="mt-3 leading-7 text-slate-600">הכירו את כל היכולות של CCHUB במקום אחד.</p>
             </a>
             <a href="/pricing" className="cchub-mini-card p-6 text-center transition duration-200 hover:-translate-y-1 hover:shadow-xl">
-              <div className="mb-3 text-3xl">💳</div>
+              <div className="mb-3 text-3xl" style={{ color: "#0f8a7f" }}><Icon name="💳" size={30} /></div>
               <h3 className="text-2xl font-black">מחירים</h3>
               <p className="mt-3 leading-7 text-slate-600">השוואת חבילות לפי לקוחות, הרשאות ואינטגרציות.</p>
             </a>
             <a href="/tutorials" className="cchub-mini-card p-6 text-center transition duration-200 hover:-translate-y-1 hover:shadow-xl">
-              <div className="mb-3 text-3xl">🎬</div>
+              <div className="mb-3 text-3xl" style={{ color: "#0f8a7f" }}><Icon name="🎬" size={30} /></div>
               <h3 className="text-2xl font-black">טוטריאלים</h3>
               <p className="mt-3 leading-7 text-slate-600">מדריכים מעשיים להתחלה מהירה עם המערכת.</p>
             </a>
             <a href="/faq" className="cchub-mini-card p-6 text-center transition duration-200 hover:-translate-y-1 hover:shadow-xl">
-              <div className="mb-3 text-3xl">❓</div>
+              <div className="mb-3 text-3xl" style={{ color: "#0f8a7f" }}><Icon name="❓" size={30} /></div>
               <h3 className="text-2xl font-black">שאלות נפוצות</h3>
               <p className="mt-3 leading-7 text-slate-600">תשובות על יבוא, ייצוא, הרשאות וניסיון חינם.</p>
             </a>
@@ -360,7 +362,8 @@ export default function ArticlesPage() {
             <a className="cchub-button-dark" href="/login">כניסה למערכת</a>
           </div>
         </div>
-      </section>
+      </section>
+
     </main>
   );
 }

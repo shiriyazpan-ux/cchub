@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Icon from "../components/Icon";
 
 export const metadata: Metadata = {
   title: "CCHUB | Customer Control Hub",
@@ -85,7 +86,8 @@ const plans = [
 
 export default function EnglishPage() {
   return (
-    <main dir="ltr" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
+    <main dir="ltr" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
+
 
       <section className="relative overflow-hidden border-b border-blue-100">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#F7FBFF_0%,#EEF6FF_100%)]" />
@@ -148,7 +150,7 @@ export default function EnglishPage() {
           {features.map((feature) => (
             <article key={feature.title} className="cchub-mini-card flex min-h-[230px] flex-col items-center p-6 text-center">
               <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-100 text-3xl">
-                {feature.icon}
+                <Icon name={feature.icon} size={30} />
               </div>
               <h3 className="text-2xl font-black">{feature.title}</h3>
               <span className="mt-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-black text-blue-700">
@@ -212,7 +214,8 @@ export default function EnglishPage() {
             <Link className="cchub-button-dark" href="/">עברית</Link>
           </div>
         </div>
-      </section>
+      </section>
+
     </main>
   );
 }

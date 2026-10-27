@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Icon from "../components/Icon";
 
 export const metadata: Metadata = {
   title: "יכולות המערכת | ניהול לקוחות, משימות ומידע עסקי",
@@ -173,7 +174,8 @@ const comparisonRows = [
 
 export default function FeaturesPage() {
   return (
-    <main dir="rtl" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
+    <main dir="rtl" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
+
 
       <section className="relative overflow-hidden border-b border-blue-100">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#F7FBFF_0%,#EEF6FF_100%)]" />
@@ -220,8 +222,8 @@ export default function FeaturesPage() {
               key={feature.title}
               className="cchub-card flex min-h-[390px] flex-col items-center p-6 text-center transition duration-200 hover:-translate-y-1 hover:shadow-2xl"
             >
-              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-3xl bg-blue-100 text-3xl shadow-sm">
-                {feature.icon}
+              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-3xl bg-blue-100 text-3xl shadow-sm text-[#0f8a7f]">
+                <Icon name={feature.icon} size={30} />
               </div>
 
               <h3 className="min-h-[58px] text-2xl font-black leading-tight">
@@ -272,7 +274,7 @@ export default function FeaturesPage() {
 
               <div className="mt-7 grid gap-3 sm:grid-cols-2">
                 <div className="rounded-2xl border border-blue-100 bg-blue-50 p-4">
-                  <div className="text-2xl">🧩</div>
+                  <div className="text-2xl" style={{ color: "#0f8a7f" }}><Icon name="🧩" size={30} /></div>
                   <div className="mt-2 font-black">מותאמת לעסק</div>
                   <div className="mt-1 text-sm leading-6 text-slate-600">
                     שמות, מונחים ושפה פנימית שמתאימים אליכם.
@@ -363,7 +365,7 @@ export default function FeaturesPage() {
               className="cchub-mini-card flex min-h-[220px] flex-col items-center p-6 text-center transition duration-200 hover:-translate-y-1 hover:shadow-xl"
             >
               <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-100 text-3xl">
-                {feature.icon}
+                <Icon name={feature.icon} size={30} />
               </div>
               <h3 className="min-h-[54px] text-xl font-black leading-tight">
                 {feature.title}
@@ -426,7 +428,8 @@ export default function FeaturesPage() {
             </a>
           </div>
         </div>
-      </section>
+      </section>
+
     </main>
   );
 }
