@@ -1,0 +1,110 @@
+import type { Metadata } from "next";
+import { Heebo, Inter } from "next/font/google";
+import Link from "next/link";
+import "./globals.css";
+import SiteHeader from "./components/SiteHeader";
+import SiteContextBar from "./components/SiteContextBar";
+import Analytics from "./components/Analytics";
+
+const heebo = Heebo({
+  subsets: ["hebrew", "latin"],
+  variable: "--font-heebo",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://web.mycchub.app"),
+  title: {
+    default: "CCHUB | מערכת לניהול לקוחות, משימות ומידע עסקי",
+    template: "%s | CCHUB",
+  },
+  description:
+    "CCHUB היא מערכת בעברית ובאנגלית לניהול לקוחות, משימות, נכסים דיגיטליים ומידע עסקי, עם יכולות נוספות לפי החבילה. התחילו 14 ימי ניסיון חינם.",
+  keywords: [
+    "מערכת לניהול לקוחות",
+    "CRM בעברית",
+    "ניהול משימות",
+    "ניהול מסמכים",
+    "ניהול סיסמאות",
+    "ניהול נכסים דיגיטליים",
+    "מרכז ידע",
+    "יבוא מאקסל",
+    "ייצוא אקסל",
+    "Make",
+    "Zapier",
+    "Customer Control Hub",
+    "client management system",
+  ],
+  alternates: {
+    canonical: "/",
+    languages: {
+      he: "/",
+      en: "/en",
+    },
+  },
+  openGraph: {
+    title: "CCHUB | מערכת לניהול לקוחות, משימות ומידע עסקי",
+    description:
+      "נהלו לקוחות, משימות, נכסים דיגיטליים ומידע עסקי במקום אחד, עם יכולות נוספות לפי החבילה.",
+    url: "https://web.mycchub.app",
+    siteName: "CCHUB",
+    locale: "he_IL",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CCHUB | מערכת לניהול לקוחות, משימות ומידע עסקי",
+    description:
+      "מערכת אחת לניהול לקוחות, משימות, נכסים ומידע עסקי. 14 ימי ניסיון חינם.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html
+      lang="he"
+      dir="rtl"
+      className={`${heebo.variable} ${inter.variable}`}
+      suppressHydrationWarning
+    >
+      <body suppressHydrationWarning>
+        <Analytics />
+        <SiteHeader />
+        <SiteContextBar />
+
+        {children}
+
+        <footer className="cchub-footer">
+          <div className="cchub-container flex flex-col items-center justify-between gap-4 text-sm text-blue-100 md:flex-row">
+            <div className="font-en font-bold">© 2026 CCHUB</div>
+
+            <div className="flex flex-wrap items-center justify-center gap-5">
+              <Link href="/">עמוד הבית</Link>
+              <a href="/features">יכולות המערכת</a>
+              <a href="/pricing">מחירים</a>
+              <a href="/faq">שאלות נפוצות</a>
+              <a href="/terms">תנאי שימוש</a>
+              <a href="/privacy">מדיניות פרטיות</a>
+              <a href="/accessibility">הצהרת נגישות</a>
+              <a className="font-en" dir="ltr" href="mailto:mycchubapp@gmail.com">mycchubapp@gmail.com</a>
+            </div>
+          </div>
+        </footer>
+      </body>
+    </html>
+  );
+}

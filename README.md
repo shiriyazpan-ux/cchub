@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CCHUB – אתר שיווקי (עיצוב חדש)
 
-## Getting Started
+אתר Next.js עם Tailwind, מוכן להעלאה ל־Vercel. האתר כולל את כל העמודים הקיימים (יכולות, מחירים, שאלות נפוצות, 12 מאמרים, 12 מדריכים, נגישות, תנאים ופרטיות) בעיצוב החדש.
 
-First, run the development server:
+## מה השתנה
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **שפת מותג אחת:** נייבי וטורקיז כמו בלוגו. צבעי ה־blue של Tailwind ממופים לטורקיז ב־`app/globals.css`, כך שכל העמודים מתעדכנים יחד.
+- **אייקונים:** כל האימוג'ים הוחלפו באייקוני קו אחידים (`app/components/Icon.tsx`).
+- **דף בית חדש** (`app/page.tsx`):
+  - הדמיית מערכת מונפשת.
+  - תיק לקוח.
+  - נגן עם שלושה סרטונים.
+  - יכולות חדשות: חיפוש ⌘K, מצב כהה, לידים, עברית ו־English.
+  - אינטגרציות: Google, Make, Zapier ו־Webhook.
+  - נתונים אמיתיים מהחשבון של הצוות.
+- **תנועה:** אנימציות כניסה בגלילה (`app/components/Reveal.tsx`). הן מכבדות את הגדרת "הפחתת תנועה" של המשתמש.
+- **סרטונים** בתיקייה `public/videos`.
+- **מייל ליצירת קשר:** mycchubapp@gmail.com.
+
+## העלאה ל־Vercel
+
+**אפשרות א' – דרך GitHub (מומלץ)**
+1. פותחים ריפו חדש ב־GitHub ומעלים את כל הקבצים מהתיקייה.
+2. ב־Vercel בוחרים Add New → Project ואז Import לריפו. Vercel מזהה Next.js לבד, ואין צורך לשנות הגדרות.
+3. לוחצים Deploy.
+
+**אפשרות ב' – מהמחשב**
+```
+npm install
+npx vercel
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## בדיקה מקומית (לפני העלאה)
+```
+npm install
+npm run dev
+```
+פותחים http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## החלפת דומיין
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+כתובת האתר כתובה כרגע בקבצים כ־`web.mycchub.app`. כשעוברים לדומיין חדש:
 
-## Learn More
+1. עושים "החלף בכל הפרויקט" (Find & Replace) של `web.mycchub.app` בדומיין החדש.
+2. **אנליטיקס:** הקובץ `app/lib/analytics.ts` מפעיל מדידה רק בדומיין הזה, ולכן חשוב להחליף גם שם.
+3. **מזהה Google Analytics:** משתנה הסביבה (G-...) מוגדר בהגדרות הפרויקט ב־Vercel. כדאי לוודא שהוא קיים גם בפרויקט החדש.
 
-To learn more about Next.js, take a look at the following resources:
+## לעדכן לפני עלייה לאוויר
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **המספרים בסקשן "את הלקוחות שלנו":** 22, 102 ו־154 נלקחו מצילום הדשבורד מאוקטובר 2026. מעדכנים ב־`app/page.tsx`.
+- **ההדמיות במסכים:** כוללות שמות בדויים בלבד (נובה דיזיין, אלפא נדל״ן וכו').
