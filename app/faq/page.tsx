@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Icon from "../components/Icon";
 
 export const metadata: Metadata = {
   title: "שאלות נפוצות | CCHUB",
@@ -144,7 +145,8 @@ const quickLinks = [
 
 export default function FAQPage() {
   return (
-    <main dir="rtl" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
+    <main dir="rtl" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
+
 
       <section className="relative overflow-hidden border-b border-blue-100">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#F7FBFF_0%,#EEF6FF_100%)]" />
@@ -180,7 +182,7 @@ export default function FAQPage() {
               href={link.href}
               className="cchub-mini-card flex items-center justify-center gap-3 p-5 text-center font-black transition duration-200 hover:-translate-y-1 hover:shadow-xl"
             >
-              <span className="text-2xl">{link.icon}</span>
+              <span className="text-2xl"><Icon name={link.icon} size={30} /></span>
               <span>{link.title}</span>
             </a>
           ))}
@@ -193,7 +195,7 @@ export default function FAQPage() {
             <section key={group.title} className="cchub-card p-7">
               <div className="mb-6 flex items-center gap-4">
                 <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-100 text-3xl">
-                  {group.icon}
+                  <Icon name={group.icon} size={30} />
                 </div>
                 <div>
                   <p className="text-sm font-black text-blue-600">FAQ</p>
@@ -241,7 +243,8 @@ export default function FAQPage() {
             </a>
           </div>
         </div>
-      </section>
+      </section>
+
     </main>
   );
 }

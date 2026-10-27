@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Icon from "../components/Icon";
 
 export const metadata: Metadata = {
   title: "טוטריאלים | מדריכים לשימוש ב-CCHUB",
@@ -144,7 +145,8 @@ const learningPath = [
 
 export default function TutorialsPage() {
   return (
-    <main dir="rtl" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
+    <main dir="rtl" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
+
 
       <section className="relative overflow-hidden border-b border-blue-100">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#F7FBFF_0%,#EEF6FF_100%)]" />
@@ -196,8 +198,8 @@ export default function TutorialsPage() {
                 ["📥", "אקסל", "יבוא נתונים להתחלה מהירה"],
               ].map(([icon, title, text]) => (
                 <div key={title} className="rounded-3xl border border-blue-100 bg-blue-50/60 p-5 text-center">
-                  <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-3xl shadow-sm">
-                    {icon}
+                  <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-3xl shadow-sm text-[#0f8a7f]">
+                    <Icon name={icon} size={30} />
                   </div>
                   <h3 className="text-xl font-black">{title}</h3>
                   <p className="mt-2 leading-7 text-slate-600">{text}</p>
@@ -223,8 +225,8 @@ export default function TutorialsPage() {
             {tutorialGroups.map((group) => (
               <section key={group.title} className="rounded-[30px] border border-blue-100 bg-blue-50/60 p-6">
                 <div className="mb-6 flex flex-col items-center text-center">
-                  <div className="mb-3 flex h-16 w-16 items-center justify-center rounded-3xl bg-white text-3xl shadow-sm">
-                    {group.icon}
+                  <div className="mb-3 flex h-16 w-16 items-center justify-center rounded-3xl bg-white text-3xl shadow-sm text-[#0f8a7f]">
+                    <Icon name={group.icon} size={30} />
                   </div>
                   <h2 className="text-3xl font-black">{group.title}</h2>
                   <p className="mt-2 max-w-2xl leading-7 text-slate-600">{group.description}</p>
@@ -266,7 +268,8 @@ export default function TutorialsPage() {
             <a className="cchub-button-dark" href="/login">כניסה למערכת</a>
           </div>
         </div>
-      </section>
+      </section>
+
     </main>
   );
 }

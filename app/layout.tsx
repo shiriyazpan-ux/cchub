@@ -100,7 +100,7 @@ export default function RootLayout({
               <a href="/terms">תנאי שימוש</a>
               <a href="/privacy">מדיניות פרטיות</a>
               <a href="/accessibility">הצהרת נגישות</a>
-              <a className="font-en" dir="ltr" href="mailto:support@mycchub.app">support@mycchub.app</a>
+              <a className="font-en" dir="ltr" href="mailto:mycchubapp@gmail.com">mycchubapp@gmail.com</a>
             </div>
           </div>
         </footer>

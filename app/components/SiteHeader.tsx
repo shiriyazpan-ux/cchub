@@ -30,10 +30,10 @@ export default function SiteHeader() {
         <Link href="/" className="cchub-brand" aria-label="CCHUB - עמוד הבית">
           <span className="cchub-logo-frame">
             <Image
-              src="/cchub-logo.png"
+              src="/cchub-mark.png"
               alt="CCHUB - Customer Control Hub"
-              width={512}
-              height={512}
+              width={256}
+              height={241}
               className="cchub-logo"
             />
           </span>

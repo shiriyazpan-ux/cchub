@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import AnalyticsLink from "../components/AnalyticsLink";
+import Icon from "../components/Icon";
 
 export const metadata: Metadata = {
   title: "מחירים | חבילות CCHUB לניהול לקוחות ומשימות",
@@ -236,7 +237,8 @@ const faqs = [
 
 export default function PricingPage() {
   return (
-    <main dir="rtl" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
+    <main dir="rtl" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
+
 
       <section className="relative overflow-hidden border-b border-blue-100">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#F7FBFF_0%,#EEF6FF_100%)]" />
@@ -271,7 +273,7 @@ export default function PricingPage() {
               </div>
 
               <div className="price-head">
-                <div className="text-4xl">{plan.badge}</div>
+                <div className="text-4xl"><Icon name={plan.badge} size={30} /></div>
                 <p className="mt-2 text-sm font-black text-blue-600">{plan.tag}</p>
 
                 <h2 className="font-en mt-2 text-3xl font-black text-[#061A44]">
@@ -441,7 +443,8 @@ export default function PricingPage() {
             </a>
           </div>
         </div>
-      </section>
+      </section>
+
     </main>
   );
 }
