@@ -99,6 +99,7 @@ export default function RootLayout({
               <a href="/faq">שאלות נפוצות</a>
               <a href="/terms">תנאי שימוש</a>
               <a href="/privacy">מדיניות פרטיות</a>
+              <a href="/refund">מדיניות ביטול והחזרים</a>
               <a href="/accessibility">הצהרת נגישות</a>
               <a className="font-en" dir="ltr" href="mailto:mycchubapp@gmail.com">mycchubapp@gmail.com</a>
             </div>

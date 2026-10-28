@@ -49,6 +49,7 @@ const sections = [
       "ניתן לבטל חידוש עתידי לפני מועד החיוב הבא. אלא אם מוצג אחרת בתהליך הביטול, הגישה תישאר פעילה עד סוף תקופת החיוב שכבר שולמה ולא יבוצע חיוב נוסף.",
       "בקשות להחזר ייבחנו בהתאם לדין החל, לתנאי Paddle ולנסיבות המקרה. ביטול מנוי אינו מוחק בהכרח את החשבון או המידע באופן מיידי; בקשת מחיקה מטופלת בנפרד לפי מדיניות הפרטיות.",
     ],
+    refundNote: true,
   },
   {
     title: "7. מידע ותוכן של המשתמש",
@@ -135,6 +136,15 @@ export default function TermsPage() {
                 {section.text.map((paragraph) => (
                   <p key={paragraph} className="leading-9 text-slate-600">{paragraph}</p>
                 ))}
+                {section.refundNote ? (
+                  <p className="leading-9 text-slate-600">
+                    ניתן לבטל את המנוי בכל עת. לאחר הביטול המנוי נשאר תקף וזמין עד תום תקופת המנוי ששולמה, חודשית או שנתית, ובסופה הוא לא יתחדש ולא יבוצע חיוב נוסף. פירוט נוסף ב
+                    <a className="font-bold text-blue-700 underline" href="/refund">
+                      מדיניות ביטול והחזרים
+                    </a>
+                    .
+                  </p>
+                ) : null}
               </div>
             </article>
           ))}
