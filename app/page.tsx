@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Icon from "./components/Icon";
 import Reveal from "./components/Reveal";
 import VideoShowcase from "./components/VideoShowcase";
@@ -36,6 +37,7 @@ const audiences = [
 const plans = [
   {
     name: "Solo Pro",
+    slug: "solo-pro",
     text: "לעסק שרוצה להתחיל לעבוד מסודר בלי מערכת כבדה.",
     price: "99₪",
     yearly: "או 990₪ לשנה",
@@ -44,6 +46,7 @@ const plans = [
   },
   {
     name: "Premium",
+    slug: "premium",
     text: "תמונה מלאה של לקוחות, נכסים, משימות, ידע ואוטומציות.",
     price: "199₪",
     yearly: "או 1,990₪ לשנה",
@@ -52,6 +55,7 @@ const plans = [
   },
   {
     name: "Enterprise",
+    slug: "enterprise",
     text: "לצוותים שצריכים עבודה משותפת, הרשאות מתקדמות ואינטגרציות.",
     price: "399₪",
     yearly: "או 3,990₪ לשנה",
@@ -67,21 +71,31 @@ const steps = [
   { title: "מתחילים לנהל", text: "רואים תמונה ברורה ועובדים הרבה יותר שקט." },
 ];
 
+// Keeps "⌘K" in LTR order and "AES-256" on one line inside Hebrew text.
+function withLtrTokens(text: string) {
+  return text.split(/(⌘K|AES-256)/).map((part, i) =>
+    part === "⌘K" ? <bdi key={i} dir="ltr">⌘K</bdi>
+    : part === "AES-256" ? <bdi key={i} dir="ltr" className="cchub-nowrap">AES-256</bdi>
+    : part
+  );
+}
+
 export default function Home() {
   return (
     <main style={{ background: "#f5f8fa", color: "#0a1a33", overflowX: "hidden" }}>
       <Reveal />
 
       {/* HERO */}
-      <section className="h-grid-bg" style={{ padding: "88px 0 104px" }}>
+      <section className="h-grid-bg h-hero">
         <div className="h-wrap h-cols">
-          <div style={{ display: "flex", flexDirection: "column", gap: 26 }}>
+          <div className="h-hero-col">
             <span className="h-eyebrow"><span className="h-dot" />מערכת לניהול לקוחות · עברית ו־English</span>
             <h1 className="h-h1">די לחפש.<br /><span className="h-teal2">תתחילו לנהל.</span></h1>
             <p className="h-lead">
               CCHUB מרכזת במקום אחד את כל העבודה סביב הלקוח: משימות, נכסים דיגיטליים, מסמכים, גישות וידע.
               פחות חיפושים ופחות בלגן, יותר שליטה ושקט.
             </p>
+            <p className="h-for">למנהלי שיווק, פרילנסרים, יועצים ונותני שירותים</p>
             <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
               <a className="h-btn h-btn-teal" href="/pricing">התחילו 14 ימי ניסיון חינם <Icon name="arrow" size={20} /></a>
               <a className="h-btn h-btn-ghost" href="#video">צפו בסיור של 30 שניות</a>
@@ -102,8 +116,7 @@ export default function Home() {
               <div className="h-mock-body">
                 <div className="h-mock-side h-hide-sm">
                   <span style={{ width: 34, height: 34, borderRadius: 9, background: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/cchub-mark.png" alt="" width={26} height={26} />
+                    <Image src="/cchub-mark.png" alt="" width={26} height={26} sizes="26px" />
                   </span>
                   <span className="on"><Icon name="chart" size={17} /></span>
                   <Icon name="users" size={17} />
@@ -114,7 +127,7 @@ export default function Home() {
                 <div className="h-mock-main">
                   <div className="h-mock-top">
                     <b style={{ fontSize: 16 }}>תמונה כללית</b>
-                    <span className="h-mock-search"><Icon name="search" size={14} />חיפוש גלובלי... (⌘K)</span>
+                    <span className="h-mock-search"><Icon name="search" size={14} />חיפוש גלובלי... <bdi dir="ltr">(⌘K)</bdi></span>
                   </div>
                   <div className="h-kpis">
                     <div className="h-kpi" style={{ background: "#fff8e6", borderColor: "#fde9b0" }}><b style={{ color: "#f59e0b" }}>38</b>משימות פתוחות</div>
@@ -157,7 +170,7 @@ export default function Home() {
           <span style={{ color: "#17a195" }}><Icon name="down" size={40} /></span>
           <p className="h-text" style={{ fontSize: 22, maxWidth: 760, color: "#334155" }}>
             ב־CCHUB כל דבר מחובר ללקוח: המשימות, הנכסים, המסמכים, הגישות והידע.
-            לא עוד מודולים מנותקים, אלא תיק לקוח אחד שבו רואים הכל.
+            לא עוד מודולים מנותקים, אלא תיק לקוח אחד שבו רואים הכול.
           </p>
         </div>
       </section>
@@ -167,7 +180,7 @@ export default function Home() {
         <div className="h-wrap h-cols">
           <div className="reveal" style={{ display: "flex", flexDirection: "column", gap: 22 }}>
             <span style={{ fontWeight: 800, color: "#0f8a7f" }}>תיק לקוח</span>
-            <h2 className="h-h2">כל מה שקשור ללקוח – במקום אחד.</h2>
+            <h2 className="h-h2">כל מה שקשור ללקוח – במקום אחד.</h2>
             <p className="h-text">
               נכנסים ללקוח ורואים את התמונה המלאה: מה פתוח, מה באיחור, כמה זמן הושקע, איפה המסמכים ומה הסיסמה לאחסון.
               המערכת גם מדברת בשפה של העסק שלכם: אפשר לקרוא ל״לקוחות״ ספקים, פרויקטים או נכסים.
@@ -227,8 +240,8 @@ export default function Home() {
             {features.map((f, i) => (
               <article key={f.title} className={`h-card reveal d${i % 4}`}>
                 <span className="h-ibox"><Icon name={f.icon} /></span>
-                <h3>{f.title}</h3>
-                <p>{f.text}</p>
+                <h3>{withLtrTokens(f.title)}</h3>
+                <p>{withLtrTokens(f.text)}</p>
               </article>
             ))}
           </div>
@@ -323,14 +336,14 @@ export default function Home() {
           <div className="h-cards" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(290px, 1fr))", alignItems: "stretch" }}>
             {plans.map((p, i) => (
               <div key={p.name} className={`h-price reveal d${i % 3}${p.hot ? " hot" : ""}`}>
-                {p.hot && <span className="h-pill" style={{ alignSelf: "flex-start", background: "#17a195", color: "#fff" }}>הכי מומלץ</span>}
+                {p.hot && <span className="h-pill" style={{ alignSelf: "flex-start", background: "#0b7a70", color: "#fff" }}>הכי מומלץ</span>}
                 <b className="font-en" style={{ fontSize: 24 }}>{p.name}</b>
                 <span style={{ color: "#475569" }}>{p.text}</span>
                 <div><span className="h-amount">{p.price}</span><span style={{ color: "#64748b" }}> / לחודש · {p.yearly}</span></div>
                 <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                   {p.items.map((it) => <span key={it} className="h-check"><Icon name="check" size={20} />{it}</span>)}
                 </div>
-                <a className={`h-btn ${p.hot ? "h-btn-teal" : "h-btn-line"}`} href="/pricing" style={{ marginTop: "auto" }}>התחילו 14 ימי ניסיון</a>
+                <a className={`h-btn ${p.hot ? "h-btn-teal" : "h-btn-line"}`} href={`https://mycchub.app/register?plan=${p.slug}&billing=month`} style={{ marginTop: "auto" }}>התחילו 14 ימי ניסיון</a>
               </div>
             ))}
           </div>
@@ -340,7 +353,7 @@ export default function Home() {
       {/* FINAL CTA */}
       <section className="h-grid-bg" style={{ padding: "88px 0" }}>
         <div className="h-wrap reveal" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 24, textAlign: "center" }}>
-          <h2 className="h-h2" style={{ color: "#fff", fontSize: "clamp(36px, 4vw, 52px)" }}>כל מה שקשור ללקוח –<br /><span className="h-teal2">במקום אחד.</span></h2>
+          <h2 className="h-h2" style={{ color: "#fff", fontSize: "clamp(36px, 4vw, 52px)" }}>כל מה שקשור ללקוח –<br /><span className="h-teal2">במקום אחד.</span></h2>
           <a className="h-btn h-btn-teal" href="/pricing" style={{ minHeight: 60, fontSize: 19, padding: "0 36px" }}>התחילו 14 ימי ניסיון חינם</a>
           <span style={{ color: "#9fb6c6" }}>בעברית וב־English · גיבוי יומי · חיוב 0 ₪ בתקופת הניסיון</span>
         </div>

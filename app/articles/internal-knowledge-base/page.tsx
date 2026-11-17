@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { OG_IMAGE } from "../../lib/seo";
 
 export const metadata: Metadata = {
-  title: "מרכז ידע פנימי: הנכס הכי מוזנח בעסק קטן | CCHUB",
+  title: "מרכז ידע פנימי: הנכס הכי מוזנח בעסק קטן",
   description: "למה מרכז ידע פנימי חשוב לעסק קטן, ואיך לשמור החלטות, נהלים, סיכומי פגישות ותובנות במקום אחד.",
   alternates: { canonical: "/articles/internal-knowledge-base" },
   openGraph: {
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
     siteName: "CCHUB",
     locale: "he_IL",
     type: "article",
+    images: [OG_IMAGE],
   },
 };
 
@@ -19,7 +21,7 @@ export default function ArticlePage() {
     <main dir="rtl" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
 
       <article className="cchub-container py-16">
-        <div className="mx-auto max-w-4xl text-center">
+        <div className="mx-auto max-w-5xl text-right">
           <span className="cchub-trial-badge-strong">מאמר מקצועי</span>
           <h1 className="cchub-title-xl mt-5">מרכז ידע פנימי: הנכס הכי מוזנח בעסק קטן</h1>
           <p className="cchub-text mt-5">הרבה עסקים שומרים לקוחות ומשימות, אבל מזניחים את הידע. ואז כל החלטה חוזרת לדיון מחדש.</p>

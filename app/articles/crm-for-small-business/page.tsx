@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { OG_IMAGE } from "../../lib/seo";
 
 export const metadata: Metadata = {
-  title: "CRM לעסק קטן: מתי צריך CRM ומתי צריך מערכת תפעולית? | CCHUB",
+  title: "CRM לעסק קטן: מתי צריך CRM ומתי צריך מערכת תפעולית?",
   description: "מה ההבדל בין CRM לעסק קטן לבין מערכת תפעולית לניהול לקוחות, משימות, מסמכים וסיסמאות.",
   alternates: { canonical: "/articles/crm-for-small-business" },
   openGraph: {
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
     siteName: "CCHUB",
     locale: "he_IL",
     type: "article",
+    images: [OG_IMAGE],
   },
 };
 
@@ -19,7 +21,7 @@ export default function ArticlePage() {
     <main dir="rtl" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
 
       <article className="cchub-container py-16">
-        <div className="mx-auto max-w-4xl text-center">
+        <div className="mx-auto max-w-5xl text-right">
           <span className="cchub-trial-badge-strong">מאמר מקצועי</span>
           <h1 className="cchub-title-xl mt-5">CRM לעסק קטן: מתי צריך CRM ומתי צריך מערכת תפעולית?</h1>
           <p className="cchub-text mt-5">עסקים קטנים מחפשים CRM כי הם רוצים סדר. אבל לא תמיד הבעיה היא מכירות — לפעמים הבעיה היא ניהול העבודה אחרי שהלקוח כבר קיים.</p>

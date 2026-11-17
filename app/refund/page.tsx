@@ -1,11 +1,21 @@
 import type { Metadata } from "next";
+import { OG_IMAGE, SITE_URL } from "../lib/seo";
 import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "מדיניות ביטול והחזרים | CCHUB",
+  title: "מדיניות ביטול והחזרים",
   description:
     "איך מבטלים מנוי ל־CCHUB, עד מתי המנוי נשאר פעיל, ואיך מטופלות בקשות להחזר באמצעות Paddle.",
   alternates: { canonical: "/refund" },
+  openGraph: {
+    title: "מדיניות ביטול והחזרים | CCHUB",
+    description: "איך מבטלים מנוי ל־CCHUB, עד מתי המנוי נשאר פעיל, ואיך מטופלות בקשות להחזר באמצעות Paddle.",
+    url: `${SITE_URL}/refund`,
+    siteName: "CCHUB",
+    locale: "he_IL",
+    type: "website",
+    images: [OG_IMAGE],
+  },
 };
 
 const linkClass = "font-bold text-blue-700 underline";
@@ -71,10 +81,10 @@ export default function RefundPage() {
     <main dir="rtl" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
       <section className="relative overflow-hidden border-b border-blue-100">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#F7FBFF_0%,#EEF6FF_100%)]" />
-        <div className="cchub-container relative py-16 text-center">
+        <div className="cchub-container relative py-16 text-right">
           <span className="cchub-trial-badge-strong">עודכן: 28 באוקטובר 2026</span>
-          <h1 className="cchub-title-xl mx-auto mt-5 max-w-4xl">מדיניות ביטול והחזרים</h1>
-          <p className="cchub-text mx-auto mt-5 max-w-3xl">
+          <h1 className="cchub-title-xl mt-5 max-w-4xl">מדיניות ביטול והחזרים</h1>
+          <p className="cchub-text mt-5 max-w-3xl">
             המדיניות מסבירה איך מבטלים מנוי ל־CCHUB ואיך מטופלות בקשות להחזר. היא חלק מ
             <a className={linkClass} href="/terms">
               תנאי השימוש

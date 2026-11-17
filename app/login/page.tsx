@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
 export default function LoginPage() {
-  redirect("https://mycchub.app/");
+  redirect("https://mycchub.app/login");
 }

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { OG_IMAGE } from "../../lib/seo";
 
 export const metadata: Metadata = {
-  title: "איך לנהל לקוחות קבועים בלי לאבד מידע? | CCHUB",
+  title: "איך לנהל לקוחות קבועים בלי לאבד מידע?",
   description: "שיטה לניהול לקוחות קבועים לאורך זמן באמצעות תיק לקוח, משימות, מסמכים, סיסמאות, נכסים דיגיטליים ומרכז ידע.",
   alternates: { canonical: "/articles/manage-long-term-clients" },
   openGraph: {
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
     siteName: "CCHUB",
     locale: "he_IL",
     type: "article",
+    images: [OG_IMAGE],
   },
 };
 
@@ -19,7 +21,7 @@ export default function ArticlePage() {
     <main dir="rtl" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
 
       <article className="cchub-container py-16">
-        <div className="mx-auto max-w-4xl text-center">
+        <div className="mx-auto max-w-5xl text-right">
           <span className="cchub-trial-badge-strong">מאמר מקצועי</span>
           <h1 className="cchub-title-xl mt-5">איך לנהל לקוחות קבועים בלי לאבד מידע?</h1>
           <p className="cchub-text mt-5">לקוחות קבועים הם נכס, אבל הם גם מייצרים הרבה מידע לאורך זמן. בלי שיטה, כל חודש מוסיף עוד שכבת בלגן.</p>

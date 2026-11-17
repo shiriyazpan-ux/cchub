@@ -1,21 +1,23 @@
 import type { Metadata } from "next";
+import { OG_IMAGE } from "../lib/seo";
 import Icon from "../components/Icon";
 
 export const metadata: Metadata = {
-  title: "שאלות נפוצות | CCHUB",
+  title: "שאלות נפוצות",
   description:
-    "שאלות נפוצות על CCHUB: ניהול לקוחות ומשימות, חבילות, יבוא וייצוא Excel, אוטומציות, הרשאות ו-14 ימי ניסיון חינם.",
+    "שאלות נפוצות על CCHUB: ניהול לקוחות ומשימות, חבילות, ייבוא וייצוא Excel, אוטומציות, הרשאות ו-14 ימי ניסיון חינם.",
   alternates: {
     canonical: "/faq",
   },
   openGraph: {
     title: "שאלות נפוצות | CCHUB",
     description:
-      "כל מה שצריך לדעת על CCHUB לפני שמתחילים: חבילות, ניסיון חינם, יבוא מאקסל, הרשאות, אינטגרציות וניהול לקוחות.",
+      "כל מה שצריך לדעת על CCHUB לפני שמתחילים: חבילות, ניסיון חינם, ייבוא מאקסל, הרשאות, אינטגרציות וניהול לקוחות.",
     url: "https://web.mycchub.app/faq",
     siteName: "CCHUB",
     locale: "he_IL",
     type: "website",
+    images: [OG_IMAGE],
   },
 };
 
@@ -30,7 +32,7 @@ const faqGroups = [
       },
       {
         q: "האם CCHUB היא CRM?",
-        a: "CCHUB יכולה לשמש כחלופה או השלמה ל-CRM, אבל היא לא מתמקדת רק במכירות. היא מתמקדת בניהול העבודה סביב הלקוח אחרי שהלקוח כבר קיים: משימות, מסמכים, גישות, נכסים, ידע, זמן ועלויות.",
+        a: "CCHUB יכולה לשמש כחלופה או השלמה ל־CRM, אבל היא לא מתמקדת רק במכירות. היא מתמקדת בניהול העבודה סביב הלקוח אחרי שהלקוח כבר קיים: משימות, מסמכים, גישות, נכסים, ידע, זמן ועלויות.",
       },
       {
         q: "למי המערכת מתאימה?",
@@ -38,7 +40,7 @@ const faqGroups = [
       },
       {
         q: "האם המערכת בעברית?",
-        a: "כן. CCHUB נבנית עם תמיכה בעברית ובאנגלית, כולל התאמה לכיוון כתיבה RTL בעברית ו-LTR באנגלית.",
+        a: "כן. CCHUB נבנית עם תמיכה בעברית ובאנגלית, כולל התאמה לכיוון כתיבה RTL בעברית ו־LTR באנגלית.",
       },
     ],
   },
@@ -69,24 +71,24 @@ const faqGroups = [
     ],
   },
   {
-    title: "יבוא, ייצוא ואינטגרציות",
+    title: "ייבוא, ייצוא ואינטגרציות",
     icon: "🔗",
     questions: [
       {
         q: "האם אפשר לייבא נתונים מאקסל?",
-        a: "כן. יבוא מאקסל קיים גם ב־Solo Pro וגם בחבילות המתקדמות, כדי לאפשר התחלה מהירה בלי להזין הכול ידנית.",
+        a: "כן. ייבוא מאקסל קיים גם ב־Solo Pro וגם בחבילות המתקדמות, כדי לאפשר התחלה מהירה בלי להזין הכול ידנית.",
       },
       {
         q: "האם Solo Pro כוללת ייצוא אקסל?",
-        a: "לא. Solo Pro כוללת יבוא מאקסל בלבד. ייצוא אקסל קיים בחבילות Premium ו־Enterprise.",
+        a: "לא. Solo Pro כוללת ייבוא מאקסל בלבד. ייצוא אקסל קיים בחבילות Premium ו־Enterprise.",
       },
       {
-        q: "האם יש חיבור ל-Make או Zapier?",
-        a: "כן. אינטגרציה ל-Make / Zapier קיימת בחבילות Premium ו־Enterprise, כדי לחבר את CCHUB לתהליכים אוטומטיים וכלים חיצוניים.",
+        q: "האם יש חיבור ל־Make או Zapier?",
+        a: "כן. אינטגרציה ל־Make / Zapier קיימת בחבילות Premium ו־Enterprise, כדי לחבר את CCHUB לתהליכים אוטומטיים וכלים חיצוניים.",
       },
       {
         q: "האם אפשר לשלוט מי רשאי לייבא או לייצא נתונים?",
-        a: "בחבילת Enterprise ניתן לעבוד עם הרשאות מתקדמות, כולל הרשאות יבוא / יצוא והרשאות אינטגרציות לפי משתמש.",
+        a: "בחבילת Enterprise ניתן לעבוד עם הרשאות מתקדמות, כולל הרשאות ייבוא / ייצוא והרשאות אינטגרציות לפי משתמש.",
       },
     ],
   },
@@ -139,7 +141,7 @@ const faqGroups = [
 const quickLinks = [
   { title: "יכולות המערכת", href: "/features", icon: "🧊" },
   { title: "מחירים וחבילות", href: "/pricing", icon: "💳" },
-  { title: "טוטריאלים", href: "/tutorials", icon: "🎬" },
+  { title: "מדריכים", href: "/tutorials", icon: "🎬" },
   { title: "מאמרים", href: "/articles", icon: "📝" },
 ];
 
@@ -151,19 +153,19 @@ export default function FAQPage() {
       <section className="relative overflow-hidden border-b border-blue-100">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#F7FBFF_0%,#EEF6FF_100%)]" />
 
-        <div className="cchub-container relative py-16 text-center">
+        <div className="cchub-container relative py-16 text-right">
           <span className="cchub-trial-badge-strong">שאלות נפוצות</span>
 
-          <h1 className="cchub-title-xl mx-auto mt-5 max-w-4xl">
+          <h1 className="cchub-title-xl mt-5 max-w-4xl">
             כל מה שצריך לדעת לפני שמתחילים לעבוד עם CCHUB
           </h1>
 
-          <p className="cchub-text mx-auto mt-5 max-w-3xl">
+          <p className="cchub-text mt-5 max-w-3xl">
             ריכזנו תשובות לשאלות החשובות על ניהול לקוחות ומשימות, החבילות,
-            יבוא מאקסל, ייצוא, אינטגרציות, הרשאות ו-14 ימי ניסיון חינם.
+            ייבוא מאקסל, ייצוא, אינטגרציות, הרשאות ו-14 ימי ניסיון חינם.
           </p>
 
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <div className="mt-8 flex flex-wrap justify-start gap-4">
             <a className="cchub-button-primary" href="/pricing">
               התחילו 14 ימי ניסיון חינם
             </a>
@@ -198,7 +200,7 @@ export default function FAQPage() {
                   <Icon name={group.icon} size={30} />
                 </div>
                 <div>
-                  <p className="text-sm font-black text-blue-600">FAQ</p>
+                  <p className="text-sm font-black text-blue-600">שאלות נפוצות</p>
                   <h2 className="text-3xl font-black">{group.title}</h2>
                 </div>
               </div>
@@ -207,7 +209,7 @@ export default function FAQPage() {
                 {group.questions.map((item) => (
                   <article
                     key={item.q}
-                    className="rounded-3xl border border-blue-100 bg-blue-50/50 p-6"
+                    className="border-t border-blue-100 pt-5"
                   >
                     <h3 className="text-xl font-black leading-8">{item.q}</h3>
                     <p className="mt-3 leading-8 text-slate-600">{item.a}</p>
@@ -238,7 +240,7 @@ export default function FAQPage() {
             <a className="cchub-button-primary" href="/pricing">
               התחילו 14 ימי ניסיון חינם
             </a>
-            <a className="cchub-button-dark" href="/login">
+            <a className="cchub-button-dark" href="https://mycchub.app/login">
               כניסה למערכת
             </a>
           </div>

@@ -1,9 +1,19 @@
 import type { Metadata } from "next";
+import { OG_IMAGE, SITE_URL } from "../../lib/seo";
 
 export const metadata: Metadata = {
-  title: "איך עוקבים אחרי זמן עבודה ועלויות ב-CCHUB | מדריך CCHUB",
+  title: "איך עוקבים אחרי זמן עבודה ועלויות ב-CCHUB | מדריך",
   description: "מדריך למעקב זמן עבודה, הערכת שעות ועלויות בתוך משימות CCHUB לצורך סדר, בקרה והתחשבנות.",
   alternates: { canonical: "/tutorials/time-costs" },
+  openGraph: {
+    title: "איך עוקבים אחרי זמן עבודה ועלויות ב-CCHUB | מדריך | CCHUB",
+    description: "מדריך למעקב זמן עבודה, הערכת שעות ועלויות בתוך משימות CCHUB לצורך סדר, בקרה והתחשבנות.",
+    url: `${SITE_URL}/tutorials/time-costs`,
+    siteName: "CCHUB",
+    locale: "he_IL",
+    type: "article",
+    images: [OG_IMAGE],
+  },
 };
 
 const steps = [
@@ -26,7 +36,7 @@ export default function TutorialPage() {
     <main dir="rtl" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
 
       <section className="cchub-container py-16">
-        <div className="mx-auto max-w-4xl text-center">
+        <div className="max-w-4xl text-right">
           <span className="cchub-trial-badge-strong">מדריך מתקדם · 4 דקות</span>
           <h1 className="cchub-title-xl mt-5">איך עוקבים אחרי זמן עבודה ועלויות ב-CCHUB</h1>
           <p className="cchub-text mt-5">מעקב זמן ועלויות עוזר להבין כמה עבודה הושקעה בכל לקוח ומשימה, ומה הבסיס הנכון להתחשבנות.</p>
@@ -37,8 +47,8 @@ export default function TutorialPage() {
             <h2 className="text-3xl font-black">שלבי העבודה</h2>
             <div className="mt-6 grid gap-4">
               {steps.map((step, index) => (
-                <div key={step} className="flex gap-4 rounded-2xl border border-blue-100 bg-blue-50 p-5">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue-600 font-black text-white">
+                <div key={step} className="flex gap-4 border-t border-blue-100 pt-4 first:border-t-0 first:pt-0">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#0B7A70] font-black text-white">
                     {index + 1}
                   </span>
                   <p className="leading-8 text-slate-700">{step}</p>

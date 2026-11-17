@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { OG_IMAGE } from "../../lib/seo";
 
 export const metadata: Metadata = {
-  title: "מעקב זמן ועלויות במשימות: בסיס טוב להבנת רווחיות | CCHUB",
+  title: "מעקב זמן ועלויות במשימות: בסיס טוב להבנת רווחיות",
   description: "איך מעקב זמן עבודה ועלויות לפי משימה מספק בסיס לבחינת רווחיות לקוחות, תמחור והתחשבנות.",
   alternates: { canonical: "/articles/task-time-costs" },
   openGraph: {
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
     siteName: "CCHUB",
     locale: "he_IL",
     type: "article",
+    images: [OG_IMAGE],
   },
 };
 
@@ -19,7 +21,7 @@ export default function ArticlePage() {
     <main dir="rtl" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
 
       <article className="cchub-container py-16">
-        <div className="mx-auto max-w-4xl text-center">
+        <div className="mx-auto max-w-5xl text-right">
           <span className="cchub-trial-badge-strong">מאמר מקצועי</span>
           <h1 className="cchub-title-xl mt-5">מעקב זמן ועלויות במשימות: בסיס טוב להבנת רווחיות</h1>
           <p className="cchub-text mt-5">הרבה עסקים יודעים כמה הם גובים, אבל לא תמיד יודעים כמה זמן העבודה באמת לוקחת. בלי הנתון הזה קשה להבין רווחיות.</p>

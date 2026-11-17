@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { OG_IMAGE } from "../../lib/seo";
 
 export const metadata: Metadata = {
-  title: "הרשאות משתמשים: למה לא כל אחד צריך לראות הכול? | CCHUB",
+  title: "הרשאות משתמשים: למה לא כל אחד צריך לראות הכול?",
   description: "למה חשוב לנהל הרשאות משתמשים בעסק, במיוחד בייבוא, ייצוא, אינטגרציות וגישה למידע רגיש.",
   alternates: { canonical: "/articles/user-permissions-business" },
   openGraph: {
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
     siteName: "CCHUB",
     locale: "he_IL",
     type: "article",
+    images: [OG_IMAGE],
   },
 };
 
@@ -19,7 +21,7 @@ export default function ArticlePage() {
     <main dir="rtl" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
 
       <article className="cchub-container py-16">
-        <div className="mx-auto max-w-4xl text-center">
+        <div className="mx-auto max-w-5xl text-right">
           <span className="cchub-trial-badge-strong">מאמר מקצועי</span>
           <h1 className="cchub-title-xl mt-5">הרשאות משתמשים: למה לא כל אחד צריך לראות הכול?</h1>
           <p className="cchub-text mt-5">כשעסק גדל מצוות של אדם אחד לכמה משתמשים, השאלה היא כבר לא רק איך עובדים — אלא מי רשאי לעשות מה.</p>
@@ -33,7 +35,7 @@ export default function ArticlePage() {
             <p className="mt-4 leading-9 text-slate-600">לא כל עובד, פרילנסר או משתמש צריך לראות את כל הלקוחות, כל הסיסמאות או כל אפשרויות הייצוא. הרשאות מגנות על העסק וגם מפשטות את העבודה.</p>
           </section>
           <section className="rounded-3xl border border-blue-100 bg-white p-7 shadow-sm">
-            <h2 className="text-3xl font-black leading-tight">יבוא וייצוא הם פעולות רגישות</h2>
+            <h2 className="text-3xl font-black leading-tight">ייבוא וייצוא הם פעולות רגישות</h2>
             <p className="mt-4 leading-9 text-slate-600">מי שיכול לייבא מידע יכול להשפיע על כל בסיס הנתונים. מי שיכול לייצא מידע יכול להוציא מידע עסקי החוצה. לכן צריך לשלוט בהרשאות האלה.</p>
           </section>
           <section className="rounded-3xl border border-blue-100 bg-white p-7 shadow-sm">
@@ -57,7 +59,7 @@ export default function ArticlePage() {
                 </div>
                 <div className="price-row rounded-2xl border border-blue-100 bg-blue-50 p-4">
                   <span className="price-row-mark">✓</span>
-                  <span className="price-row-text font-black">יבוא, ייצוא ואינטגרציות דורשים בקרה.</span>
+                  <span className="price-row-text font-black">ייבוא, ייצוא ואינטגרציות דורשים בקרה.</span>
                 </div>
                 <div className="price-row rounded-2xl border border-blue-100 bg-blue-50 p-4">
                   <span className="price-row-mark">✓</span>

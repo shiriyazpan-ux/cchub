@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { OG_IMAGE } from "../lib/seo";
 import AnalyticsLink from "../components/AnalyticsLink";
 import Icon from "../components/Icon";
 
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
     siteName: "CCHUB",
     locale: "he_IL",
     type: "website",
+    images: [OG_IMAGE],
   },
 };
 
@@ -82,7 +84,7 @@ const plans = [
     ],
     notIncluded: [
       "משתמשים וצוותים",
-      "הרשאות יבוא / יצוא לפי משתמש",
+      "הרשאות ייבוא / ייצוא לפי משתמש",
       "הרשאות אינטגרציות לפי משתמש",
     ],
   },
@@ -108,7 +110,7 @@ const plans = [
       "גישות וסיסמאות מוצפנות",
       "משתמשים וצוותים",
       "הרשאות מתקדמות",
-      "הרשאות יבוא / יצוא לפי משתמש",
+      "הרשאות ייבוא / ייצוא לפי משתמש",
       "הרשאות אינטגרציות לפי משתמש",
       "התראות ומעקב אחר מועדי יעד",
       "תמיכה ייעודית",
@@ -161,7 +163,7 @@ const comparisonRows = [
     business: "מסמכים, ידע וסיסמאות",
   },
   {
-    label: "יבוא מאקסל",
+    label: "ייבוא מאקסל",
     basic: "✓",
     pro: "✓",
     business: "✓",
@@ -223,15 +225,15 @@ const faqs = [
   },
   {
     q: "האם Solo Pro כולל ייצוא אקסל?",
-    a: "לא. Solo Pro כוללת יבוא מאקסל, וייצוא אקסל קיים בחבילות Premium ו־Enterprise.",
+    a: "לא. Solo Pro כוללת ייבוא מאקסל, וייצוא אקסל קיים בחבילות Premium ו־Enterprise.",
   },
   {
     q: "למי מתאימה חבילת Premium?",
-    a: "Premium מתאימה לעסק שרוצה לנהל עד 1,000 לקוחות ולהוסיף ל-Solo Pro לידים, מסמכים, מרכז ידע, ייצוא Excel, דוחות ואינטגרציות.",
+    a: "Premium מתאימה לעסק שרוצה לנהל עד 1,000 לקוחות ולהוסיף ל־Solo Pro לידים, מסמכים, מרכז ידע, ייצוא Excel, דוחות ואינטגרציות.",
   },
   {
     q: "מתי צריך Enterprise?",
-    a: "Enterprise מתאימה כשצריך עד 5,000 לקוחות, משתמשים וצוותים, הרשאות מתקדמות, הרשאות יבוא/יצוא לפי משתמש והרשאות אינטגרציות.",
+    a: "Enterprise מתאימה כשצריך עד 5,000 לקוחות, משתמשים וצוותים, הרשאות מתקדמות, הרשאות ייבוא/ייצוא לפי משתמש והרשאות אינטגרציות.",
   },
 ];
 
@@ -243,14 +245,14 @@ export default function PricingPage() {
       <section className="relative overflow-hidden border-b border-blue-100">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#F7FBFF_0%,#EEF6FF_100%)]" />
 
-        <div className="cchub-container relative py-16 text-center">
+        <div className="cchub-container relative py-16 text-right">
           <span className="cchub-trial-badge-strong">14 ימי ניסיון חינם</span>
 
-          <h1 className="cchub-title-xl mx-auto mt-5 max-w-4xl">
+          <h1 className="cchub-title-xl mt-5 max-w-4xl">
             חבילות CCHUB לניהול לקוחות, משימות ומידע עסקי
           </h1>
 
-          <p className="cchub-text mx-auto mt-5 max-w-3xl">
+          <p className="cchub-text mt-5 max-w-3xl">
             בחרו את החבילה שמתאימה לשלב שבו העסק נמצא: התחלה מסודרת עם Solo Pro,
             ניהול מלא עם Premium, או עבודה בצוות עם הרשאות מתקדמות ב־Enterprise.
           </p>
@@ -274,7 +276,7 @@ export default function PricingPage() {
 
               <div className="price-head">
                 <div className="text-4xl"><Icon name={plan.badge} size={30} /></div>
-                <p className="mt-2 text-sm font-black text-blue-600">{plan.tag}</p>
+                {plan.tag !== "הכי מומלץ" && <p className="mt-2 text-sm font-black text-blue-700">{plan.tag}</p>}
 
                 <h2 className="font-en mt-2 text-3xl font-black text-[#061A44]">
                   {plan.name}
@@ -358,7 +360,7 @@ export default function PricingPage() {
             <div className="grid grid-cols-4 bg-[#061A44] text-center text-sm font-black text-white">
               <div className="p-4 text-right">יכולת</div>
               <div className="p-4">Solo Pro</div>
-              <div className="p-4">Premium</div>
+              <div className="bg-[#0B7A70] p-4">Premium</div>
               <div className="p-4">Enterprise</div>
             </div>
 
@@ -372,9 +374,9 @@ export default function PricingPage() {
                 <div className="p-4 text-right font-black text-[#071B4D]">
                   {row.label}
                 </div>
-                <div className="p-4 text-slate-600">{row.basic}</div>
-                <div className="p-4 text-blue-700">{row.pro}</div>
-                <div className="p-4 text-blue-700">{row.business}</div>
+                <div className="p-4 text-[#071B4D]">{row.basic}</div>
+                <div className="h-full bg-[#0B7A70]/[0.07] p-4 font-black text-[#071B4D]">{row.pro}</div>
+                <div className="p-4 text-[#071B4D]">{row.business}</div>
               </div>
             ))}
           </div>

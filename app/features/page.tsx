@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { OG_IMAGE } from "../lib/seo";
 import Icon from "../components/Icon";
 
 export const metadata: Metadata = {
@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     siteName: "CCHUB",
     locale: "he_IL",
     type: "website",
+    images: [OG_IMAGE],
   },
 };
 
@@ -89,7 +90,7 @@ const coreFeatures = [
 
 const advancedFeatures = [
   {
-    title: "יבוא מאקסל",
+    title: "ייבוא מאקסל",
     icon: "📥",
     availability: "Solo Pro ומעלה",
     text: "התחלה מהירה עם טעינת נתונים מאקסל, כדי לא לבנות הכול מחדש ידנית.",
@@ -142,11 +143,11 @@ const useCases = [
   "ניהול לקוחות קבועים לאורך זמן",
   "מעקב אחרי משימות פתוחות",
   "מעקב זמן ועלויות לפי משימה",
-  "שמירת גישות מוצפנות ב-Enterprise",
-  "חיבור מסמכים ב-Premium ומעלה ונכסים בכל חבילה",
+  "שמירת גישות מוצפנות ב־Enterprise",
+  "חיבור מסמכים ב־Premium ומעלה ונכסים בכל חבילה",
   "התאמת שפת המערכת לשפה של העסק",
   "הפחתת חיפוש במיילים, וואטסאפ ודרייב",
-  "בניית מרכז ידע פנימי ב-Premium ומעלה",
+  "בניית מרכז ידע פנימי ב־Premium ומעלה",
 ];
 
 const comparisonRows = [
@@ -180,26 +181,26 @@ export default function FeaturesPage() {
       <section className="relative overflow-hidden border-b border-blue-100">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#F7FBFF_0%,#EEF6FF_100%)]" />
 
-        <div className="cchub-container relative py-16 text-center">
+        <div className="cchub-container relative py-16 text-right">
           <span className="cchub-trial-badge-strong">יכולות המערכת</span>
 
-          <h1 className="cchub-title-xl mx-auto mt-5 max-w-4xl">
+          <h1 className="cchub-title-xl mt-5 max-w-4xl">
             ניהול לקוחות, משימות ומידע עסקי במקום אחד — לפי החבילה שמתאימה לכם
           </h1>
 
-          <p className="cchub-text mx-auto mt-5 max-w-3xl">
+          <p className="cchub-text mt-5 max-w-3xl">
             CCHUB נבנתה לעסקים שמנהלים לקוחות לאורך זמן ורוצים לעבוד מסודר:
             לקוחות, נכסים דיגיטליים ומשימות הם הבסיס; מסמכים, ידע, גישות,
             דוחות, אוטומציות והרשאות מתווספים לפי החבילה.
           </p>
 
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <div className="mt-8 flex flex-wrap justify-start gap-4">
             <a className="cchub-button-primary" href="/pricing">
               התחילו 14 ימי ניסיון חינם
             </a>
-            <Link className="cchub-button-secondary" href="/#pricing">
+            <a className="cchub-button-secondary" href="/pricing">
               צפייה בחבילות
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -220,7 +221,7 @@ export default function FeaturesPage() {
           {coreFeatures.map((feature) => (
             <article
               key={feature.title}
-              className="cchub-card flex min-h-[390px] flex-col items-center p-6 text-center transition duration-200 hover:-translate-y-1 hover:shadow-2xl"
+              className="cchub-card flex min-h-[390px] flex-col items-start p-6 text-right transition duration-200 hover:-translate-y-1 hover:shadow-2xl"
             >
               <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-3xl bg-blue-100 text-3xl shadow-sm text-[#0f8a7f]">
                 <Icon name={feature.icon} size={30} />
@@ -234,7 +235,7 @@ export default function FeaturesPage() {
                 {feature.availability}
               </span>
 
-              <p className="mt-3 min-h-[150px] text-center text-[15px] leading-7 text-slate-600">
+              <p className="mt-3 min-h-[150px] text-right text-[15px] leading-7 text-slate-600">
                 {feature.text}
               </p>
 
@@ -282,7 +283,7 @@ export default function FeaturesPage() {
                 </div>
 
                 <div className="rounded-2xl border border-blue-100 bg-blue-50 p-4">
-                  <div className="text-2xl">⏱️</div>
+                  <div className="text-2xl" style={{ color: "#0f8a7f" }}><Icon name="clock" size={30} /></div>
                   <div className="mt-2 font-black">זמן ועלויות</div>
                   <div className="mt-1 text-sm leading-6 text-slate-600">
                     משימות עם זמן עבודה, הערכות ועלויות.
@@ -300,9 +301,9 @@ export default function FeaturesPage() {
               </div>
             </div>
 
-            <div className="rounded-[30px] border border-blue-100 bg-blue-50/70 p-5">
+            <div>
               <div className="grid gap-4 md:grid-cols-2">
-                <div className="rounded-3xl bg-white p-5 shadow-sm">
+                <div className="cchub-card p-5">
                   <div className="mb-4 inline-flex rounded-full bg-red-50 px-4 py-2 text-sm font-black text-red-600">
                     CRM קלאסי
                   </div>
@@ -320,7 +321,7 @@ export default function FeaturesPage() {
                   </div>
                 </div>
 
-                <div className="rounded-3xl bg-white p-5 shadow-sm">
+                <div className="cchub-card p-5">
                   <div className="mb-4 inline-flex rounded-full bg-green-50 px-4 py-2 text-sm font-black text-green-700">
                     CCHUB
                   </div>
@@ -340,7 +341,7 @@ export default function FeaturesPage() {
               </div>
 
               <div className="mt-4 rounded-3xl border border-blue-100 bg-white p-5 text-center">
-                <div className="text-2xl">→</div>
+                <div className="flex justify-center text-[#0f8a7f]" aria-hidden="true"><Icon name="arrow" size={28} /></div>
                 <p className="mt-2 font-black text-blue-700">
                   פחות מערכת מכירות כבדה — יותר שליטה יומיומית בלקוחות, עבודה, מידע ועלויות.
                 </p>
@@ -354,7 +355,7 @@ export default function FeaturesPage() {
         <div className="text-center">
           <p className="text-sm font-black text-blue-600">יכולות מתקדמות</p>
           <h2 className="cchub-title-lg mt-2">
-            יבוא, ייצוא, אוטומציות, התאמות והרשאות — לפי החבילה והמשתמש המתאים
+            ייבוא, ייצוא, אוטומציות, התאמות והרשאות — לפי החבילה והמשתמש המתאים
           </h2>
         </div>
 
@@ -362,7 +363,7 @@ export default function FeaturesPage() {
           {advancedFeatures.map((feature) => (
             <article
               key={feature.title}
-              className="cchub-mini-card flex min-h-[220px] flex-col items-center p-6 text-center transition duration-200 hover:-translate-y-1 hover:shadow-xl"
+              className="cchub-mini-card flex min-h-[220px] flex-col items-start p-6 text-right transition duration-200 hover:-translate-y-1 hover:shadow-xl"
             >
               <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-100 text-3xl">
                 <Icon name={feature.icon} size={30} />
@@ -373,7 +374,7 @@ export default function FeaturesPage() {
               <span className="mt-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-black text-blue-700">
                 {feature.availability}
               </span>
-              <p className="mt-3 text-center leading-7 text-slate-600">{feature.text}</p>
+              <p className="mt-3 text-right leading-7 text-slate-600">{feature.text}</p>
             </article>
           ))}
         </div>
@@ -389,7 +390,7 @@ export default function FeaturesPage() {
               </h2>
             </div>
             <div className="hidden rounded-full bg-blue-50 px-4 py-2 text-sm font-black text-blue-700 md:block">
-              הכל מחובר ללקוח אחד
+              הכול מחובר ללקוח אחד
             </div>
           </div>
 
@@ -423,7 +424,7 @@ export default function FeaturesPage() {
             <a className="cchub-button-primary" href="/pricing">
               התחילו 14 ימי ניסיון חינם
             </a>
-            <a className="cchub-button-dark" href="/login">
+            <a className="cchub-button-dark" href="https://mycchub.app/login">
               כניסה למערכת
             </a>
           </div>

@@ -26,7 +26,7 @@ export default function NotFound() {
             <Link className="cchub-button-primary" href="/">חזרה לעמוד הבית</Link>
             <a className="cchub-button-secondary" href="/features">יכולות המערכת</a>
             <a className="cchub-button-secondary" href="/pricing">מחירים</a>
-            <a className="cchub-button-secondary" href="/tutorials">טוטריאלים</a>
+            <a className="cchub-button-secondary" href="/tutorials">מדריכים</a>
           </div>
         </div>
       </section>

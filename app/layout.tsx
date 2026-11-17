@@ -5,6 +5,7 @@ import "./globals.css";
 import SiteHeader from "./components/SiteHeader";
 import SiteContextBar from "./components/SiteContextBar";
 import Analytics from "./components/Analytics";
+import { OG_IMAGE } from "./lib/seo";
 
 const heebo = Heebo({
   subsets: ["hebrew", "latin"],
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
     "ניהול סיסמאות",
     "ניהול נכסים דיגיטליים",
     "מרכז ידע",
-    "יבוא מאקסל",
+    "ייבוא מאקסל",
     "ייצוא אקסל",
     "Make",
     "Zapier",
@@ -56,12 +57,14 @@ export const metadata: Metadata = {
     siteName: "CCHUB",
     locale: "he_IL",
     type: "website",
+    images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
     title: "CCHUB | מערכת לניהול לקוחות, משימות ומידע עסקי",
     description:
       "מערכת אחת לניהול לקוחות, משימות, נכסים ומידע עסקי. 14 ימי ניסיון חינם.",
+    images: [OG_IMAGE],
   },
   robots: {
     index: true,
@@ -82,6 +85,9 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body suppressHydrationWarning>
+        <noscript>
+          <style>{".reveal{opacity:1!important;transform:none!important}"}</style>
+        </noscript>
         <Analytics />
         <SiteHeader />
         <SiteContextBar />

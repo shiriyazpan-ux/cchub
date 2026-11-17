@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import { OG_IMAGE } from "../lib/seo";
 import Icon from "../components/Icon";
 
 export const metadata: Metadata = {
-  title: "מאמרים | ניהול לקוחות, משימות וסדר בעסק | CCHUB",
+  title: "מאמרים | ניהול לקוחות, משימות וסדר בעסק",
   description:
-    "מאמרים מקצועיים של CCHUB על ניהול לקוחות, CRM בעברית, ניהול משימות, סיסמאות, מסמכים, נכסים דיגיטליים, יבוא מאקסל וסדר בעסק.",
+    "מאמרים מקצועיים של CCHUB על ניהול לקוחות, CRM בעברית, ניהול משימות, סיסמאות, מסמכים, נכסים דיגיטליים, ייבוא מאקסל וסדר בעסק.",
   alternates: {
     canonical: "/articles",
   },
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
     siteName: "CCHUB",
     locale: "he_IL",
     type: "website",
+    images: [OG_IMAGE],
   },
 };
 
@@ -72,13 +74,13 @@ const articles = [
       "שיטה פשוטה לריכוז תיק לקוח, משימות, מסמכים, גישות והחלטות במקום אחד.",
   },
   {
-    title: "יבוא מאקסל למערכת ניהול: איך לעשות את זה נכון?",
+    title: "ייבוא מאקסל למערכת ניהול: איך לעשות את זה נכון?",
     href: "/articles/import-excel-to-client-system",
     category: "אקסל",
     readTime: "2 דקות",
     icon: "📥",
     description:
-      "מה כדאי לנקות לפני יבוא, איך למנוע כפילויות ואילו עמודות באמת חשובות.",
+      "מה כדאי לנקות לפני ייבוא, איך למנוע כפילויות ואילו עמודות באמת חשובות.",
   },
   {
     title: "ניהול סיסמאות בעסק: למה וואטסאפ הוא לא מקום לסיסמאות?",
@@ -117,7 +119,7 @@ const articles = [
       "ניהול זמן ועלויות לפי משימה מספק בסיס לבחינת רווחיות לצד נתוני ההכנסה.",
   },
   {
-    title: "Make ו-Zapier: מתי אוטומציה באמת עוזרת לעסק?",
+    title: "Make ו־Zapier: מתי אוטומציה באמת עוזרת לעסק?",
     href: "/articles/make-zapier-business-automation",
     category: "אוטומציות",
     readTime: "2 דקות",
@@ -141,7 +143,7 @@ const categories = [
   "CRM בעברית",
   "ניהול משימות",
   "סיסמאות ומסמכים",
-  "יבוא מאקסל",
+  "ייבוא מאקסל",
   "אוטומציות",
   "הרשאות",
   "מרכז ידע",
@@ -155,19 +157,19 @@ export default function ArticlesPage() {
       <section className="relative overflow-hidden border-b border-blue-100">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#F7FBFF_0%,#EEF6FF_100%)]" />
 
-        <div className="cchub-container relative py-16 text-center">
+        <div className="cchub-container relative py-16 text-right">
           <span className="cchub-trial-badge-strong">מאמרים מקצועיים</span>
 
-          <h1 className="cchub-title-xl mx-auto mt-5 max-w-4xl">
+          <h1 className="cchub-title-xl mt-5 max-w-4xl">
             מאמרים על ניהול לקוחות, משימות, מסמכים וסדר בעסק
           </h1>
 
-          <p className="cchub-text mx-auto mt-5 max-w-3xl">
+          <p className="cchub-text mt-5 max-w-3xl">
             תוכן מקצועי לבעלי עסקים, מנהלי לקוחות, סוכנויות ונותני שירותים
             שרוצים להפסיק לעבוד מפוזר ולהתחיל לנהל את המידע במקום אחד.
           </p>
 
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <div className="mt-8 flex flex-wrap justify-start gap-4">
             <a className="cchub-button-primary" href="/pricing">
               התחילו 14 ימי ניסיון חינם
             </a>
@@ -252,7 +254,7 @@ export default function ArticlesPage() {
             </div>
 
             <a className="cchub-button-primary" href="/tutorials">
-              מעבר לטוטריאלים
+              מעבר למדריכים
             </a>
           </div>
 
@@ -281,7 +283,7 @@ export default function ArticlesPage() {
                 <p className="mt-4 leading-8 text-slate-600">{article.description}</p>
 
                 <div className="mt-auto pt-5">
-                  <a className="inline-flex font-black text-blue-700 hover:text-blue-900" href={article.href}>
+                  <a className="inline-flex min-h-11 items-center py-2.5 font-black text-blue-700 hover:text-blue-900" href={article.href}>
                     לקריאת המאמר ←
                   </a>
                 </div>
@@ -330,13 +332,13 @@ export default function ArticlesPage() {
             </a>
             <a href="/tutorials" className="cchub-mini-card p-6 text-center transition duration-200 hover:-translate-y-1 hover:shadow-xl">
               <div className="mb-3 text-3xl" style={{ color: "#0f8a7f" }}><Icon name="🎬" size={30} /></div>
-              <h3 className="text-2xl font-black">טוטריאלים</h3>
+              <h3 className="text-2xl font-black">מדריכים</h3>
               <p className="mt-3 leading-7 text-slate-600">מדריכים מעשיים להתחלה מהירה עם המערכת.</p>
             </a>
             <a href="/faq" className="cchub-mini-card p-6 text-center transition duration-200 hover:-translate-y-1 hover:shadow-xl">
               <div className="mb-3 text-3xl" style={{ color: "#0f8a7f" }}><Icon name="❓" size={30} /></div>
               <h3 className="text-2xl font-black">שאלות נפוצות</h3>
-              <p className="mt-3 leading-7 text-slate-600">תשובות על יבוא, ייצוא, הרשאות וניסיון חינם.</p>
+              <p className="mt-3 leading-7 text-slate-600">תשובות על ייבוא, ייצוא, הרשאות וניסיון חינם.</p>
             </a>
           </div>
         </div>
@@ -359,7 +361,7 @@ export default function ArticlesPage() {
 
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <a className="cchub-button-primary" href="/pricing">התחילו 14 ימי ניסיון חינם</a>
-            <a className="cchub-button-dark" href="/login">כניסה למערכת</a>
+            <a className="cchub-button-dark" href="https://mycchub.app/login">כניסה למערכת</a>
           </div>
         </div>
       </section>

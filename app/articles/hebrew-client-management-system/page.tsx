@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { OG_IMAGE } from "../../lib/seo";
 
 export const metadata: Metadata = {
-  title: "מערכת לניהול לקוחות בעברית: מה באמת חשוב לבדוק? | CCHUB",
+  title: "מערכת לניהול לקוחות בעברית: מה באמת חשוב לבדוק?",
   description: "איך לבחור מערכת לניהול לקוחות בעברית, מה ההבדל בין CRM רגיל לבין מערכת תפעולית, ואילו יכולות חשובות לעסק קטן או נותן שירותים.",
   alternates: { canonical: "/articles/hebrew-client-management-system" },
   openGraph: {
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
     siteName: "CCHUB",
     locale: "he_IL",
     type: "article",
+    images: [OG_IMAGE],
   },
 };
 
@@ -19,7 +21,7 @@ export default function ArticlePage() {
     <main dir="rtl" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
 
       <article className="cchub-container py-16">
-        <div className="mx-auto max-w-4xl text-center">
+        <div className="mx-auto max-w-5xl text-right">
           <span className="cchub-trial-badge-strong">מאמר מקצועי</span>
           <h1 className="cchub-title-xl mt-5">מערכת לניהול לקוחות בעברית: מה באמת חשוב לבדוק?</h1>
           <p className="cchub-text mt-5">כשמחפשים מערכת לניהול לקוחות בעברית, קל להיתפס לרשימות ארוכות של פיצ׳רים. בפועל, הדבר החשוב הוא האם המערכת עוזרת לכם לעבוד מסודר ביום-יום.</p>

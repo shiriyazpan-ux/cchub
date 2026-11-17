@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { OG_IMAGE } from "../lib/seo";
 import Link from "next/link";
 import Icon from "../components/Icon";
 
@@ -21,6 +22,7 @@ export const metadata: Metadata = {
     siteName: "CCHUB",
     locale: "en_US",
     type: "website",
+    images: [OG_IMAGE],
   },
 };
 

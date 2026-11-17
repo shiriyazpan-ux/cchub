@@ -1,10 +1,20 @@
 import type { Metadata } from "next";
+import { OG_IMAGE, SITE_URL } from "../../lib/seo";
 
 export const metadata: Metadata = {
   title: "איך מוסיפים לקוח חדש ב-CCHUB | מדריך",
   description:
     "מדריך קצר להוספת לקוח חדש ב-CCHUB: פתיחת תיק לקוח, הוספת פרטים ושיוך המידע הזמין בחבילה.",
   alternates: { canonical: "/tutorials/add-client" },
+  openGraph: {
+    title: "איך מוסיפים לקוח חדש ב-CCHUB | מדריך | CCHUB",
+    description: "מדריך קצר להוספת לקוח חדש ב-CCHUB: פתיחת תיק לקוח, הוספת פרטים ושיוך המידע הזמין בחבילה.",
+    url: `${SITE_URL}/tutorials/add-client`,
+    siteName: "CCHUB",
+    locale: "he_IL",
+    type: "article",
+    images: [OG_IMAGE],
+  },
 };
 
 const steps = [
@@ -26,7 +36,7 @@ export default function AddClientTutorialPage() {
     <main dir="rtl" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
 
       <section className="cchub-container py-16">
-        <div className="mx-auto max-w-4xl text-center">
+        <div className="max-w-4xl text-right">
           <span className="cchub-trial-badge-strong">מדריך בסיסי · 4 דקות</span>
           <h1 className="cchub-title-xl mt-5">איך מוסיפים לקוח חדש ב-CCHUB</h1>
           <p className="cchub-text mt-5">
@@ -40,8 +50,8 @@ export default function AddClientTutorialPage() {
             <h2 className="text-3xl font-black">שלבי העבודה</h2>
             <div className="mt-6 grid gap-4">
               {steps.map((step, index) => (
-                <div key={step} className="flex gap-4 rounded-2xl border border-blue-100 bg-blue-50 p-5">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue-600 font-black text-white">
+                <div key={step} className="flex gap-4 border-t border-blue-100 pt-4 first:border-t-0 first:pt-0">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#0B7A70] font-black text-white">
                     {index + 1}
                   </span>
                   <p className="leading-8 text-slate-700">{step}</p>

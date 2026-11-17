@@ -1,9 +1,19 @@
 import type { Metadata } from "next";
+import { OG_IMAGE, SITE_URL } from "../lib/seo";
 
 export const metadata: Metadata = {
-  title: "הצהרת נגישות | CCHUB",
+  title: "הצהרת נגישות",
   description: "הצהרת הנגישות של אתר ומערכת CCHUB ודרכי פנייה בנושא נגישות.",
   alternates: { canonical: "/accessibility" },
+  openGraph: {
+    title: "הצהרת נגישות | CCHUB",
+    description: "הצהרת הנגישות של אתר ומערכת CCHUB ודרכי פנייה בנושא נגישות.",
+    url: `${SITE_URL}/accessibility`,
+    siteName: "CCHUB",
+    locale: "he_IL",
+    type: "website",
+    images: [OG_IMAGE],
+  },
 };
 
 const accessibilityFeatures = [
@@ -19,10 +29,10 @@ export default function AccessibilityPage() {
     <main dir="rtl" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
       <section className="relative overflow-hidden border-b border-blue-100">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#F7FBFF_0%,#EEF6FF_100%)]" />
-        <div className="cchub-container relative py-16 text-center">
+        <div className="cchub-container relative py-16 text-right">
           <span className="cchub-trial-badge-strong">עודכן: 2 באוקטובר 2026</span>
-          <h1 className="cchub-title-xl mx-auto mt-5 max-w-4xl">הצהרת נגישות</h1>
-          <p className="cchub-text mx-auto mt-5 max-w-3xl">
+          <h1 className="cchub-title-xl mt-5 max-w-4xl">הצהרת נגישות</h1>
+          <p className="cchub-text mt-5 max-w-3xl">
             CCHUB פועלת כדי לאפשר שימוש נוח ונגיש באתר ובמערכת למגוון רחב של משתמשים.
           </p>
         </div>

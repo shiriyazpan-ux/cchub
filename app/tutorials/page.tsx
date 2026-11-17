@@ -1,21 +1,23 @@
 import type { Metadata } from "next";
+import { OG_IMAGE } from "../lib/seo";
 import Icon from "../components/Icon";
 
 export const metadata: Metadata = {
-  title: "טוטריאלים | מדריכים לשימוש ב-CCHUB",
+  title: "מדריכים לשימוש ב־CCHUB",
   description:
-    "מרכז ההדרכה של CCHUB: מדריכים לניהול לקוחות, משימות, קישורי מסמכים, נכסים דיגיטליים, יבוא מאקסל, זמן עבודה והרשאות.",
+    "מרכז ההדרכה של CCHUB: מדריכים לניהול לקוחות, משימות, קישורי מסמכים, נכסים דיגיטליים, ייבוא מאקסל, זמן עבודה והרשאות.",
   alternates: {
     canonical: "/tutorials",
   },
   openGraph: {
-    title: "טוטריאלים | CCHUB",
+    title: "מדריכים | CCHUB",
     description:
-      "מדריכים קצרים לשימוש ב-CCHUB: הוספת לקוח, יבוא אקסל, ניהול משימות, מסמכים, נכסים והרשאות.",
+      "מדריכים קצרים לשימוש ב-CCHUB: הוספת לקוח, ייבוא אקסל, ניהול משימות, מסמכים, נכסים והרשאות.",
     url: "https://web.mycchub.app/tutorials",
     siteName: "CCHUB",
     locale: "he_IL",
     type: "website",
+    images: [OG_IMAGE],
   },
 };
 
@@ -121,7 +123,7 @@ const tutorialGroups = [
         time: "4 דקות",
         level: "מתקדם",
         href: "/tutorials/make-zapier",
-        text: "רשימת בדיקה לחיבור CCHUB לאוטומציות בחבילות Premium ו-Enterprise.",
+        text: "רשימת בדיקה לחיבור CCHUB לאוטומציות בחבילות Premium ו־Enterprise.",
       },
       {
         title: "איך מנהלים הרשאות משתמשים",
@@ -140,7 +142,7 @@ const learningPath = [
   "הוסיפו קישור למסמך או מידע אחר הכלול בחבילה",
   "צרו נכס דיגיטלי במידת הצורך",
   "בדקו זמן ועלויות במשימות",
-  "עברו ליבוא מאקסל כשיש לכם מידע קיים",
+  "עברו לייבוא מאקסל כשיש לכם מידע קיים",
 ];
 
 export default function TutorialsPage() {
@@ -150,16 +152,16 @@ export default function TutorialsPage() {
 
       <section className="relative overflow-hidden border-b border-blue-100">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#F7FBFF_0%,#EEF6FF_100%)]" />
-        <div className="cchub-container relative py-16 text-center">
+        <div className="cchub-container relative py-16 text-right">
           <span className="cchub-trial-badge-strong">מרכז הדרכה</span>
-          <h1 className="cchub-title-xl mx-auto mt-5 max-w-4xl">
-            טוטריאלים קצרים שיעזרו לכם להתחיל לעבוד מסודר עם CCHUB
+          <h1 className="cchub-title-xl mt-5 max-w-4xl">
+            מדריכים קצרים שיעזרו לכם להתחיל לעבוד מסודר עם CCHUB
           </h1>
-          <p className="cchub-text mx-auto mt-5 max-w-3xl">
+          <p className="cchub-text mt-5 max-w-3xl">
             מדריכים פשוטים לניהול לקוחות, משימות, קישורי מסמכים, נכסים
-            דיגיטליים, יבוא מאקסל, זמן עבודה והרשאות לפי החבילה.
+            דיגיטליים, ייבוא מאקסל, זמן עבודה והרשאות לפי החבילה.
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <div className="mt-8 flex flex-wrap justify-start gap-4">
             <a className="cchub-button-primary" href="/pricing">התחילו 14 ימי ניסיון חינם</a>
             <a className="cchub-button-secondary" href="/features">צפייה ביכולות המערכת</a>
           </div>
@@ -173,12 +175,12 @@ export default function TutorialsPage() {
             <h2 className="mt-2 text-3xl font-black">מה כדאי ללמוד קודם?</h2>
             <p className="mt-4 leading-8 text-slate-600">
               לא צריך ללמוד הכול ביום אחד. הדרך הנכונה היא להתחיל מתיק לקוח
-              ראשון, להוסיף משימות ומידע, ואז להתקדם ליבוא, אוטומציות והרשאות.
+              ראשון, להוסיף משימות ומידע, ואז להתקדם לייבוא, אוטומציות והרשאות.
             </p>
             <div className="mt-6 grid gap-3">
               {learningPath.map((item, index) => (
                 <div key={item} className="flex items-center gap-4 rounded-2xl border border-blue-100 bg-blue-50 p-4">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-black text-white">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#0B7A70] text-sm font-black text-white">
                     {index + 1}
                   </span>
                   <span className="font-black">{item}</span>
@@ -193,9 +195,9 @@ export default function TutorialsPage() {
                 ["👥", "לקוחות", "הוספה, עריכה וניהול תיק לקוח"],
                 ["✅", "משימות", "סטטוסים, תאריכים, זמן ועלויות"],
                 ["📁", "מסמכים", "קישורים ותיעוד לפי לקוח"],
-                ["🔒", "גישות", "פרטי התחברות מוצפנים ב-Enterprise"],
+                ["🔒", "גישות", "פרטי התחברות מוצפנים ב־Enterprise"],
                 ["🧊", "נכסים", "אתרים, דומיינים ומערכות"],
-                ["📥", "אקסל", "יבוא נתונים להתחלה מהירה"],
+                ["📥", "אקסל", "ייבוא נתונים להתחלה מהירה"],
               ].map(([icon, title, text]) => (
                 <div key={title} className="rounded-3xl border border-blue-100 bg-blue-50/60 p-5 text-center">
                   <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-3xl shadow-sm text-[#0f8a7f]">
@@ -213,7 +215,7 @@ export default function TutorialsPage() {
       <section className="bg-white">
         <div className="cchub-container cchub-section">
           <div className="text-center">
-            <p className="text-sm font-black text-blue-600">כל הטוטריאלים</p>
+            <p className="text-sm font-black text-blue-600">כל המדריכים</p>
             <h2 className="cchub-title-lg mt-2">מדריכים לפי נושא</h2>
             <p className="mx-auto mt-4 max-w-3xl leading-8 text-slate-600">
               כל כרטיס מוביל למדריך ייעודי. בשלב הראשון פתחנו את המדריכים
@@ -265,7 +267,7 @@ export default function TutorialsPage() {
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <a className="cchub-button-primary" href="/pricing">התחילו 14 ימי ניסיון חינם</a>
-            <a className="cchub-button-dark" href="/login">כניסה למערכת</a>
+            <a className="cchub-button-dark" href="https://mycchub.app/login">כניסה למערכת</a>
           </div>
         </div>
       </section>

@@ -20,7 +20,7 @@ const articles: ContextItem[] = [
   { href: "/articles/client-digital-assets", label: "נכסים דיגיטליים" },
   { href: "/articles/crm-for-small-business", label: "CRM לעסק קטן" },
   { href: "/articles/hebrew-client-management-system", label: "ניהול לקוחות בעברית" },
-  { href: "/articles/import-excel-to-client-system", label: "יבוא מאקסל" },
+  { href: "/articles/import-excel-to-client-system", label: "ייבוא מאקסל" },
   { href: "/articles/internal-knowledge-base", label: "מרכז ידע" },
   { href: "/articles/make-zapier-business-automation", label: "אוטומציות" },
   { href: "/articles/manage-long-term-clients", label: "לקוחות קבועים" },
@@ -32,7 +32,7 @@ const articles: ContextItem[] = [
 
 const tutorials: ContextItem[] = [
   { href: "/tutorials/add-client", label: "הוספת לקוח" },
-  { href: "/tutorials/import-excel", label: "יבוא מאקסל" },
+  { href: "/tutorials/import-excel", label: "ייבוא מאקסל" },
   { href: "/tutorials/add-task", label: "הוספת משימה" },
   { href: "/tutorials/time-costs", label: "זמן ועלויות" },
   { href: "/tutorials/close-task", label: "סגירת משימה" },
@@ -96,7 +96,7 @@ export default function SiteContextBar() {
 
   return (
     <section className="border-b border-blue-100 bg-[#F6FAFF]">
-      <div className="cchub-container py-3">
+      <div className="cchub-container relative py-3">
         <div className="flex flex-wrap items-center gap-2 text-sm font-black text-slate-500">
           <Link className="text-blue-700 hover:text-blue-900" href="/">
             עמוד הבית
@@ -112,13 +112,13 @@ export default function SiteContextBar() {
             <>
               <span className="text-slate-300">/</span>
 
-              <details className="relative inline-block">
-                <summary className="flex cursor-pointer list-none items-center gap-2 rounded-full border border-blue-200 bg-white px-4 py-2 text-blue-700 shadow-sm transition hover:bg-blue-50">
+              <details className="inline-block sm:relative">
+                <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 rounded-full border border-blue-200 bg-white px-4 py-2 text-blue-700 shadow-sm transition hover:bg-blue-50">
                   <span>{activeItem.label}</span>
                   <span className="text-xs">▼</span>
                 </summary>
 
-                <div className="absolute right-0 top-full z-[70] mt-2 cchub-dropdown-menu max-h-80 w-72 overflow-y-auto rounded-2xl border border-blue-100 bg-white p-2 shadow-xl">
+                <div className="absolute inset-x-0 top-full z-[70] mt-2 cchub-dropdown-menu max-h-80 w-auto overflow-y-auto sm:inset-x-auto sm:right-0 sm:w-72 rounded-2xl border border-blue-100 bg-white p-2 shadow-xl">
                   <div className="sticky top-0 z-10 mb-1 rounded-lg bg-white/95 py-1 text-center text-xs font-black text-blue-300">▲</div>
 
                   <a
@@ -139,7 +139,7 @@ export default function SiteContextBar() {
                         href={item.href}
                         className={`block rounded-xl px-4 py-3 text-sm font-black transition ${
                           active
-                            ? "bg-blue-600 !text-white hover:bg-blue-700"
+                            ? "bg-[#0B7A70] !text-white hover:bg-[#08665D]"
                             : "text-slate-700 hover:bg-blue-50 hover:text-blue-700"
                         }`}
                       >
