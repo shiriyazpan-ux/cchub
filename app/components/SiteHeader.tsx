@@ -117,7 +117,7 @@ export default function SiteHeader() {
                     aria-current={active ? "page" : undefined}
                     className={`flex min-h-11 items-center rounded-2xl px-4 py-3 text-sm font-black transition ${
                       active
-                        ? "bg-[#0B7A70] text-white"
+                        ? "border-s-4 border-[#0B7A70] bg-[#ECFBF9] text-[#061A44]"
                         : "bg-[#F6FAFF] text-[#061A44] hover:bg-blue-50"
                     }`}
                   >

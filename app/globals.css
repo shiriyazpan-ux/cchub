@@ -74,7 +74,8 @@ button { font-family: inherit; cursor: pointer; border: none; }
 .cchub-button-dark { background: #fff; color: #061630; font-weight: 900; }
 
 .cchub-trial-badge { display: inline-flex; align-items: center; justify-content: center; min-height: 34px; padding: 0 16px; border-radius: 999px; background: #ecfbf9; color: var(--cchub-blue); border: 1px solid #a8e9e0; font-size: 14px; font-weight: 900; }
-.cchub-trial-badge-strong { display: inline-flex; align-items: center; justify-content: center; min-height: 38px; padding: 0 18px; border-radius: 999px; background: var(--cchub-cta); color: #fff; font-size: 15px; font-weight: 900; box-shadow: 0 10px 20px rgba(11, 122, 112, 0.22); }
+/* Non-clickable tag: light fill + border, never the CTA fill. #0B7A70 on #ECFBF9 = 4.89:1. */
+.cchub-trial-badge-strong { display: inline-flex; align-items: center; justify-content: center; min-height: 38px; padding: 0 18px; border-radius: 999px; background: #ecfbf9; color: var(--cchub-cta); border: 1px solid #a8e9e0; font-size: 15px; font-weight: 900; }
 .cchub-hero { min-height: 520px; }
 .cchub-nav-link { position: relative; padding-block: 23px; font-size: 15px; font-weight: 800; color: #334155; }
 .cchub-nav-link.active { color: var(--cchub-blue); }
