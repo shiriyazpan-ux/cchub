@@ -53,6 +53,8 @@ export default function Analytics() {
               <span className="ms-2 text-xs underline">{english ? "Details" : "פרטים"}</span>
             </summary>
             <p className="mt-1 text-xs leading-5">{consentText}</p>
+            {/* On phones the privacy link lives here, so the two choice buttons fit one row even at 360px. */}
+            <a className="inline-flex min-h-11 items-center text-xs underline" href="/privacy">{english ? "Privacy policy" : "מדיניות פרטיות"}</a>
           </details>
           <div className="mt-2 flex flex-wrap items-center gap-2 sm:mt-4 sm:gap-3">
             <button type="button" className="min-h-11 rounded-full bg-[#061A44] px-4 text-sm font-bold text-white" onClick={() => { setConsent("granted"); setSettingsOpen(false); }}>
@@ -61,7 +63,7 @@ export default function Analytics() {
             <button type="button" className="min-h-11 rounded-full border border-slate-300 px-4 text-sm font-bold" onClick={() => { setConsent("denied"); setSettingsOpen(false); }}>
               {english ? "Decline analytics" : "ללא מדידה"}
             </button>
-            <a className="inline-flex min-h-11 items-center px-1 text-sm underline" href="/privacy">{english ? "Privacy policy" : "מדיניות פרטיות"}</a>
+            <a className="hidden min-h-11 items-center px-1 text-sm underline sm:inline-flex" href="/privacy">{english ? "Privacy policy" : "מדיניות פרטיות"}</a>
           </div>
         </section>
       ) : (
