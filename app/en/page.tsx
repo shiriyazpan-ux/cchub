@@ -95,7 +95,7 @@ export default function EnglishPage() {
       <DocumentLanguage lang="en" dir="ltr" />
 
 
-      <section className="relative overflow-hidden border-b border-blue-100">
+      <section className="en-hero relative overflow-hidden border-b border-blue-100">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#F7FBFF_0%,#EEF6FF_100%)]" />
 
         <div className="cchub-container relative grid items-center gap-10 py-16 lg:grid-cols-[1fr_0.9fr]">

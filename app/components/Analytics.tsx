@@ -76,14 +76,16 @@ export default function Analytics() {
           <p className="mt-2 hidden text-sm leading-6 sm:block">{consentText}</p>
           {detailsOpen && (
             <div id="cchub-consent-details" className="pb-1 sm:hidden">
+              {english && <p className="text-xs font-bold leading-5">{title}</p>}
               <p className="text-xs leading-5">{consentText}</p>
               <a className="inline-flex min-h-11 items-center text-xs underline" href="/privacy">{privacyLabel}</a>
             </div>
           )}
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1 sm:mt-4 sm:gap-3">
-            {/* Hebrew: title, Details and both buttons in one row. English labels are longer, so the title takes its own row. */}
-            <p className={`${english ? "basis-full" : "min-w-[7.5rem] flex-1"} text-xs font-bold leading-4 sm:hidden`}>
-              {title}{" "}
+            {/* One row on phones in both languages. The English button labels are longer, so
+                there the title is read by screen readers here and shown inside "Details". */}
+            <p className={`${english ? "shrink-0" : "min-w-[7.5rem] flex-1"} text-xs font-bold leading-4 sm:hidden`}>
+              {english ? <span className="sr-only">{title} </span> : <>{title}{" "}</>}
               <button
                 type="button"
                 className="inline-flex min-h-6 items-center bg-transparent p-0 align-middle text-xs font-normal text-[#061A44] underline"
