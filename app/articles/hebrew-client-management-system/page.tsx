@@ -39,7 +39,7 @@ export default function ArticlePage() {
             <p className="mt-4 leading-9 text-slate-600">CRM קלאסי נבנה בדרך כלל סביב מכירות, לידים וצינור מכירה. עסקים שנותנים שירות לאורך זמן צריכים גם ניהול עבודה אחרי שהלקוח כבר קיים: משימות, תיעוד, גישות, קבצים, החלטות ועלויות.</p>
           </section>
           <section className="rounded-3xl border border-blue-100 bg-white p-7 shadow-sm">
-            <h2 className="text-3xl font-black leading-tight">עברית ו-RTL הם לא קישוט</h2>
+            <h2 className="text-3xl font-black leading-tight">עברית <span className="cchub-nowrap">ו-RTL</span> הם לא קישוט</h2>
             <p className="mt-4 leading-9 text-slate-600">מערכת בעברית צריכה להרגיש טבעית: כיוון כתיבה נכון, מילים ברורות, שפה עסקית ולא טכנית, והתאמה למונחים שהצוות באמת משתמש בהם.</p>
           </section>
           <section className="rounded-3xl border border-blue-100 bg-white p-7 shadow-sm">

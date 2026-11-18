@@ -38,7 +38,7 @@ export default function TutorialPage() {
       <section className="cchub-container py-16">
         <div className="max-w-4xl text-right">
           <span className="cchub-trial-badge-strong">מדריך Enterprise · 4 דקות</span>
-          <h1 className="cchub-title-xl mt-5">איך מנהלים הרשאות משתמשים ב-CCHUB</h1>
+          <h1 className="cchub-title-xl mt-5">איך מנהלים הרשאות משתמשים <span className="cchub-nowrap">ב-CCHUB</span></h1>
           <p className="cchub-text mt-5">הרשאות עוזרות לשלוט מי יכול לראות, לערוך, לייבא, לייצא או לחבר אינטגרציות במערכת.</p>
         </div>
 

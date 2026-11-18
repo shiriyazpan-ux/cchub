@@ -38,7 +38,7 @@ export default function TutorialPage() {
       <section className="cchub-container py-16">
         <div className="max-w-4xl text-right">
           <span className="cchub-trial-badge-strong">מדריך בסיסי · 4 דקות</span>
-          <h1 className="cchub-title-xl mt-5">איך שומרים מסמכים לפי לקוח ב-CCHUB</h1>
+          <h1 className="cchub-title-xl mt-5">איך שומרים מסמכים לפי לקוח <span className="cchub-nowrap">ב-CCHUB</span></h1>
           <p className="cchub-text mt-5">כשקישורים למסמכים מרוכזים בתיק הלקוח, יודעים מיד איזה קובץ שייך למי — בלי להעביר את הקובץ ממקום האחסון שבחרתם.</p>
         </div>
 

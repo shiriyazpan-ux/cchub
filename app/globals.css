@@ -31,7 +31,7 @@
 
 * { box-sizing: border-box; }
 /* scroll-padding keeps anchor targets clear of the sticky header (68px). */
-html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; scroll-padding-bottom: var(--cchub-consent-space, 0px); }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 body {
@@ -73,7 +73,7 @@ button { font-family: inherit; cursor: pointer; border: none; }
 .cchub-button-secondary:hover { border-color: var(--cchub-blue); transform: translateY(-1px); }
 .cchub-button-dark { background: #fff; color: #061630; font-weight: 900; }
 
-.cchub-trial-badge { display: inline-flex; align-items: center; justify-content: center; min-height: 34px; padding: 0 16px; border-radius: 999px; background: #ecfbf9; color: var(--cchub-blue); border: 1px solid #a8e9e0; font-size: 14px; font-weight: 900; }
+.cchub-trial-badge { display: inline-flex; align-items: center; justify-content: center; min-height: 34px; padding: 0 16px; border-radius: 999px; background: #ecfbf9; color: var(--cchub-cta); border: 1px solid #a8e9e0; font-size: 14px; font-weight: 900; }
 /* Non-clickable tag: light fill + border, never the CTA fill. #0B7A70 on #ECFBF9 = 4.89:1. */
 .cchub-trial-badge-strong { display: inline-flex; align-items: center; justify-content: center; min-height: 38px; padding: 0 18px; border-radius: 999px; background: #ecfbf9; color: var(--cchub-cta); border: 1px solid #a8e9e0; font-size: 15px; font-weight: 900; }
 .cchub-hero { min-height: 520px; }
@@ -124,7 +124,7 @@ button { font-family: inherit; cursor: pointer; border: none; }
 .price-card.pro { border: 2px solid #17a195; background: linear-gradient(180deg, #f3fcfb 0%, #fff 100%); box-shadow: 0 0 0 6px rgba(23,161,149,0.10), 0 24px 60px rgba(6,22,48,0.10); }
 .price-card.basic { border-color: #a8e9e0; }
 .price-card.business { border-color: #c4b5fd; background: linear-gradient(180deg, #fbf8ff 0%, #fff 100%); }
-.price-label { position: absolute; top: 0; inset-inline: 28px; transform: translateY(-50%); min-height: 34px; border-radius: 999px; background: #ecfbf9; color: var(--cchub-blue); border: 1px solid #a8e9e0; display: flex; align-items: center; justify-content: center; padding: 0 16px; font-size: 14px; font-weight: 900; white-space: nowrap; }
+.price-label { position: absolute; top: 0; inset-inline: 28px; transform: translateY(-50%); min-height: 34px; border-radius: 999px; background: #ecfbf9; color: var(--cchub-cta); border: 1px solid #a8e9e0; display: flex; align-items: center; justify-content: center; padding: 0 16px; font-size: 14px; font-weight: 900; white-space: nowrap; }
 .price-label.pro-label { background: var(--cchub-cta); border-color: var(--cchub-cta); color: #fff; }
 .price-head { text-align: center; }
 .price-body { padding-top: 20px; }
@@ -136,7 +136,8 @@ button { font-family: inherit; cursor: pointer; border: none; }
 .price-actions button { width: 100%; }
 
 /* Bottom padding leaves room for the floating "העדפות מדידה" button so it never covers the footer email. */
-.cchub-footer { background: #061630; color: #fff; padding-top: 26px; padding-bottom: 76px; }
+/* While the analytics banner is open, Analytics.tsx sets --cchub-consent-space to its height, so the footer links scroll clear of it. */
+.cchub-footer { background: #061630; color: #fff; padding-top: 26px; padding-bottom: max(76px, calc(var(--cchub-consent-space, 0px) + 16px)); }
 .cchub-footer a { display: inline-flex; align-items: center; min-height: 32px; }
 .cchub-nowrap { white-space: nowrap; }
 
@@ -205,6 +206,16 @@ button { font-family: inherit; cursor: pointer; border: none; }
 .h-hero { padding: 88px 0 104px; }
 .h-hero-col { display: flex; flex-direction: column; gap: 26px; }
 @media (max-width: 760px) { .h-hero { padding: 40px 0 72px; } .h-hero-col { gap: 20px; } }
+/* Short phone screens (iPhone SE, Safari with bars, in-app browsers): tighter hero so both CTAs sit above the compact analytics row. */
+@media (max-width: 760px) and (max-height: 720px) {
+  .h-hero { padding-top: 22px; }
+  .h-hero-col { gap: 14px; }
+  .h-h1 { font-size: 40px; }
+  .h-lead { font-size: 17px; line-height: 1.6; }
+  .h-for { font-size: 16px; }
+  .h-hero-ctas { gap: 10px !important; }
+  .h-hero-ctas .h-btn { min-height: 50px; }
+}
 .h-for { margin: 0; font-size: 18px; line-height: 1.5; font-weight: 700; color: #3fd1c2; }
 .h-text { margin: 0; font-size: 19px; line-height: 1.7; color: #475569; }
 .h-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 0 28px; border-radius: 14px; font-weight: 800; font-size: 17px; white-space: nowrap; transition: transform .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease; }
@@ -240,7 +251,8 @@ button { font-family: inherit; cursor: pointer; border: none; }
 .h-prow { display: flex; align-items: center; justify-content: space-between; gap: 8px; border-top: 1px solid #f0f2f5; padding-top: 7px; }
 .h-av { width: 22px; height: 22px; border-radius: 6px; color: #fff; display: inline-flex; align-items: center; justify-content: center; font-weight: 800; font-size: 11px; flex: none; }
 .h-cnt { background: #ede9fe; color: #7c3aed; border-radius: 8px; padding: 1px 7px; font-weight: 800; }
-.h-toast { position: absolute; inset-inline-start: -18px; bottom: 34px; background: #fff; color: #0a1a33; border-radius: 16px; padding: 12px 16px; display: flex; align-items: center; gap: 10px; box-shadow: 0 20px 50px rgba(0,0,0,0.35); font-size: 14px; font-weight: 700; animation: h-pop 6s ease-in-out infinite; }
+/* Sits on the end side (left in RTL), opposite the "הדמיה עם נתונים לדוגמה" label, so it never covers it. */
+.h-toast { position: absolute; inset-inline-end: -18px; bottom: 34px; background: #fff; color: #0a1a33; border-radius: 16px; padding: 12px 16px; display: flex; align-items: center; gap: 10px; box-shadow: 0 20px 50px rgba(0,0,0,0.35); font-size: 14px; font-weight: 700; animation: h-pop 6s ease-in-out infinite; }
 .h-toast .h-tic { width: 30px; height: 30px; border-radius: 10px; background: #e3f6f4; color: #0f8a7f; display: flex; align-items: center; justify-content: center; }
 @keyframes h-pop { 0%, 12% { opacity: 0; transform: translateY(16px) scale(.95); } 20%, 80% { opacity: 1; transform: none; } 90%, 100% { opacity: 0; transform: translateY(-8px); } }
 

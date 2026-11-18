@@ -38,7 +38,7 @@ export default function TutorialPage() {
       <section className="cchub-container py-16">
         <div className="max-w-4xl text-right">
           <span className="cchub-trial-badge-strong">מדריך מתקדם · 4 דקות</span>
-          <h1 className="cchub-title-xl mt-5">איך עוקבים אחרי זמן עבודה ועלויות ב-CCHUB</h1>
+          <h1 className="cchub-title-xl mt-5">איך עוקבים אחרי זמן עבודה ועלויות <span className="cchub-nowrap">ב-CCHUB</span></h1>
           <p className="cchub-text mt-5">מעקב זמן ועלויות עוזר להבין כמה עבודה הושקעה בכל לקוח ומשימה, ומה הבסיס הנכון להתחשבנות.</p>
         </div>
 

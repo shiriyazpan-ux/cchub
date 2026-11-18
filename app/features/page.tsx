@@ -221,13 +221,13 @@ export default function FeaturesPage() {
           {coreFeatures.map((feature) => (
             <article
               key={feature.title}
-              className="cchub-card flex min-h-[390px] flex-col items-start p-6 text-right transition duration-200 hover:-translate-y-1 hover:shadow-2xl"
+              className="cchub-card flex flex-col md:min-h-[390px] items-start p-6 text-right transition duration-200 hover:-translate-y-1 hover:shadow-2xl"
             >
               <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-3xl bg-blue-100 text-3xl shadow-sm text-[#0f8a7f]">
                 <Icon name={feature.icon} size={30} />
               </div>
 
-              <h3 className="min-h-[58px] text-2xl font-black leading-tight">
+              <h3 className="text-2xl md:min-h-[58px] font-black leading-tight">
                 {feature.title}
               </h3>
 
@@ -235,7 +235,7 @@ export default function FeaturesPage() {
                 {feature.availability}
               </span>
 
-              <p className="mt-3 min-h-[150px] text-right text-[15px] leading-7 text-slate-600">
+              <p className="mt-3 text-right md:min-h-[150px] text-[15px] leading-7 text-slate-600">
                 {feature.text}
               </p>
 

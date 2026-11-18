@@ -54,7 +54,13 @@ const simplePages: ContextItem[] = [
 function getContext(pathname: string): PageContext | null {
   if (pathname === "/") return null;
 
-  if (pathname === "/articles" || pathname.startsWith("/articles/")) {
+  // Known pages only. An unknown address such as /tutorials/nope is the static 404,
+  // rendered on the server without a bar; showing one in the browser caused a
+  // hydration error (React #418).
+  const known = (home: string, items: ContextItem[]) =>
+    pathname === home || items.some((item) => item.href === pathname);
+
+  if (known("/articles", articles)) {
     return {
       title: "מאמרים",
       homeHref: "/articles",
@@ -63,7 +69,7 @@ function getContext(pathname: string): PageContext | null {
     };
   }
 
-  if (pathname === "/tutorials" || pathname.startsWith("/tutorials/")) {
+  if (known("/tutorials", tutorials)) {
     return {
       title: "מדריכים",
       homeHref: "/tutorials",

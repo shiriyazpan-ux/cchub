@@ -38,7 +38,7 @@ export default function TutorialPage() {
       <section className="cchub-container py-16">
         <div className="max-w-4xl text-right">
           <span className="cchub-trial-badge-strong">מדריך בסיסי · 3 דקות</span>
-          <h1 className="cchub-title-xl mt-5">איך סוגרים משימה ושומרים היסטוריה ב-CCHUB</h1>
+          <h1 className="cchub-title-xl mt-5">איך סוגרים משימה ושומרים היסטוריה <span className="cchub-nowrap">ב-CCHUB</span></h1>
           <p className="cchub-text mt-5">סגירת משימה לא מוחקת את העבודה. היא שומרת היסטוריה ברורה של מה בוצע, מתי ולמי.</p>
         </div>
 

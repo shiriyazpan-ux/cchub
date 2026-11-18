@@ -38,7 +38,7 @@ export default function TutorialPage() {
       <section className="cchub-container py-16">
         <div className="max-w-4xl text-right">
           <span className="cchub-trial-badge-strong">רשימת בדיקה · 4 דקות</span>
-          <h1 className="cchub-title-xl mt-5">איך עובדים עם Make ו-Zapier ב-CCHUB</h1>
+          <h1 className="cchub-title-xl mt-5">איך עובדים עם Make <span className="cchub-nowrap">ו-Zapier</span> <span className="cchub-nowrap">ב-CCHUB</span></h1>
           <p className="cchub-text mt-5">אוטומציות בחבילות Premium ו-Enterprise מאפשרות לחבר תהליכים חיצוניים. שמות הפעולות ואופן האימות עשויים להשתנות לפי המחבר והגרסה הזמינים בחשבון.</p>
         </div>
 

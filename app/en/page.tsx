@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { OG_IMAGE } from "../lib/seo";
 import Link from "next/link";
 import Icon from "../components/Icon";
+import DocumentLanguage from "../components/DocumentLanguage";
 
 export const metadata: Metadata = {
   title: "CCHUB | Customer Control Hub",
@@ -88,7 +89,10 @@ const plans = [
 
 export default function EnglishPage() {
   return (
-    <main dir="ltr" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
+    <main dir="ltr" lang="en" className="min-h-screen bg-[#F6FAFF] text-[#071B4D]">
+      {/* Runs while the HTML is parsed, so the page is never painted as Hebrew/RTL. */}
+      <script dangerouslySetInnerHTML={{ __html: 'document.documentElement.lang="en";document.documentElement.dir="ltr";' }} />
+      <DocumentLanguage lang="en" dir="ltr" />
 
 
       <section className="relative overflow-hidden border-b border-blue-100">

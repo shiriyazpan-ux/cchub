@@ -4,9 +4,17 @@ export const CONSENT_EVENT = "cchub:analytics-consent";
 export const ATTRIBUTION_COOKIE = "cchub_analytics_attribution";
 export const SOURCES = ["youtube", "facebook", "instagram", "linkedin", "tiktok", "google", "newsletter"] as const;
 export const MEDIUMS = ["organic", "social", "paid_social", "cpc", "email", "video", "referral"] as const;
-// Extend only with reviewed campaign/creative names; never accept free text.
-export const CAMPAIGNS: readonly string[] = [];
-export const CONTENT: readonly string[] = [];
+// utm_campaign / utm_content: a strict name format instead of a fixed list, so new
+// campaign and creative names work without a code change. Lowercased first; anything
+// else is dropped. The format cannot carry an email, URL, spaces, Hebrew or other free
+// text; a run of 7+ digits (phone or ID number) is also dropped, so write dates as
+// 2026-11, not 20261108.
+const NAME_FORMAT = /^[a-z0-9][a-z0-9_-]{0,79}$/;
+export function approvedName(value: unknown): string | undefined {
+  if (typeof value !== "string") return undefined;
+  const name = value.toLowerCase();
+  return NAME_FORMAT.test(name) && /[a-z]/.test(name) && !/[0-9]{7,}/.test(name) ? name : undefined;
+}
 export const PUBLIC_PATHS = [
   "/", "/features", "/pricing", "/faq", "/tutorials", "/tutorials/add-client",
   "/tutorials/import-excel", "/tutorials/add-task", "/tutorials/time-costs",
@@ -18,14 +26,14 @@ export const PUBLIC_PATHS = [
   "/articles/import-excel-to-client-system", "/articles/business-password-management",
   "/articles/internal-knowledge-base", "/articles/client-digital-assets", "/articles/task-time-costs",
   "/articles/make-zapier-business-automation", "/articles/user-permissions-business",
-  "/privacy", "/terms", "/accessibility", "/en",
+  "/privacy", "/terms", "/refund", "/accessibility", "/en",
 ] as const;
 const publicPaths = new Set<string>(PUBLIC_PATHS);
 const locations = new Set(["header_desktop", "header_mobile", "pricing_monthly", "pricing_yearly", "pricing_footer"]);
 const plans = new Set(["solo-pro", "premium", "enterprise"]);
 const billing = new Set(["month", "year"]);
 export type Consent = "granted" | "denied" | null;
-export type Attribution = { source: string; medium: string };
+export type Attribution = { source: string; medium: string; campaign?: string; content?: string };
 export type Cta = { location: string; plan?: string; billing?: string };
 type Snapshot = { url: string; referrer: string; consent: Consent; attribution?: Attribution | null };
 export type Runtime = {
@@ -57,17 +65,25 @@ export function safeReferrer(raw: string): string {
 }
 export function approvedAttribution(value: unknown): Attribution | null {
   if (!value || typeof value !== "object") return null;
-  const { source, medium } = value as Record<string, unknown>;
-  return typeof source === "string" && typeof medium === "string" &&
-    (SOURCES as readonly string[]).includes(source) && (MEDIUMS as readonly string[]).includes(medium)
-    ? { source, medium } : null;
+  const { source, medium, campaign, content } = value as Record<string, unknown>;
+  if (!(typeof source === "string" && typeof medium === "string" &&
+    (SOURCES as readonly string[]).includes(source) && (MEDIUMS as readonly string[]).includes(medium))) return null;
+  // Campaign and content are optional: an invalid one is dropped, source/medium are kept.
+  const name = approvedName(campaign);
+  const creative = approvedName(content);
+  return { source, medium, ...(name ? { campaign: name } : {}), ...(creative ? { content: creative } : {}) };
 }
 export function attributionFromUrl(raw: string): Attribution | null {
   try {
     const params = new URL(raw).searchParams;
     // Duplicate keys are ambiguous; reject rather than choosing attacker input.
     if (params.getAll("utm_source").length !== 1 || params.getAll("utm_medium").length !== 1) return null;
-    return approvedAttribution({ source: params.get("utm_source"), medium: params.get("utm_medium") });
+    // A duplicated campaign or content key is ambiguous too, so only that field is dropped.
+    const single = (key: string) => params.getAll(key).length === 1 ? params.get(key) : undefined;
+    return approvedAttribution({
+      source: params.get("utm_source"), medium: params.get("utm_medium"),
+      campaign: single("utm_campaign"), content: single("utm_content"),
+    });
   } catch { return null; }
 }
 function campaignParams(attribution: Attribution | null) {
@@ -75,7 +91,8 @@ function campaignParams(attribution: Attribution | null) {
   return {
     campaign_source: attribution?.source || "(not set)",
     campaign_medium: attribution?.medium || "(not set)",
-    campaign_name: "(not set)", campaign_content: "(not set)",
+    campaign_name: attribution?.campaign || "(not set)",
+    campaign_content: attribution?.content || "(not set)",
     campaign_term: "(not set)", campaign_id: "(not set)",
   };
 }

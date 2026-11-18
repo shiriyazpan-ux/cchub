@@ -23,7 +23,7 @@ export default function ArticlePage() {
       <article className="cchub-container py-16">
         <div className="mx-auto max-w-5xl text-right">
           <span className="cchub-trial-badge-strong">מאמר מקצועי</span>
-          <h1 className="cchub-title-xl mt-5">Make ו-Zapier: מתי אוטומציה באמת עוזרת לעסק?</h1>
+          <h1 className="cchub-title-xl mt-5">Make <span className="cchub-nowrap">ו-Zapier</span>: מתי אוטומציה באמת עוזרת לעסק?</h1>
           <p className="cchub-text mt-5">אוטומציה יכולה לחסוך זמן, אבל היא גם יכולה להפוך בלגן ידני לבלגן מהיר יותר אם מחברים אותה בלי תהליך ברור.</p>
         </div>
 

@@ -96,7 +96,7 @@ export default function Home() {
               פחות חיפושים ופחות בלגן, יותר שליטה ושקט.
             </p>
             <p className="h-for">למנהלי שיווק, פרילנסרים, יועצים ונותני שירותים</p>
-            <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
+            <div className="h-hero-ctas" style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
               <a className="h-btn h-btn-teal" href="/pricing">התחילו 14 ימי ניסיון חינם <Icon name="arrow" size={20} /></a>
               <a className="h-btn h-btn-ghost" href="#video">צפו בסיור של 30 שניות</a>
             </div>

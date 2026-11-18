@@ -3,9 +3,9 @@
 import { useState } from "react";
 
 const videos = [
-  { id: "tour", label: "סיור במערכת", src: "/videos/cchub-tour.mp4", poster: "/videos/cchub-tour.jpg" },
-  { id: "stopwatch", label: "2 שניות לכל סיסמה", src: "/videos/cchub-stopwatch.mp4", poster: "/videos/cchub-stopwatch.jpg" },
-  { id: "integrations", label: "Google ולידים אוטומטיים", src: "/videos/cchub-integrations.mp4", poster: "/videos/cchub-integrations.jpg" },
+  { id: "tour", label: "סיור במערכת", src: "/videos/cchub-tour.mp4", poster: "/videos/cchub-tour.webp" },
+  { id: "stopwatch", label: "2 שניות לכל סיסמה", src: "/videos/cchub-stopwatch.mp4", poster: "/videos/cchub-stopwatch.webp" },
+  { id: "integrations", label: "Google ולידים אוטומטיים", src: "/videos/cchub-integrations.mp4", poster: "/videos/cchub-integrations.webp" },
 ];
 
 export default function VideoShowcase() {

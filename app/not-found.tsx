@@ -1,5 +1,22 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { OG_IMAGE } from "./lib/seo";
+
+// A 404 has no address of its own: no canonical, hreflang or og:url pointing at the
+// home page, and robots comes only from the noindex Next.js adds to every 404.
+export const metadata: Metadata = {
+  title: "העמוד לא נמצא",
+  robots: null,
+  alternates: null,
+  openGraph: {
+    title: "העמוד לא נמצא | CCHUB",
+    siteName: "CCHUB",
+    locale: "he_IL",
+    type: "website",
+    images: [OG_IMAGE],
+  },
+};
 
 export default function NotFound() {
   return (
@@ -8,7 +25,7 @@ export default function NotFound() {
         <div className="mx-auto max-w-3xl rounded-[34px] border border-blue-100 bg-white p-10 text-center shadow-2xl">
           <Link href="/" className="cchub-brand justify-center" aria-label="CCHUB - עמוד הבית">
             <span className="cchub-logo-frame">
-              <Image src="/cchub-logo.png" alt="CCHUB" width={512} height={512} className="cchub-logo" />
+              <Image src="/cchub-logo.png" alt="CCHUB" width={42} height={42} className="cchub-logo" />
             </span>
             <span className="cchub-brand-text">CCHUB</span>
           </Link>

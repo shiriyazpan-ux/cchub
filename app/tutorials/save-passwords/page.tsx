@@ -38,7 +38,7 @@ export default function TutorialPage() {
       <section className="cchub-container py-16">
         <div className="max-w-4xl text-right">
           <span className="cchub-trial-badge-strong">מדריך Enterprise · 4 דקות</span>
-          <h1 className="cchub-title-xl mt-5">איך שומרים סיסמאות וגישות ב-CCHUB</h1>
+          <h1 className="cchub-title-xl mt-5">איך שומרים סיסמאות וגישות <span className="cchub-nowrap">ב-CCHUB</span></h1>
           <p className="cchub-text mt-5">בחבילת Enterprise ניתן לשמור פרטי גישה בהצפנת AES-256, לשייך אותם ללקוח ולנכס ולהגביל צפייה לפי הרשאה.</p>
         </div>
 

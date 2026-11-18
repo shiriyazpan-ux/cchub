@@ -38,7 +38,7 @@ export default function AddClientTutorialPage() {
       <section className="cchub-container py-16">
         <div className="max-w-4xl text-right">
           <span className="cchub-trial-badge-strong">מדריך בסיסי · 4 דקות</span>
-          <h1 className="cchub-title-xl mt-5">איך מוסיפים לקוח חדש ב-CCHUB</h1>
+          <h1 className="cchub-title-xl mt-5">איך מוסיפים לקוח חדש <span className="cchub-nowrap">ב-CCHUB</span></h1>
           <p className="cchub-text mt-5">
             לקוח הוא הבסיס של המערכת. אחרי שפותחים תיק לקוח, אפשר לחבר אליו
             משימות, אנשי קשר, נכסים דיגיטליים ומידע נוסף בהתאם לחבילה.
