@@ -1,5 +1,10 @@
 // Basic consent only: do not load Google's tag or queue events before permission.
 export const CONSENT_COOKIE = "cchub_analytics_consent";
+// Separate advertising choice (Google Ads: ad_storage, ad_user_data, ad_personalization).
+// Same plain "granted" / "denied" value and Domain=mycchub.app as CONSENT_COOKIE, so the
+// CCHUB app can read it. Missing or any other value = denied. CONSENT_COOKIE keeps its
+// existing meaning (analytics), so older code that reads only it is unaffected.
+export const ADS_CONSENT_COOKIE = "cchub_ads_consent";
 export const CONSENT_EVENT = "cchub:analytics-consent";
 export const ATTRIBUTION_COOKIE = "cchub_analytics_attribution";
 export const SOURCES = ["youtube", "facebook", "instagram", "linkedin", "tiktok", "google", "newsletter"] as const;
@@ -15,6 +20,12 @@ export function approvedName(value: unknown): string | undefined {
   const name = value.toLowerCase();
   return NAME_FORMAT.test(name) && /[a-z]/.test(name) && !/[0-9]{7,}/.test(name) ? name : undefined;
 }
+// Kept in page_location (only on a public page, after analytics consent): utm_* keys whose
+// value passes approvedName (so no email, phone, ID number or free text), and the Google Ads
+// click IDs only with advertising consent. Any other query key, the hash and duplicates are dropped.
+const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "utm_id"] as const;
+const CLICK_IDS = ["gclid", "gbraid", "wbraid"] as const;
+const CLICK_ID_FORMAT = /^[A-Za-z0-9_-]{1,256}$/;
 export const PUBLIC_PATHS = [
   "/", "/features", "/pricing", "/faq", "/tutorials", "/tutorials/add-client",
   "/tutorials/import-excel", "/tutorials/add-task", "/tutorials/time-costs",
@@ -35,7 +46,7 @@ const billing = new Set(["month", "year"]);
 export type Consent = "granted" | "denied" | null;
 export type Attribution = { source: string; medium: string; campaign?: string; content?: string };
 export type Cta = { location: string; plan?: string; billing?: string };
-type Snapshot = { url: string; referrer: string; consent: Consent; attribution?: Attribution | null };
+type Snapshot = { url: string; referrer: string; consent: Consent; ads?: boolean; attribution?: Attribution | null };
 export type Runtime = {
   snapshot: () => Snapshot;
   disable: (disabled: boolean) => void;
@@ -45,14 +56,25 @@ export type Runtime = {
 export function validId(id: string | undefined): id is string {
   return !!id && /^G-[A-Z0-9]{6,20}$/.test(id);
 }
-export function publicUrl(raw: string): URL | null {
+export function validContainer(id: string | undefined): id is string {
+  return !!id && /^GTM-[A-Z0-9]{4,12}$/.test(id);
+}
+export function publicUrl(raw: string, ads = false): URL | null {
   try {
     const url = new URL(raw);
     // Production host, or local development only. Preview hosts are excluded.
     if (!(url.protocol === "https:" && url.hostname === "web.mycchub.app") &&
         !(url.protocol === "http:" && ["localhost", "127.0.0.1"].includes(url.hostname))) return null;
     if (url.username || url.password || !publicPaths.has(url.pathname)) return null;
-    return new URL(url.origin + url.pathname);
+    const clean = new URL(url.origin + url.pathname);
+    const keep = (key: string, valid: (value: string) => string | undefined) => {
+      const values = url.searchParams.getAll(key);
+      const value = values.length === 1 ? valid(values[0]) : undefined;
+      if (value) clean.searchParams.set(key, value);
+    };
+    for (const key of UTM_KEYS) keep(key, approvedName);
+    if (ads) for (const key of CLICK_IDS) keep(key, (value) => CLICK_ID_FORMAT.test(value) ? value : undefined);
+    return clean;
   } catch { return null; }
 }
 export function safeReferrer(raw: string): string {
@@ -105,6 +127,11 @@ function pageParams(url: URL, referrer: string, attribution: Attribution | null)
   };
 }
 
+function consentState(ads: boolean) {
+  const ad = ads ? "granted" : "denied";
+  return { analytics_storage: "granted", ad_storage: ad, ad_user_data: ad, ad_personalization: ad };
+}
+
 // One controller survives React re-renders and effect replays. A revisit is a
 // new transition; changing only a query or granting consent again is not.
 export function createAnalytics(id: string | undefined, runtime: Runtime) {
@@ -115,26 +142,47 @@ export function createAnalytics(id: string | undefined, runtime: Runtime) {
   let emittedVisit = -1;
   let previousPublic = "";
   let referrer = "";
+  let primed = false;
+  let consentAds: boolean | undefined;
   function current() {
     const snapshot = runtime.snapshot();
-    const url = publicUrl(snapshot.url);
+    const ads = snapshot.consent === "granted" && snapshot.ads === true;
+    const url = publicUrl(snapshot.url, ads);
     const path = url?.pathname || null;
     if (path !== observed) {
       visit += 1;
       referrer = previousPublic || safeReferrer(snapshot.referrer);
       observed = path;
-      previousPublic = url?.href || "";
+      // A referrer is origin + path only, never the query (UTM or click IDs).
+      previousPublic = url ? url.origin + url.pathname : "";
     }
     const allowed = validId(id) && snapshot.consent === "granted" && !!url;
     runtime.disable(!allowed);
-    return { url, allowed, attribution: approvedAttribution(snapshot.attribution) };
+    return { url, allowed, ads, attribution: approvedAttribution(snapshot.attribution) };
+  }
+  // Before GTM's gtm.js event: consent defaults (advertising from the stored choice)
+  // and sanitized page fields, so the container's Google tag never reads a raw URL.
+  function prime() {
+    const state = current();
+    if (primed || !state.allowed || !state.url) return false;
+    runtime.emit("consent", "default", consentState(state.ads));
+    runtime.emit("set", pageParams(state.url, referrer, state.attribution));
+    consentAds = state.ads;
+    primed = true;
+    return true;
   }
   function sync() {
     const state = current();
-    if (!state.allowed || !state.url || !loaded) return false;
+    if (!state.allowed || !state.url) return false;
     const params = pageParams(state.url, referrer, state.attribution);
+    if (primed && state.ads !== consentAds) {
+      // Advertising choice changed during this page load (banner reopened, or another tab).
+      runtime.emit("consent", "update", consentState(state.ads));
+      runtime.emit("set", params);
+      consentAds = state.ads;
+    }
+    if (!loaded || !primed) return false;
     if (!initialized) {
-      runtime.emit("consent", "default", { analytics_storage: "granted", ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied" });
       runtime.emit("js", new Date());
       runtime.emit("config", id, {
         send_page_view: false, cookie_domain: "mycchub.app",
@@ -152,6 +200,7 @@ export function createAnalytics(id: string | undefined, runtime: Runtime) {
   }
   return {
     sync,
+    prime,
     ready() { loaded = true; return sync(); },
     trackCta(cta: Cta) {
       const state = current();
@@ -172,6 +221,9 @@ export function createAnalytics(id: string | undefined, runtime: Runtime) {
 // Public stream ID: the complete app/ folder works without a Vercel env edit.
 // An explicit empty override still disables the tag and all collection.
 export const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "G-RH58NH7KSM";
+// The same GTM container as the CCHUB app. It holds the Google tag for GA_ID; the code
+// still owns consent, page_view and events. An explicit empty override disables loading.
+export const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID ?? "GTM-WFKFLPNS";
 declare global {
   interface Window { dataLayer?: unknown[]; gtag?: (...args: unknown[]) => void; }
 }
@@ -189,13 +241,18 @@ export function readConsent(): Consent {
   const choice = cookieValue(CONSENT_COOKIE);
   return choice === "granted" || choice === "denied" ? choice : null;
 }
+// True only with analytics consent and an explicit advertising "granted".
+export function readAdsConsent(): boolean {
+  return readConsent() === "granted" && cookieValue(ADS_CONSENT_COOKIE) === "granted";
+}
 function readAttribution(): Attribution | null {
   if (readConsent() !== "granted") return null;
   try { return approvedAttribution(JSON.parse(cookieValue(ATTRIBUTION_COOKIE) || "null")); } catch { return null; }
 }
 let landing: Attribution | null | undefined;
+let gtmStarted = false;
 export function prepareTag() {
-  if (!validId(GA_ID) || !publicUrl(window.location.href)) return;
+  if (!validId(GA_ID) || !validContainer(GTM_ID) || !publicUrl(window.location.href)) return;
   // Approved initial source/medium may be held in memory before permission;
   // no cookie, Google script, or event exists until the user grants consent.
   if (landing === undefined) landing = attributionFromUrl(window.location.href);
@@ -206,20 +263,28 @@ export function prepareTag() {
   window.gtag ||= function () { window.dataLayer!.push(arguments); };
   const attribution = landing || readAttribution();
   if (attribution) writeCookie(ATTRIBUTION_COOKIE, JSON.stringify(attribution), 1800);
+  // Consent defaults and safe page fields first, then GTM's start event, once per page load.
+  analytics.prime();
+  if (!gtmStarted) {
+    window.dataLayer.push({ "gtm.start": Date.now(), event: "gtm.js" });
+    gtmStarted = true;
+  }
 }
 const browserRuntime: Runtime = {
-  snapshot: () => ({ url: window.location.href, referrer: document.referrer, consent: readConsent(), attribution: readAttribution() }),
+  snapshot: () => ({ url: window.location.href, referrer: document.referrer, consent: readConsent(), ads: readAdsConsent(), attribution: readAttribution() }),
   disable: (disabled) => {
     if (validId(GA_ID)) (window as unknown as Record<string, unknown>)[`ga-disable-${GA_ID}`] = disabled;
   },
   emit: (...args) => window.gtag?.(...args),
 };
 export const analytics = createAnalytics(GA_ID, browserRuntime);
-export function setConsent(choice: Exclude<Consent, null>) {
+export function setConsent(choice: Exclude<Consent, null>, ads = false) {
   if (choice !== "granted" && choice !== "denied") return;
   // Disable synchronously before notifying React or navigating.
   browserRuntime.disable(true);
   writeCookie(CONSENT_COOKIE, choice, 15552000);
+  // Advertising needs analytics consent too; declining analytics also declines advertising.
+  writeCookie(ADS_CONSENT_COOKIE, choice === "granted" && ads === true ? "granted" : "denied", 15552000);
   if (choice === "denied") { writeCookie(ATTRIBUTION_COOKIE, "", 0); landing = undefined; }
   window.dispatchEvent(new CustomEvent(CONSENT_EVENT, { detail: choice }));
 }

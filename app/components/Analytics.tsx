@@ -4,31 +4,38 @@ import { useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
 import { usePathname } from "next/navigation";
 import Script from "next/script";
 import {
-  GA_ID, PUBLIC_PATHS, analytics, prepareTag, readConsent,
-  setConsent, subscribeConsent, validId, publicUrl,
+  GA_ID, GTM_ID, PUBLIC_PATHS, analytics, prepareTag, readAdsConsent, readConsent,
+  setConsent, subscribeConsent, validContainer, validId, publicUrl,
 } from "../lib/analytics";
 
 export default function Analytics() {
   const pathname = usePathname();
   const consent = useSyncExternalStore(subscribeConsent, readConsent, () => null);
+  const ads = useSyncExternalStore(subscribeConsent, readAdsConsent, () => false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [detailsOpen, setDetailsOpen] = useState(false);
+  // Advertising is opt-in: unchecked unless the stored choice is "granted".
+  const [adsChecked, setAdsChecked] = useState(false);
   const bannerRef = useRef<HTMLElement>(null);
   const publicPage = !!pathname && (PUBLIC_PATHS as readonly string[]).includes(pathname);
-  const enabled = validId(GA_ID) && publicPage && consent === "granted" && typeof window !== "undefined" && !!publicUrl(window.location.href);
+  const tagOk = validId(GA_ID) && validContainer(GTM_ID);
+  const enabled = tagOk && publicPage && consent === "granted" && typeof window !== "undefined" && !!publicUrl(window.location.href);
   const english = pathname === "/en";
   const consentText = english
     ? "With your permission, we use Google Analytics to measure visits and predefined button clicks on public pages. Your choice applies to this website and the CCHUB app. You can change it anytime."
     : "באישורכם, נשתמש ב־Google Analytics למדידת ביקורים ולחיצות על כפתורים מוגדרים בעמודים ציבוריים. הבחירה חלה על האתר ועל אפליקציית CCHUB. אפשר לשנות אותה בכל עת.";
+  const adsText = english
+    ? "Also allow advertising cookies (Google Ads), so we know which ad led to a sign-up. Optional."
+    : "גם הסכמה לפרסום: עוגיות של Google Ads, כדי לדעת איזו מודעה הובילה להרשמה. לא חובה.";
 
   useLayoutEffect(() => {
     try {
       prepareTag();
       analytics.sync();
     } catch { /* Optional analytics must not affect the page. */ }
-  }, [pathname, consent]);
+  }, [pathname, consent, ads]);
 
-  const bannerOpen = validId(GA_ID) && publicPage && (consent === null || settingsOpen);
+  const bannerOpen = tagOk && publicPage && (consent === null || settingsOpen);
   // While the banner is open, the footer and scroll padding grow by the banner's
   // height, so the last links on the page and focused controls can always be
   // scrolled clear of it. Layout only: consent state is not read or changed here.
@@ -47,7 +54,22 @@ export default function Analytics() {
     return () => { observer?.disconnect(); window.removeEventListener("resize", update); root.style.removeProperty("--cchub-consent-space"); };
   }, [bannerOpen]);
 
-  if (!validId(GA_ID) || !publicPage) return null;
+  if (!tagOk || !publicPage) return null;
+
+  // Phones: inside "Details", so the compact one-row banner keeps its height (T-N031 נ1/ח6).
+  // Larger screens: a line in the corner card. Same state; only one of the two is displayed.
+  const adsOption = (className: string) => (
+    <label className={`${className} cursor-pointer items-start gap-2`}>
+      <input
+        type="checkbox"
+        className="mt-1 h-4 w-4 shrink-0 accent-[#061A44]"
+        checked={adsChecked}
+        onChange={(event) => setAdsChecked(event.target.checked)}
+      />
+      <span>{adsText}</span>
+    </label>
+  );
+  const openSettings = () => { setAdsChecked(ads); setDetailsOpen(true); setSettingsOpen(true); };
 
   const title = english ? "Help us improve CCHUB" : "עזרו לנו לשפר את CCHUB";
   const privacyLabel = english ? "Privacy policy" : "מדיניות פרטיות";
@@ -56,8 +78,8 @@ export default function Analytics() {
     <>
       {enabled && (
         <Script
-          id="cchub-ga4-tag"
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          id="cchub-gtm"
+          src={`https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`}
           strategy="afterInteractive"
           onReady={() => { try { analytics.ready(); } catch { /* Collection is best effort. */ } }}
         />
@@ -74,10 +96,12 @@ export default function Analytics() {
               end side (left in Hebrew, right on /en), away from the hero text and its buttons. */}
           <p className="hidden font-bold sm:block">{title}</p>
           <p className="mt-2 hidden text-sm leading-6 sm:block">{consentText}</p>
+          {adsOption("mt-3 hidden text-sm leading-6 sm:flex")}
           {detailsOpen && (
             <div id="cchub-consent-details" className="pb-1 sm:hidden">
               {english && <p className="text-xs font-bold leading-5">{title}</p>}
               <p className="text-xs leading-5">{consentText}</p>
+              {adsOption("mt-1 flex min-h-11 text-xs leading-5")}
               <a className="inline-flex min-h-11 items-center text-xs underline" href="/privacy">{privacyLabel}</a>
             </div>
           )}
@@ -96,10 +120,10 @@ export default function Analytics() {
                 {english ? "Details" : "פרטים"}
               </button>
             </p>
-            <button type="button" className="min-h-11 shrink-0 rounded-full bg-[#061A44] px-3 text-sm font-bold text-white sm:px-4" onClick={() => { setConsent("granted"); setSettingsOpen(false); }}>
+            <button type="button" className="min-h-11 shrink-0 rounded-full bg-[#061A44] px-3 text-sm font-bold text-white sm:px-4" onClick={() => { setConsent("granted", adsChecked); setSettingsOpen(false); setDetailsOpen(false); }}>
               {english ? "Allow analytics" : "אישור מדידה"}
             </button>
-            <button type="button" className="min-h-11 shrink-0 rounded-full border border-slate-300 px-3 text-sm font-bold sm:px-4" onClick={() => { setConsent("denied"); setSettingsOpen(false); }}>
+            <button type="button" className="min-h-11 shrink-0 rounded-full border border-slate-300 px-3 text-sm font-bold sm:px-4" onClick={() => { setConsent("denied"); setAdsChecked(false); setSettingsOpen(false); setDetailsOpen(false); }}>
               {english ? "Decline analytics" : "ללא מדידה"}
             </button>
             <a className="hidden min-h-11 items-center px-1 text-sm underline sm:inline-flex" href="/privacy">{privacyLabel}</a>
@@ -107,7 +131,7 @@ export default function Analytics() {
           <div className="h-2 sm:hidden" aria-hidden="true" />
         </section>
       ) : (
-        <button type="button" className="fixed bottom-3 left-3 z-[60] min-h-11 rounded-full border border-slate-200 bg-white px-3 text-xs text-[#061A44] shadow-sm" onClick={() => setSettingsOpen(true)}>
+        <button type="button" className="fixed bottom-3 left-3 z-[60] min-h-11 rounded-full border border-slate-200 bg-white px-3 text-xs text-[#061A44] shadow-sm" onClick={openSettings}>
           {english ? "Analytics preferences" : "העדפות מדידה"}
         </button>
       )}
